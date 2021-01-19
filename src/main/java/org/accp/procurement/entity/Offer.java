@@ -57,7 +57,6 @@ public class Offer {
      * 登记时间
      */
     private Date registrartime;
-
     /**
      * 审核人
      */
