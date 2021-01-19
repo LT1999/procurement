@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.accp.procurement.mapper.SupplierfilesMapper">
+  <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Supplierfiles">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="Supplier_No" jdbcType="VARCHAR" property="supplierNo" />
+    <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName" />
+    <result column="Supplier_Address" jdbcType="VARCHAR" property="supplierAddress" />
+    <result column="First_Kind_Id" jdbcType="INTEGER" property="firstKindId" />
+    <result column="First_Kind_Name" jdbcType="VARCHAR" property="firstKindName" />
+    <result column="Second_Kind_Id" jdbcType="INTEGER" property="secondKindId" />
+    <result column="Second_Kind_Name" jdbcType="VARCHAR" property="secondKindName" />
+    <result column="three_Kind_Id" jdbcType="INTEGER" property="threeKindId" />
+    <result column="three_Kind_Name" jdbcType="VARCHAR" property="threeKindName" />
+    <result column="Supplier_Area" jdbcType="VARCHAR" property="supplierArea" />
+    <result column="Supplier_UsedName" jdbcType="VARCHAR" property="supplierUsedname" />
+    <result column="Supplier_Open_Account" jdbcType="VARCHAR" property="supplierOpenAccount" />
+    <result column="Supplier_BankAccount" jdbcType="VARCHAR" property="supplierBankaccount" />
+    <result column="Supplier_Url" jdbcType="VARCHAR" property="supplierUrl" />
+    <result column="Supplier_Quality_Rank" jdbcType="VARCHAR" property="supplierQualityRank" />
+    <result column="Supplier_Phone" jdbcType="VARCHAR" property="supplierPhone" />
+    <result column="Supplier_Fax" jdbcType="VARCHAR" property="supplierFax" />
+    <result column="Supplier_PostalCode" jdbcType="VARCHAR" property="supplierPostalcode" />
+    <result column="Supplier_FirstContact" jdbcType="INTEGER" property="supplierFirstcontact" />
+    <result column="Supplier_SecondContact" jdbcType="INTEGER" property="supplierSecondcontact" />
+    <result column="SuPPlier_Registrant" jdbcType="VARCHAR" property="supplierRegistrant" />
+    <result column="SuPPlier_RegistrationTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime" />
+    <result column="SuPPlier_Buyer" jdbcType="VARCHAR" property="supplierBuyer" />
+    <result column="SuPPlier_Buyer_No" jdbcType="VARCHAR" property="supplierBuyerNo" />
+    <result column="registrar" jdbcType="VARCHAR" property="registrar" />
+    <result column="registrarTime" jdbcType="TIMESTAMP" property="registrartime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from supplierfiles
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.procurement.entity.Supplierfiles">
+    insert into supplierfiles (id, Supplier_No, Supplier_Name, 
+      Supplier_Address, First_Kind_Id, First_Kind_Name, 
+      Second_Kind_Id, Second_Kind_Name, three_Kind_Id, 
+      three_Kind_Name, Supplier_Area, Supplier_UsedName, 
+      Supplier_Open_Account, Supplier_BankAccount, 
+      Supplier_Url, Supplier_Quality_Rank, Supplier_Phone, 
+      Supplier_Fax, Supplier_PostalCode, Supplier_FirstContact, 
+      Supplier_SecondContact, SuPPlier_Registrant, 
+      SuPPlier_RegistrationTime, SuPPlier_Buyer, 
+      SuPPlier_Buyer_No, registrar, registrarTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR}, 
+      #{supplierAddress,jdbcType=VARCHAR}, #{firstKindId,jdbcType=INTEGER}, #{firstKindName,jdbcType=VARCHAR}, 
+      #{secondKindId,jdbcType=INTEGER}, #{secondKindName,jdbcType=VARCHAR}, #{threeKindId,jdbcType=INTEGER}, 
+      #{threeKindName,jdbcType=VARCHAR}, #{supplierArea,jdbcType=VARCHAR}, #{supplierUsedname,jdbcType=VARCHAR}, 
+      #{supplierOpenAccount,jdbcType=VARCHAR}, #{supplierBankaccount,jdbcType=VARCHAR}, 
+      #{supplierUrl,jdbcType=VARCHAR}, #{supplierQualityRank,jdbcType=VARCHAR}, #{supplierPhone,jdbcType=VARCHAR}, 
+      #{supplierFax,jdbcType=VARCHAR}, #{supplierPostalcode,jdbcType=VARCHAR}, #{supplierFirstcontact,jdbcType=INTEGER}, 
+      #{supplierSecondcontact,jdbcType=INTEGER}, #{supplierRegistrant,jdbcType=VARCHAR}, 
+      #{supplierRegistrationtime,jdbcType=TIMESTAMP}, #{supplierBuyer,jdbcType=VARCHAR}, 
+      #{supplierBuyerNo,jdbcType=VARCHAR}, #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Supplierfiles">
+    update supplierfiles
+    set Supplier_No = #{supplierNo,jdbcType=VARCHAR},
+      Supplier_Name = #{supplierName,jdbcType=VARCHAR},
+      Supplier_Address = #{supplierAddress,jdbcType=VARCHAR},
+      First_Kind_Id = #{firstKindId,jdbcType=INTEGER},
+      First_Kind_Name = #{firstKindName,jdbcType=VARCHAR},
+      Second_Kind_Id = #{secondKindId,jdbcType=INTEGER},
+      Second_Kind_Name = #{secondKindName,jdbcType=VARCHAR},
+      three_Kind_Id = #{threeKindId,jdbcType=INTEGER},
+      three_Kind_Name = #{threeKindName,jdbcType=VARCHAR},
+      Supplier_Area = #{supplierArea,jdbcType=VARCHAR},
+      Supplier_UsedName = #{supplierUsedname,jdbcType=VARCHAR},
+      Supplier_Open_Account = #{supplierOpenAccount,jdbcType=VARCHAR},
+      Supplier_BankAccount = #{supplierBankaccount,jdbcType=VARCHAR},
+      Supplier_Url = #{supplierUrl,jdbcType=VARCHAR},
+      Supplier_Quality_Rank = #{supplierQualityRank,jdbcType=VARCHAR},
+      Supplier_Phone = #{supplierPhone,jdbcType=VARCHAR},
+      Supplier_Fax = #{supplierFax,jdbcType=VARCHAR},
+      Supplier_PostalCode = #{supplierPostalcode,jdbcType=VARCHAR},
+      Supplier_FirstContact = #{supplierFirstcontact,jdbcType=INTEGER},
+      Supplier_SecondContact = #{supplierSecondcontact,jdbcType=INTEGER},
+      SuPPlier_Registrant = #{supplierRegistrant,jdbcType=VARCHAR},
+      SuPPlier_RegistrationTime = #{supplierRegistrationtime,jdbcType=TIMESTAMP},
+      SuPPlier_Buyer = #{supplierBuyer,jdbcType=VARCHAR},
+      SuPPlier_Buyer_No = #{supplierBuyerNo,jdbcType=VARCHAR},
+      registrar = #{registrar,jdbcType=VARCHAR},
+      registrarTime = #{registrartime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, Supplier_No, Supplier_Name, Supplier_Address, First_Kind_Id, First_Kind_Name, 
+    Second_Kind_Id, Second_Kind_Name, three_Kind_Id, three_Kind_Name, Supplier_Area, 
+    Supplier_UsedName, Supplier_Open_Account, Supplier_BankAccount, Supplier_Url, Supplier_Quality_Rank, 
+    Supplier_Phone, Supplier_Fax, Supplier_PostalCode, Supplier_FirstContact, Supplier_SecondContact, 
+    SuPPlier_Registrant, SuPPlier_RegistrationTime, SuPPlier_Buyer, SuPPlier_Buyer_No, 
+    registrar, registrarTime
+    from supplierfiles
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, Supplier_No, Supplier_Name, Supplier_Address, First_Kind_Id, First_Kind_Name, 
+    Second_Kind_Id, Second_Kind_Name, three_Kind_Id, three_Kind_Name, Supplier_Area, 
+    Supplier_UsedName, Supplier_Open_Account, Supplier_BankAccount, Supplier_Url, Supplier_Quality_Rank, 
+    Supplier_Phone, Supplier_Fax, Supplier_PostalCode, Supplier_FirstContact, Supplier_SecondContact, 
+    SuPPlier_Registrant, SuPPlier_RegistrationTime, SuPPlier_Buyer, SuPPlier_Buyer_No, 
+    registrar, registrarTime
+    from supplierfiles
+  </select>
+</mapper>

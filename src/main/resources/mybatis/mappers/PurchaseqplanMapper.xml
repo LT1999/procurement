@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.accp.procurement.mapper.PurchaseqplanMapper">
+  <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Purchaseqplan">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Purchaseq_No" jdbcType="VARCHAR" property="purchaseqNo" />
+    <result column="Purchaseq_TotalPrices" jdbcType="DECIMAL" property="purchaseqTotalprices" />
+    <result column="Purchaseq_TotalQuantity" jdbcType="VARCHAR" property="purchaseqTotalquantity" />
+    <result column="Purchaseq_Reason" jdbcType="VARCHAR" property="purchaseqReason" />
+    <result column="Purchaseq_SupplyTime" jdbcType="TIMESTAMP" property="purchaseqSupplytime" />
+    <result column="Purchaseq_Registrant" jdbcType="VARCHAR" property="purchaseqRegistrant" />
+    <result column="Purchaseq_RegistrantTime" jdbcType="TIMESTAMP" property="purchaseqRegistranttime" />
+    <result column="Purchaseq_Remark" jdbcType="VARCHAR" property="purchaseqRemark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchaseqplan
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.procurement.entity.Purchaseqplan">
+    insert into purchaseqplan (ID, Purchaseq_No, Purchaseq_TotalPrices, 
+      Purchaseq_TotalQuantity, Purchaseq_Reason, 
+      Purchaseq_SupplyTime, Purchaseq_Registrant, 
+      Purchaseq_RegistrantTime, Purchaseq_Remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{purchaseqTotalprices,jdbcType=DECIMAL}, 
+      #{purchaseqTotalquantity,jdbcType=VARCHAR}, #{purchaseqReason,jdbcType=VARCHAR}, 
+      #{purchaseqSupplytime,jdbcType=TIMESTAMP}, #{purchaseqRegistrant,jdbcType=VARCHAR}, 
+      #{purchaseqRegistranttime,jdbcType=TIMESTAMP}, #{purchaseqRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Purchaseqplan">
+    update purchaseqplan
+    set Purchaseq_No = #{purchaseqNo,jdbcType=VARCHAR},
+      Purchaseq_TotalPrices = #{purchaseqTotalprices,jdbcType=DECIMAL},
+      Purchaseq_TotalQuantity = #{purchaseqTotalquantity,jdbcType=VARCHAR},
+      Purchaseq_Reason = #{purchaseqReason,jdbcType=VARCHAR},
+      Purchaseq_SupplyTime = #{purchaseqSupplytime,jdbcType=TIMESTAMP},
+      Purchaseq_Registrant = #{purchaseqRegistrant,jdbcType=VARCHAR},
+      Purchaseq_RegistrantTime = #{purchaseqRegistranttime,jdbcType=TIMESTAMP},
+      Purchaseq_Remark = #{purchaseqRemark,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select ID, Purchaseq_No, Purchaseq_TotalPrices, Purchaseq_TotalQuantity, Purchaseq_Reason, 
+    Purchaseq_SupplyTime, Purchaseq_Registrant, Purchaseq_RegistrantTime, Purchaseq_Remark
+    from purchaseqplan
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, Purchaseq_No, Purchaseq_TotalPrices, Purchaseq_TotalQuantity, Purchaseq_Reason, 
+    Purchaseq_SupplyTime, Purchaseq_Registrant, Purchaseq_RegistrantTime, Purchaseq_Remark
+    from purchaseqplan
+  </select>
+</mapper>

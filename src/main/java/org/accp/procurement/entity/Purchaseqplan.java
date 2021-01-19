@@ -1,0 +1,54 @@
+package org.accp.procurement.entity;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import lombok.Data;
+
+/**
+ * 采购计划表(purchaseqplan)实体类
+ *
+ * @author LT
+ * @since 2021-01-16 14:46:05
+ * @description 
+ */
+@Data
+public class Purchaseqplan {
+
+    /**
+     * 主键
+     */
+	private Integer id;
+    /**
+     * 采购编号
+     */
+    private String purchaseqNo;
+    /**
+     * 采购总价
+     */
+    private BigDecimal purchaseqTotalprices;
+    /**
+     * 采购总数量
+     */
+    private String purchaseqTotalquantity;
+    /**
+     * 采购理由
+     */
+    private String purchaseqReason;
+    /**
+     * 供货时间
+     */
+    private Date purchaseqSupplytime;
+    /**
+     * 登记人
+     */
+    private String purchaseqRegistrant;
+    /**
+     * 登记时间
+     */
+    private Date purchaseqRegistranttime;
+    /**
+     * 备注
+     */
+    private String purchaseqRemark;
+
+}

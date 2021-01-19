@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.accp.procurement.mapper.OfferMapper">
+  <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Offer">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="Offer_No" jdbcType="VARCHAR" property="offerNo" />
+    <result column="Supplier_id" jdbcType="INTEGER" property="supplierId" />
+    <result column="Goods_No" jdbcType="VARCHAR" property="goodsNo" />
+    <result column="Goods_Name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="Goods_Price" jdbcType="DECIMAL" property="goodsPrice" />
+    <result column="Goods_Discount" jdbcType="DECIMAL" property="goodsDiscount" />
+    <result column="Goods_Subtotal" jdbcType="DECIMAL" property="goodsSubtotal" />
+    <result column="Goods_Describe" jdbcType="VARCHAR" property="goodsDescribe" />
+    <result column="registrar" jdbcType="VARCHAR" property="registrar" />
+    <result column="registrarTime" jdbcType="TIMESTAMP" property="registrartime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from offer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.procurement.entity.Offer">
+    insert into offer (id, Offer_No, Supplier_id, 
+      Goods_No, Goods_Name, Goods_Price, 
+      Goods_Discount, Goods_Subtotal, Goods_Describe, 
+      registrar, registrarTime)
+    values (#{id,jdbcType=INTEGER}, #{offerNo,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER}, 
+      #{goodsNo,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=DECIMAL}, 
+      #{goodsDiscount,jdbcType=DECIMAL}, #{goodsSubtotal,jdbcType=DECIMAL}, #{goodsDescribe,jdbcType=VARCHAR}, 
+      #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Offer">
+    update offer
+    set Offer_No = #{offerNo,jdbcType=VARCHAR},
+      Supplier_id = #{supplierId,jdbcType=INTEGER},
+      Goods_No = #{goodsNo,jdbcType=VARCHAR},
+      Goods_Name = #{goodsName,jdbcType=VARCHAR},
+      Goods_Price = #{goodsPrice,jdbcType=DECIMAL},
+      Goods_Discount = #{goodsDiscount,jdbcType=DECIMAL},
+      Goods_Subtotal = #{goodsSubtotal,jdbcType=DECIMAL},
+      Goods_Describe = #{goodsDescribe,jdbcType=VARCHAR},
+      registrar = #{registrar,jdbcType=VARCHAR},
+      registrarTime = #{registrartime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, Offer_No, Supplier_id, Goods_No, Goods_Name, Goods_Price, Goods_Discount, 
+    Goods_Subtotal, Goods_Describe, registrar, registrarTime
+    from offer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, Offer_No, Supplier_id, Goods_No, Goods_Name, Goods_Price, Goods_Discount, 
+    Goods_Subtotal, Goods_Describe, registrar, registrarTime
+    from offer
+  </select>
+</mapper>
