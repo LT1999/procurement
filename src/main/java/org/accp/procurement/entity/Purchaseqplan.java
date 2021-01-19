@@ -50,5 +50,13 @@ public class Purchaseqplan {
      * 备注
      */
     private String purchaseqRemark;
+    /**
+     * 审核人
+     */
+    private String auditor;
+    /**
+     * 审核时间
+     */
+    private Date auditorTime;
 
 }

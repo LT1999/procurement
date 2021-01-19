@@ -106,6 +106,14 @@ public class Supplierfiles {
      */
     private Date supplierRegistrationtime;
     /**
+     * 审核人
+     */
+    private String auditor;
+    /**
+     * 审核时间
+     */
+    private Date auditorTime;
+    /**
      * 采购人
      */
     private String supplierBuyer;

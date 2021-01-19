@@ -45,5 +45,13 @@ public class Recommend {
      * 登记时间
      */
     private Date registrartime;
+    /**
+     * 审核人
+     */
+    private String auditor;
+    /**
+     * 审核时间
+     */
+    private Date auditorTime;
 
 }

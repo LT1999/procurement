@@ -53,5 +53,13 @@ public class Purchase {
      * 登记时间
      */
     private Date purchaseRegistranttime;
+    /**
+     * 审核人
+     */
+    private String auditor;
+    /**
+     * 审核时间
+     */
+    private Date auditorTime;
 
 }

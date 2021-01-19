@@ -56,5 +56,13 @@ public class Invoice {
      * 登记时间
      */
     private Date registranttime;
+    /**
+     * 审核人
+     */
+    private String auditor;
+    /**
+     * 审核时间
+     */
+    private Date auditorTime;
 
 }

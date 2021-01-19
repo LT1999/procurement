@@ -58,4 +58,13 @@ public class Offer {
      */
     private Date registrartime;
 
+    /**
+     * 审核人
+     */
+    private String auditor;
+    /**
+     * 审核时间
+     */
+    private Date auditorTime;
+
 }
