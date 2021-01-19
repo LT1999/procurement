@@ -1,48 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.accp.procurement.mapper.RecommendMapper">
-  <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Recommend">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="Product_id" jdbcType="VARCHAR" property="productId" />
-    <result column="Product_No" jdbcType="VARCHAR" property="productNo" />
-    <result column="Product_Name" jdbcType="VARCHAR" property="productName" />
-    <result column="Product_Type" jdbcType="VARCHAR" property="productType" />
-    <result column="Product_Grade" jdbcType="VARCHAR" property="productGrade" />
-    <result column="registrar" jdbcType="VARCHAR" property="registrar" />
-    <result column="registrarTime" jdbcType="TIMESTAMP" property="registrartime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from recommend
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="org.accp.procurement.entity.Recommend">
-    insert into recommend (id, Product_id, Product_No, 
-      Product_Name, Product_Type, Product_Grade, 
-      registrar, registrarTime)
-    values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR}, 
-      #{productName,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, #{productGrade,jdbcType=VARCHAR}, 
-      #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Recommend">
-    update recommend
-    set Product_id = #{productId,jdbcType=VARCHAR},
-      Product_No = #{productNo,jdbcType=VARCHAR},
-      Product_Name = #{productName,jdbcType=VARCHAR},
-      Product_Type = #{productType,jdbcType=VARCHAR},
-      Product_Grade = #{productGrade,jdbcType=VARCHAR},
-      registrar = #{registrar,jdbcType=VARCHAR},
-      registrarTime = #{registrartime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, Product_id, Product_No, Product_Name, Product_Type, Product_Grade, registrar, 
-    registrarTime
-    from recommend
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, Product_id, Product_No, Product_Name, Product_Type, Product_Grade, registrar, 
-    registrarTime
-    from recommend
-  </select>
+    <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Recommend">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="Product_id" jdbcType="VARCHAR" property="productId"/>
+        <result column="Product_No" jdbcType="VARCHAR" property="productNo"/>
+        <result column="Product_Name" jdbcType="VARCHAR" property="productName"/>
+        <result column="Product_Type" jdbcType="VARCHAR" property="productType"/>
+        <result column="Product_Grade" jdbcType="VARCHAR" property="productGrade"/>
+        <result column="registrar" jdbcType="VARCHAR" property="registrar"/>
+        <result column="registrarTime" jdbcType="TIMESTAMP" property="registrartime"/>
+        <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
+        <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from recommend
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="org.accp.procurement.entity.Recommend">
+        insert into recommend (id, Product_id, Product_No,
+                               Product_Name, Product_Type, Product_Grade,
+                               registrar, registrarTime, auditor, auditorTime)
+        values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR},
+                #{productName,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, #{productGrade,jdbcType=VARCHAR},
+                #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP}, #{auditor,jdbcType=VARCHAR},
+                #{auditorTime,jdbcType=TIMESTAMP})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Recommend">
+        update recommend
+        set Product_id    = #{productId,jdbcType=VARCHAR},
+            Product_No    = #{productNo,jdbcType=VARCHAR},
+            Product_Name  = #{productName,jdbcType=VARCHAR},
+            Product_Type  = #{productType,jdbcType=VARCHAR},
+            Product_Grade = #{productGrade,jdbcType=VARCHAR},
+            registrar     = #{registrar,jdbcType=VARCHAR},
+            registrarTime = #{registrartime,jdbcType=TIMESTAMP},
+            auditor       = #{auditor,jdbcType=VARCHAR},
+            auditorTime   = #{auditorTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select id,
+               Product_id,
+               Product_No,
+               Product_Name,
+               Product_Type,
+               Product_Grade,
+               registrar,
+               registrarTime,
+               auditor,
+               auditorTime
+        from recommend
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id,
+               Product_id,
+               Product_No,
+               Product_Name,
+               Product_Type,
+               Product_Grade,
+               registrar,
+               registrarTime,
+               auditor,
+               auditorTime
+        from recommend
+    </select>
 </mapper>

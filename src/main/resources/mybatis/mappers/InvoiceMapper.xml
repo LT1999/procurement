@@ -1,54 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.accp.procurement.mapper.InvoiceMapper">
-  <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Invoice">
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="Purchaseq_No" jdbcType="VARCHAR" property="purchaseqNo" />
-    <result column="Product_No" jdbcType="VARCHAR" property="productNo" />
-    <result column="Product_Name" jdbcType="VARCHAR" property="productName" />
-    <result column="Supplier_No" jdbcType="VARCHAR" property="supplierNo" />
-    <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName" />
-    <result column="ShouldInvoiceMoney" jdbcType="DECIMAL" property="shouldinvoicemoney" />
-    <result column="InvoiceMoney" jdbcType="DECIMAL" property="invoicemoney" />
-    <result column="Registrant" jdbcType="VARCHAR" property="registrant" />
-    <result column="RegistrantTime" jdbcType="TIMESTAMP" property="registranttime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from invoice
-    where ID = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="org.accp.procurement.entity.Invoice">
-    insert into invoice (ID, Purchaseq_No, Product_No, 
-      Product_Name, Supplier_No, Supplier_Name, 
-      ShouldInvoiceMoney, InvoiceMoney, Registrant, 
-      RegistrantTime)
-    values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR}, 
-      #{productName,jdbcType=VARCHAR}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR}, 
-      #{shouldinvoicemoney,jdbcType=DECIMAL}, #{invoicemoney,jdbcType=DECIMAL}, #{registrant,jdbcType=VARCHAR}, 
-      #{registranttime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Invoice">
-    update invoice
-    set Purchaseq_No = #{purchaseqNo,jdbcType=VARCHAR},
-      Product_No = #{productNo,jdbcType=VARCHAR},
-      Product_Name = #{productName,jdbcType=VARCHAR},
-      Supplier_No = #{supplierNo,jdbcType=VARCHAR},
-      Supplier_Name = #{supplierName,jdbcType=VARCHAR},
-      ShouldInvoiceMoney = #{shouldinvoicemoney,jdbcType=DECIMAL},
-      InvoiceMoney = #{invoicemoney,jdbcType=DECIMAL},
-      Registrant = #{registrant,jdbcType=VARCHAR},
-      RegistrantTime = #{registranttime,jdbcType=TIMESTAMP}
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select ID, Purchaseq_No, Product_No, Product_Name, Supplier_No, Supplier_Name, ShouldInvoiceMoney, 
-    InvoiceMoney, Registrant, RegistrantTime
-    from invoice
-    where ID = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select ID, Purchaseq_No, Product_No, Product_Name, Supplier_No, Supplier_Name, ShouldInvoiceMoney, 
-    InvoiceMoney, Registrant, RegistrantTime
-    from invoice
-  </select>
+    <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Invoice">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="Purchaseq_No" jdbcType="VARCHAR" property="purchaseqNo"/>
+        <result column="Product_No" jdbcType="VARCHAR" property="productNo"/>
+        <result column="Product_Name" jdbcType="VARCHAR" property="productName"/>
+        <result column="Supplier_No" jdbcType="VARCHAR" property="supplierNo"/>
+        <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName"/>
+        <result column="ShouldInvoiceMoney" jdbcType="DECIMAL" property="shouldinvoicemoney"/>
+        <result column="InvoiceMoney" jdbcType="DECIMAL" property="invoicemoney"/>
+        <result column="Registrant" jdbcType="VARCHAR" property="registrant"/>
+        <result column="RegistrantTime" jdbcType="TIMESTAMP" property="registranttime"/>
+        <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
+        <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from invoice
+        where ID = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="org.accp.procurement.entity.Invoice">
+        insert into invoice (ID, Purchaseq_No, Product_No,
+                             Product_Name, Supplier_No, Supplier_Name,
+                             ShouldInvoiceMoney, InvoiceMoney, Registrant,
+                             RegistrantTime, auditor, auditorTime)
+        values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR},
+                #{productName,jdbcType=VARCHAR}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
+                #{shouldinvoicemoney,jdbcType=DECIMAL}, #{invoicemoney,jdbcType=DECIMAL},
+                #{registrant,jdbcType=VARCHAR},
+                #{registranttime,jdbcType=TIMESTAMP}, #{auditor,jdbcType=VARCHAR}, #{auditorTime,jdbcType=TIMESTAMP})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Invoice">
+        update invoice
+        set Purchaseq_No       = #{purchaseqNo,jdbcType=VARCHAR},
+            Product_No         = #{productNo,jdbcType=VARCHAR},
+            Product_Name       = #{productName,jdbcType=VARCHAR},
+            Supplier_No        = #{supplierNo,jdbcType=VARCHAR},
+            Supplier_Name      = #{supplierName,jdbcType=VARCHAR},
+            ShouldInvoiceMoney = #{shouldinvoicemoney,jdbcType=DECIMAL},
+            InvoiceMoney       = #{invoicemoney,jdbcType=DECIMAL},
+            Registrant         = #{registrant,jdbcType=VARCHAR},
+            RegistrantTime     = #{registranttime,jdbcType=TIMESTAMP},
+            auditor            = #{auditor,jdbcType=VARCHAR},
+            auditorTime        = #{auditorTime,jdbcType=TIMESTAMP}
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select ID,
+               Purchaseq_No,
+               Product_No,
+               Product_Name,
+               Supplier_No,
+               Supplier_Name,
+               ShouldInvoiceMoney,
+               InvoiceMoney,
+               Registrant,
+               RegistrantTime,
+               auditor,
+               auditorTime
+        from invoice
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select ID,
+               Purchaseq_No,
+               Product_No,
+               Product_Name,
+               Supplier_No,
+               Supplier_Name,
+               ShouldInvoiceMoney,
+               InvoiceMoney,
+               Registrant,
+               RegistrantTime,
+               auditor,
+               auditorTime
+        from invoice
+    </select>
 </mapper>

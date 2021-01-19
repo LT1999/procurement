@@ -1,54 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.accp.procurement.mapper.PurchaseMapper">
-  <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Purchase">
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="Purchaseq_No" jdbcType="VARCHAR" property="purchaseqNo" />
-    <result column="Product_id" jdbcType="VARCHAR" property="productId" />
-    <result column="Product_No" jdbcType="TIMESTAMP" property="productNo" />
-    <result column="Product_Name" jdbcType="VARCHAR" property="productName" />
-    <result column="Purchase_Quantity" jdbcType="INTEGER" property="purchaseQuantity" />
-    <result column="Qualified_Quantity" jdbcType="INTEGER" property="qualifiedQuantity" />
-    <result column="Purchase_Money" jdbcType="DECIMAL" property="purchaseMoney" />
-    <result column="Purchase_Registrant" jdbcType="VARCHAR" property="purchaseRegistrant" />
-    <result column="Purchase_RegistrantTime" jdbcType="TIMESTAMP" property="purchaseRegistranttime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from purchase
-    where ID = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="org.accp.procurement.entity.Purchase">
-    insert into purchase (ID, Purchaseq_No, Product_id, 
-      Product_No, Product_Name, Purchase_Quantity, 
-      Qualified_Quantity, Purchase_Money, Purchase_Registrant, 
-      Purchase_RegistrantTime)
-    values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR}, 
-      #{productNo,jdbcType=TIMESTAMP}, #{productName,jdbcType=VARCHAR}, #{purchaseQuantity,jdbcType=INTEGER}, 
-      #{qualifiedQuantity,jdbcType=INTEGER}, #{purchaseMoney,jdbcType=DECIMAL}, #{purchaseRegistrant,jdbcType=VARCHAR}, 
-      #{purchaseRegistranttime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Purchase">
-    update purchase
-    set Purchaseq_No = #{purchaseqNo,jdbcType=VARCHAR},
-      Product_id = #{productId,jdbcType=VARCHAR},
-      Product_No = #{productNo,jdbcType=TIMESTAMP},
-      Product_Name = #{productName,jdbcType=VARCHAR},
-      Purchase_Quantity = #{purchaseQuantity,jdbcType=INTEGER},
-      Qualified_Quantity = #{qualifiedQuantity,jdbcType=INTEGER},
-      Purchase_Money = #{purchaseMoney,jdbcType=DECIMAL},
-      Purchase_Registrant = #{purchaseRegistrant,jdbcType=VARCHAR},
-      Purchase_RegistrantTime = #{purchaseRegistranttime,jdbcType=TIMESTAMP}
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select ID, Purchaseq_No, Product_id, Product_No, Product_Name, Purchase_Quantity, 
-    Qualified_Quantity, Purchase_Money, Purchase_Registrant, Purchase_RegistrantTime
-    from purchase
-    where ID = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select ID, Purchaseq_No, Product_id, Product_No, Product_Name, Purchase_Quantity, 
-    Qualified_Quantity, Purchase_Money, Purchase_Registrant, Purchase_RegistrantTime
-    from purchase
-  </select>
+    <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Purchase">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="Purchaseq_No" jdbcType="VARCHAR" property="purchaseqNo"/>
+        <result column="Product_id" jdbcType="VARCHAR" property="productId"/>
+        <result column="Product_No" jdbcType="TIMESTAMP" property="productNo"/>
+        <result column="Product_Name" jdbcType="VARCHAR" property="productName"/>
+        <result column="Purchase_Quantity" jdbcType="INTEGER" property="purchaseQuantity"/>
+        <result column="Qualified_Quantity" jdbcType="INTEGER" property="qualifiedQuantity"/>
+        <result column="Purchase_Money" jdbcType="DECIMAL" property="purchaseMoney"/>
+        <result column="Purchase_Registrant" jdbcType="VARCHAR" property="purchaseRegistrant"/>
+        <result column="Purchase_RegistrantTime" jdbcType="TIMESTAMP" property="purchaseRegistranttime"/>
+        <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
+        <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from purchase
+        where ID = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="org.accp.procurement.entity.Purchase">
+        insert into purchase (ID, Purchaseq_No, Product_id,
+                              Product_No, Product_Name, Purchase_Quantity,
+                              Qualified_Quantity, Purchase_Money, Purchase_Registrant,
+                              Purchase_RegistrantTime, auditor, auditorTime)
+        values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR},
+                #{productNo,jdbcType=TIMESTAMP}, #{productName,jdbcType=VARCHAR}, #{purchaseQuantity,jdbcType=INTEGER},
+                #{qualifiedQuantity,jdbcType=INTEGER}, #{purchaseMoney,jdbcType=DECIMAL},
+                #{purchaseRegistrant,jdbcType=VARCHAR},
+                #{purchaseRegistranttime,jdbcType=TIMESTAMP}, #{auditor,jdbcType=VARCHAR},
+                #{auditorTime,jdbcType=TIMESTAMP})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Purchase">
+        update purchase
+        set Purchaseq_No            = #{purchaseqNo,jdbcType=VARCHAR},
+            Product_id              = #{productId,jdbcType=VARCHAR},
+            Product_No              = #{productNo,jdbcType=TIMESTAMP},
+            Product_Name            = #{productName,jdbcType=VARCHAR},
+            Purchase_Quantity       = #{purchaseQuantity,jdbcType=INTEGER},
+            Qualified_Quantity      = #{qualifiedQuantity,jdbcType=INTEGER},
+            Purchase_Money          = #{purchaseMoney,jdbcType=DECIMAL},
+            Purchase_Registrant     = #{purchaseRegistrant,jdbcType=VARCHAR},
+            Purchase_RegistrantTime = #{purchaseRegistranttime,jdbcType=TIMESTAMP},
+            auditor                 = #{auditor,jdbcType=VARCHAR},
+            auditorTime             = #{auditorTime,jdbcType=TIMESTAMP}
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select ID,
+               Purchaseq_No,
+               Product_id,
+               Product_No,
+               Product_Name,
+               Purchase_Quantity,
+               Qualified_Quantity,
+               Purchase_Money,
+               Purchase_Registrant,
+               Purchase_RegistrantTime,
+               auditor,
+               auditorTime
+        from purchase
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select ID,
+               Purchaseq_No,
+               Product_id,
+               Product_No,
+               Product_Name,
+               Purchase_Quantity,
+               Qualified_Quantity,
+               Purchase_Money,
+               Purchase_Registrant,
+               Purchase_RegistrantTime,
+               auditor,
+               auditorTime
+        from purchase
+    </select>
 </mapper>

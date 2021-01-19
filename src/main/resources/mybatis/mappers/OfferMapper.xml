@@ -13,6 +13,8 @@
     <result column="Goods_Describe" jdbcType="VARCHAR" property="goodsDescribe" />
     <result column="registrar" jdbcType="VARCHAR" property="registrar" />
     <result column="registrarTime" jdbcType="TIMESTAMP" property="registrartime" />
+    <result column="auditor" jdbcType="VARCHAR" property="auditor" />
+    <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from offer
@@ -22,11 +24,11 @@
     insert into offer (id, Offer_No, Supplier_id, 
       Goods_No, Goods_Name, Goods_Price, 
       Goods_Discount, Goods_Subtotal, Goods_Describe, 
-      registrar, registrarTime)
+      registrar, registrarTime,auditor,auditorTime)
     values (#{id,jdbcType=INTEGER}, #{offerNo,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER}, 
       #{goodsNo,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=DECIMAL}, 
       #{goodsDiscount,jdbcType=DECIMAL}, #{goodsSubtotal,jdbcType=DECIMAL}, #{goodsDescribe,jdbcType=VARCHAR}, 
-      #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP})
+      #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP},#{auditor,jdbcType=VARCHAR}, #{auditorTime,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Offer">
     update offer
@@ -39,18 +41,20 @@
       Goods_Subtotal = #{goodsSubtotal,jdbcType=DECIMAL},
       Goods_Describe = #{goodsDescribe,jdbcType=VARCHAR},
       registrar = #{registrar,jdbcType=VARCHAR},
-      registrarTime = #{registrartime,jdbcType=TIMESTAMP}
+      registrarTime = #{registrartime,jdbcType=TIMESTAMP},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      auditorTime = #{auditorTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, Offer_No, Supplier_id, Goods_No, Goods_Name, Goods_Price, Goods_Discount, 
-    Goods_Subtotal, Goods_Describe, registrar, registrarTime
+    Goods_Subtotal, Goods_Describe, registrar, registrarTime,auditor,auditorTime
     from offer
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, Offer_No, Supplier_id, Goods_No, Goods_Name, Goods_Price, Goods_Discount, 
-    Goods_Subtotal, Goods_Describe, registrar, registrarTime
+    Goods_Subtotal, Goods_Describe, registrar, registrarTime,auditor,auditorTime
     from offer
   </select>
 </mapper>
