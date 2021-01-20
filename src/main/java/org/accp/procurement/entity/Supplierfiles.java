@@ -121,5 +121,8 @@ public class Supplierfiles {
      * 采购人编号
      */
     private String supplierBuyerNo;
-
+    /**
+     * 审核标志
+     */
+    private String checkMark;
 }

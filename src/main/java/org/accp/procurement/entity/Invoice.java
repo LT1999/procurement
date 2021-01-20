@@ -64,5 +64,8 @@ public class Invoice {
      * 审核时间
      */
     private Date auditorTime;
-
+    /**
+     * 审核标志
+     */
+    private String checkMark;
 }
