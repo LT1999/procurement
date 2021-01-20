@@ -31,6 +31,7 @@
         <result column="SuPPlier_RegistrantTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
+        <result column="checkMark" jdbcType="VARCHAR" property="checkMark"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
@@ -48,7 +49,7 @@
                                    Supplier_SecondContact, SuPPlier_Registrant,
                                    SuPPlier_RegistrationTime, SuPPlier_Buyer,
                                    SuPPlier_Buyer_No, SuPPlier_Registrant, SuPPlier_RegistrationTime, auditor,
-                                   auditorTime)
+                                   auditorTime, checkMark)
         values (#{id,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
                 #{supplierAddress,jdbcType=VARCHAR}, #{firstKindId,jdbcType=INTEGER}, #{firstKindName,jdbcType=VARCHAR},
                 #{secondKindId,jdbcType=INTEGER}, #{secondKindName,jdbcType=VARCHAR}, #{threeKindId,jdbcType=INTEGER},
@@ -62,7 +63,7 @@
                 #{supplierSecondcontact,jdbcType=INTEGER}, #{supplierRegistrant,jdbcType=VARCHAR},
                 #{supplierRegistrationtime,jdbcType=TIMESTAMP}, #{supplierBuyer,jdbcType=VARCHAR},
                 #{supplierBuyerNo,jdbcType=VARCHAR}, #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP},
-                #{auditor,jdbcType=VARCHAR}, #{auditorTime,jdbcType=TIMESTAMP})
+                #{auditor,jdbcType=VARCHAR}, #{auditorTime,jdbcType=TIMESTAMP}, #{checkMark,jdbcType=VARCHAR})
     </insert>
     <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Supplierfiles">
         update supplierfiles
@@ -93,7 +94,8 @@
             SuPPlier_Registrant       = #{registrar,jdbcType=VARCHAR},
             SuPPlier_RegistrationTime = #{registrartime,jdbcType=TIMESTAMP},
             auditor                   = #{auditor,jdbcType=VARCHAR},
-            auditorTime               = #{auditorTime,jdbcType=TIMESTAMP}
+            auditorTime               = #{auditorTime,jdbcType=TIMESTAMP},
+            checkMark                 = #{checkMark,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -125,7 +127,8 @@
                SuPPlier_Registrant,
                SuPPlier_RegistrationTime,
                auditor,
-               auditorTime
+               auditorTime,
+               checkMark
         from supplierfiles
         where id = #{id,jdbcType=INTEGER}
     </select>
@@ -158,7 +161,8 @@
                SuPPlier_Registrant,
                SuPPlier_RegistrationTime,
                auditor,
-               auditorTime
+               auditorTime,
+               checkMark
         from supplierfiles
     </select>
 </mapper>
