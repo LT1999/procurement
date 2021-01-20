@@ -1,5 +1,7 @@
+
 package org.accp.procurement.config;
 
+/*
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+*/
 
-/*@Configuration
-@EnableWebSecurity*/
-public class DemoApplicationConfiguration extends WebSecurityConfigurerAdapter {
 
+public class DemoApplicationConfiguration{
+/* extends WebSecurityConfigurerAdapter
+@Configuration
     private Logger logger = LoggerFactory.getLogger(DemoApplicationConfiguration.class);
     @Override
     @Autowired
@@ -68,5 +71,6 @@ public class DemoApplicationConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
+    }*/
 }
+

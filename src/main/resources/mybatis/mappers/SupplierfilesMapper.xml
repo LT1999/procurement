@@ -27,8 +27,8 @@
         <result column="SuPPlier_RegistrationTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="SuPPlier_Buyer" jdbcType="VARCHAR" property="supplierBuyer"/>
         <result column="SuPPlier_Buyer_No" jdbcType="VARCHAR" property="supplierBuyerNo"/>
-        <result column="registrar" jdbcType="VARCHAR" property="registrar"/>
-        <result column="registrarTime" jdbcType="TIMESTAMP" property="registrartime"/>
+        <result column="SuPPlier_Registrant" jdbcType="VARCHAR" property="supplierRegistration"/>
+        <result column="SuPPlier_RegistrantTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
     </resultMap>
@@ -47,7 +47,8 @@
                                    Supplier_Fax, Supplier_PostalCode, Supplier_FirstContact,
                                    Supplier_SecondContact, SuPPlier_Registrant,
                                    SuPPlier_RegistrationTime, SuPPlier_Buyer,
-                                   SuPPlier_Buyer_No, registrar, registrarTime, auditor, auditorTime)
+                                   SuPPlier_Buyer_No, SuPPlier_Registrant, SuPPlier_RegistrationTime, auditor,
+                                   auditorTime)
         values (#{id,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
                 #{supplierAddress,jdbcType=VARCHAR}, #{firstKindId,jdbcType=INTEGER}, #{firstKindName,jdbcType=VARCHAR},
                 #{secondKindId,jdbcType=INTEGER}, #{secondKindName,jdbcType=VARCHAR}, #{threeKindId,jdbcType=INTEGER},
@@ -89,8 +90,8 @@
             SuPPlier_RegistrationTime = #{supplierRegistrationtime,jdbcType=TIMESTAMP},
             SuPPlier_Buyer            = #{supplierBuyer,jdbcType=VARCHAR},
             SuPPlier_Buyer_No         = #{supplierBuyerNo,jdbcType=VARCHAR},
-            registrar                 = #{registrar,jdbcType=VARCHAR},
-            registrarTime             = #{registrartime,jdbcType=TIMESTAMP},
+            SuPPlier_Registrant       = #{registrar,jdbcType=VARCHAR},
+            SuPPlier_RegistrationTime = #{registrartime,jdbcType=TIMESTAMP},
             auditor                   = #{auditor,jdbcType=VARCHAR},
             auditorTime               = #{auditorTime,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=INTEGER}
@@ -121,8 +122,8 @@
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               registrar,
-               registrarTime,
+               SuPPlier_Registrant,
+               SuPPlier_RegistrationTime,
                auditor,
                auditorTime
         from supplierfiles
@@ -154,8 +155,8 @@
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               registrar,
-               registrarTime,
+               SuPPlier_Registrant,
+               SuPPlier_RegistrationTime,
                auditor,
                auditorTime
         from supplierfiles
