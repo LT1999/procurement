@@ -1,6 +1,7 @@
+
 package org.accp.procurement.component;
 
-import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,7 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
+import java.util.Collection;*/
+
 
 /**
  * @author LT
@@ -19,11 +21,12 @@ import java.util.Collection;
  * @date 2021/1/17 15:55
  * @Created by LT
  **/
-/*@Component*/
-public class SecurityUtil {
 
-    /*@Autowired
-    @Qualifier("myUserDetailsService")*/
+
+public class SecurityUtil {
+/*@Component
+    @Autowired
+    @Qualifier("myUserDetailsService")
     private UserDetailsService userDetailsService;
 
     public void logInAs(String username) {
@@ -70,6 +73,7 @@ public class SecurityUtil {
             }
         }));
         org.activiti.engine.impl.identity.Authentication.setAuthenticatedUserId(username);
-    }
+    }*/
 }
+
 
