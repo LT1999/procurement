@@ -1,6 +1,7 @@
 package org.accp.procurement.web.controller;
 
 import org.accp.procurement.service.InvoiceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 @RequestMapping("/invoice")
 public class InvoiceController {
+    @Autowired
     private InvoiceService invoiceService;
 
 }
