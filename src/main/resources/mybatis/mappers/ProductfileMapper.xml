@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.accp.procurement.mapper.ProductfileMapper">
+
+    <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Productfile">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="PRODUCT_ID" jdbcType="VARCHAR" property="productId"/>
+        <result column="PRODUCT_NAME" jdbcType="VARCHAR" property="productName"/>
+        <result column="FACTORY_NAME" jdbcType="VARCHAR" property="factoryName"/>
+        <result column="FIRST_KIND_ID" jdbcType="VARCHAR" property="firstKindId"/>
+        <result column="FIRST_KIND_NAME" jdbcType="VARCHAR" property="firstKindName"/>
+        <result column="SECOND_KIND_ID" jdbcType="DECIMAL" property="secondKindId"/>
+        <result column="SECOND_KIND_NAME" jdbcType="DECIMAL" property="secondKindName"/>
+        <result column="THIRD_KIND_ID" jdbcType="VARCHAR" property="thirdKindId"/>
+        <result column="THIRD_KIND_NAME" jdbcType="TIMESTAMP" property="thirdKindName"/>
+        <result column="PRODUCT_NICK" jdbcType="VARCHAR" property="productNick"/>
+        <result column="TYPE" jdbcType="VARCHAR" property="type"/>
+        <result column="PRODUCT_CLASS" jdbcType="VARCHAR" property="productClass"/>
+        <result column="PERSONAL_UNIT" jdbcType="VARCHAR" property="personalUnit"/>
+        <result column="PERSONAL_VALUE" jdbcType="VARCHAR" property="personalValue"/>
+        <result column="PROVIDER_GROUP" jdbcType="VARCHAR" property="providerGroup"/>
+        <result column="WARRANTY" jdbcType="VARCHAR" property="warranty"/>
+        <result column="TWIN_NAME" jdbcType="VARCHAR" property="twinName"/>
+        <result column="TWIN_ID" jdbcType="VARCHAR" property="twinId"/>
+        <result column="LIFECYCLE" jdbcType="VARCHAR" property="lifecycle"/>
+        <result column="LIST_PRICE" jdbcType="double" property="listPrice"/>
+        <result column="COST_PRICE" jdbcType="double" property="costPrice"/>
+        <result column="REAL_COST_PRICE" jdbcType="double" property="realCostPrice"/>
+        <result column="AMOUNT_UNIT" jdbcType="VARCHAR" property="amountUnit"/>
+        <result column="PRODUCT_DESCRIBE" jdbcType="VARCHAR" property="productDescribe"/>
+        <result column="RESPONSIBLE_PERSON" jdbcType="VARCHAR" property="responsiblePerson"/>
+        <result column="REGISTER" jdbcType="VARCHAR" property="register"/>
+        <result column="REGISTER_TIME" jdbcType="VARCHAR" property="registerTime"/>
+        <result column="CHECKER" jdbcType="VARCHAR" property="checker"/>
+        <result column="CHECK_TIME" jdbcType="VARCHAR" property="checkTime"/>
+        <result column="CHECK_TAG" jdbcType="VARCHAR" property="checkTag"/>
+        <result column="CHANGER" jdbcType="VARCHAR" property="changer"/>
+        <result column="CHANGE_TIME" jdbcType="VARCHAR" property="changeTime"/>
+        <result column="CHANGE_TAG" jdbcType="VARCHAR" property="changeTag"/>
+        <result column="PRICE_CHANGE_TAG" jdbcType="VARCHAR" property="priceChangeTag"/>
+        <result column="FILE_CHANGE_AMOUNT" jdbcType="INTEGER" property="fileChangeAmount"/>
+        <result column="DELETE_TAG" jdbcType="VARCHAR" property="deleteTag"/>
+        <result column="DELETETIME" jdbcType="VARCHAR" property="deleteTime"/>
+        <result column="DESIGN_MODULE_TAG" jdbcType="VARCHAR" property="designModuleTag"/>
+        <result column="DESIGN_PROCEDURE_TAG" jdbcType="VARCHAR" property="designProcedureTag"/>
+        <result column="DESIGN_CELL_TAG" jdbcType="VARCHAR" property="designCellTag"/>
+    </resultMap>
+
+
+
+</mapper>
