@@ -1,7 +1,13 @@
 package org.accp.procurement.service.impl;
 
+import org.accp.procurement.entity.Supplierfiles;
+import org.accp.procurement.mapper.SupplierfilesMapper;
 import org.accp.procurement.service.SupplierfilesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 供应商档案表服务接口实现
@@ -13,4 +19,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class SupplierfilesServiceImpl implements SupplierfilesService {
 
+private SupplierfilesMapper supplierfilesMapper;
+
+    @Override
+    public List<Supplierfiles> findCheck() {
+        List<Supplierfiles> list=new ArrayList<Supplierfiles>();
+        list=this.supplierfilesMapper.findCheck();
+        return list;
+    }
 }

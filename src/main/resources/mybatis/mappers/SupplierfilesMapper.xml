@@ -160,4 +160,7 @@
                auditorTime
         from supplierfiles
     </select>
+    <select id="findCheck" resultMap="BaseResultMap">
+select * from supplierfiles where auditor is not null
+    </select>
 </mapper>
