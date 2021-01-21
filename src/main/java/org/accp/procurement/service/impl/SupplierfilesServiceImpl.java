@@ -1,5 +1,6 @@
 package org.accp.procurement.service.impl;
 
+import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.service.SupplierfilesService;
 import org.springframework.stereotype.Service;
 
@@ -13,4 +14,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SupplierfilesServiceImpl implements SupplierfilesService {
 
+    @Override
+    public int addSupplierfiles(Supplierfiles supplierfiles) {
+        return 0;
+    }
 }
