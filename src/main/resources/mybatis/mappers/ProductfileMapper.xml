@@ -46,6 +46,10 @@
         <result column="DESIGN_CELL_TAG" jdbcType="VARCHAR" property="designCellTag"/>
     </resultMap>
 
+    <select id="selectProduct" resultMap="BaseResultMap">
+        select * from erp.productfile
+    </select>
+
 
 
 </mapper>
