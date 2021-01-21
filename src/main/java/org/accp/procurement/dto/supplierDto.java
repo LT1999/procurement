@@ -9,7 +9,6 @@ import java.util.List;
 
 @Data
 public class supplierDto {
-    private Integer goodsno;
 
     private Supplierfiles supplierfiles;
 
