@@ -20,7 +20,7 @@
         from purchase
         where ID = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="org.accp.procurement.entity.Purchase">
+    <insert id="insert" parameterType="org.accp.procurement.entity.Purchase" useGeneratedKeys="true" keyProperty="id">
         insert into purchase (ID, Purchaseq_No, Product_id,
                               Product_No, Product_Name, Purchase_Quantity,
                               Qualified_Quantity, Purchase_Money, Purchase_Registrant,
@@ -77,5 +77,10 @@
                auditor,
                auditorTime
         from purchase
+    </select>
+
+    <select id="getId" resultType="int">
+        SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE
+            Table_Schema='purchase' AND table_name = 'APPLY' LIMIT 1
     </select>
 </mapper>

@@ -13,27 +13,32 @@ import org.accp.procurement.entity.Serial;
  */
 public interface SerialService {
 
-    //产品编号
-    String productId(Serial serial);
+    /**
+     * 供应商编号
+     * @return String
+     * @param serial
+    **/
+    String supplierNo(Serial serial);
 
-    //物料设计单编号
-    String moduleId(Serial serial);
+    /**
+     * 报价单编号，传入日期时间（yyyy-MM-dd）与id
+     * @return String
+     * @param serial
+     **/
+    String offerNo(Serial serial);
 
-    //工序设计单编号
-    String gxId(Serial serial);
+    /**
+     * 采购计划编号，传入日期时间（yyyy-MM-dd）与id
+     * @return String
+     * @param serial
+     **/
+    String purchaseqPlanNo(Serial serial);
 
-    // 生产计划编号
-    String scjhId(Serial serial);
+    /**
+     * 采购编号，传入日期时间（yyyy-MM-dd）与id
+     * @return String
+     * @param serial
+     **/
+    String purchaseqNo (Serial serial);
 
-	// 生产编号
-    String scId(Serial serial);
-
-	// 库存编号
-    String kcId(Serial serial);
-
-	// 入库单编号
-    String rkId(Serial serial);
-
-	// 出库单编号
-    String ckId(Serial serial);
 }

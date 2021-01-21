@@ -5,21 +5,26 @@ import org.accp.procurement.entity.Serial;
 import org.accp.procurement.service.SerialService;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author LT
+ */
 @Service
 public class SerialServiceImpl implements SerialService {
 
-	
-	//产品编号
+
+	/**
+	 * 供应商编号
+	 * @return String
+	 * @param serial
+	 **/
 	@Override
-	public String productId(Serial serial) {
-		String num="100";
+	public String supplierNo(Serial serial) {
+		String num="110";
 		int id=serial.getId();
-		int ids=0;
-		int gap=0;
-		int pd=0;
+		int ids;
+		int gap;
 		String[] time=serial.getTime().split("-");
-		System.out.println("------------------time---"+time);
-		if(time[1].equals("1") && time[2].equals("1")) {
+		if("1".equals(time[1]) && "1".equals(time[2])) {
             gap=id-1;
             ids=id-gap;
 			if(ids>=10 && ids<100) {
@@ -46,19 +51,48 @@ public class SerialServiceImpl implements SerialService {
 				num+=serial.getYi()+serial.getEr()+serial.getSan()+"00000"+id;
 			}
 		}
-		System.out.println("------------------------num=----------"+num);
 		return num;
 	}
 
-	
-	//物料设计单编号
+	/**
+	 * 报价单编号，传入日期时间（yyyy-MM-dd）与id
+	 * @return String
+	 * @param serial
+	 **/
 	@Override
-	public String moduleId(Serial serial) {
-		String num="200";
+	public String offerNo(Serial serial) {
+		String num="210";
 		int id=serial.getId();
-		int ids=0;
-		int gap=0;
-		int pd=0;
+		return getNo(serial, num, id);
+	}
+
+	/**
+	 * 采购计划编号，传入日期时间（yyyy-MM-dd）与id
+	 * @return String
+	 * @param serial
+	 **/
+	@Override
+	public String purchaseqPlanNo(Serial serial) {
+		String num="211";
+		int id=serial.getId();
+		return getNo(serial, num, id);
+	}
+
+	/**
+	 * 采购编号，传入日期时间（yyyy-MM-dd）与id
+	 * @return String
+	 * @param serial
+	 **/
+	@Override
+	public String purchaseqNo(Serial serial) {
+		String num="310";
+		int id=serial.getId();
+		return getNo(serial, num, id);
+	}
+
+	private String getNo(Serial serial, String num, int id) {
+		int ids;
+		int gap;
 		String[] time=serial.getTime().split("-");
 		String times=time[0];
 		if(time[1].length()==1) {
@@ -71,10 +105,9 @@ public class SerialServiceImpl implements SerialService {
 		}else {
 			times+=time[2];
 		}
-		System.out.println("------------------time---"+time);
-		if(time[1].equals("1") && time[2].equals("1")) {
-            gap=id-1;
-            ids=id-gap;
+		if("1".equals(time[1]) && "1".equals(time[2])) {
+			gap=id-1;
+			ids=id-gap;
 			if(ids>=10 && ids<100) {
 				num+=times+"00"+ids;
 			}else if(ids>=100 && ids<1000) {
@@ -91,272 +124,6 @@ public class SerialServiceImpl implements SerialService {
 				num+=times+"000"+id;
 			}
 		}
-		System.out.println("------------------------num=----------"+num);
-		return num;
-	}
-
-
-	//工序设计单编号
-	@Override
-	public String gxId(Serial serial) {
-		String num="201";
-		int id=serial.getId();
-		int ids=0;
-		int gap=0;
-		int pd=0;
-		String[] time=serial.getTime().split("-");
-		String times=time[0];
-		if(time[1].length()==1) {
-			times+="0"+time[1];
-		}else {
-			times+=time[1];
-		}
-		if(time[2].length()==1) {
-			times+="0"+time[2];
-		}else {
-			times+=time[2];
-		}
-		System.out.println("------------------time---"+time);
-		if(time[1].equals("1") && time[2].equals("1")) {
-            gap=id-1;
-            ids=id-gap;
-			if(ids>=10 && ids<100) {
-				num+=times+"00"+ids;
-			}else if(ids>=100 && ids<1000) {
-				num+=times+"0"+ids;
-			}else if(ids<10){
-				num+=times+"000"+ids;
-			}
-		}else {
-			if(id>=10 && id<100) {
-				num+=times+"00"+id;
-			}else if(id>=100 && id<1000) {
-				num+=times+"0"+id;
-			}else {
-				num+=times+"000"+id;
-			}
-		}
-		System.out.println("------------------------num=----------"+num);
-		return num;
-	}
-
-
-	@Override
-	public String scjhId(Serial serial) {
-		String num="300";
-		int id=serial.getId();
-		int ids=0;
-		int gap=0;
-		int pd=0;
-		String[] time=serial.getTime().split("-");
-		String times=time[0];
-		if(time[1].length()==1) {
-			times+="0"+time[1];
-		}else {
-			times+=time[1];
-		}
-		if(time[2].length()==1) {
-			times+="0"+time[2];
-		}else {
-			times+=time[2];
-		}
-		System.out.println("------------------time---"+time);
-		if(time[1].equals("1") && time[2].equals("1")) {
-            gap=id-1;
-            ids=id-gap;
-			if(ids>=10 && ids<100) {
-				num+=times+"00"+ids;
-			}else if(ids>=100 && ids<1000) {
-				num+=times+"0"+ids;
-			}else if(ids<10){
-				num+=times+"000"+ids;
-			}
-		}else {
-			if(id>=10 && id<100) {
-				num+=times+"00"+id;
-			}else if(id>=100 && id<1000) {
-				num+=times+"0"+id;
-			}else {
-				num+=times+"000"+id;
-			}
-		}
-		System.out.println("------------------------num=----------"+num);
-		return num;
-	}
-
-
-	@Override
-	public String scId(Serial serial) {
-		String num="301";
-		int id=serial.getId();
-		int ids=0;
-		int gap=0;
-		int pd=0;
-		String[] time=serial.getTime().split("-");
-		String times=time[0];
-		if(time[1].length()==1) {
-			times+="0"+time[1];
-		}else {
-			times+=time[1];
-		}
-		if(time[2].length()==1) {
-			times+="0"+time[2];
-		}else {
-			times+=time[2];
-		}
-		System.out.println("------------------time---"+time);
-		if(time[1].equals("1") && time[2].equals("1")) {
-            gap=id-1;
-            ids=id-gap;
-			if(ids>=10 && ids<100) {
-				num+=times+"00"+ids;
-			}else if(ids>=100 && ids<1000) {
-				num+=times+"0"+ids;
-			}else if(ids<10){
-				num+=times+"000"+ids;
-			}
-		}else {
-			if(id>=10 && id<100) {
-				num+=times+"00"+id;
-			}else if(id>=100 && id<1000) {
-				num+=times+"0"+id;
-			}else {
-				num+=times+"000"+id;
-			}
-		}
-		System.out.println("------------------------num=----------"+num);
-		return num;
-	}
-
-
-	@Override
-	public String kcId(Serial serial) {
-		String num="400";
-		int id=serial.getId();
-		int ids=0;
-		int gap=0;
-		int pd=0;
-		String[] time=serial.getTime().split("-");
-		String times=time[0];
-		if(time[1].length()==1) {
-			times+="0"+time[1];
-		}else {
-			times+=time[1];
-		}
-		if(time[2].length()==1) {
-			times+="0"+time[2];
-		}else {
-			times+=time[2];
-		}
-		System.out.println("------------------time---"+time);
-		if(time[1].equals("1") && time[2].equals("1")) {
-            gap=id-1;
-            ids=id-gap;
-			if(ids>=10 && ids<100) {
-				num+=times+"00"+ids;
-			}else if(ids>=100 && ids<1000) {
-				num+=times+"0"+ids;
-			}else if(ids<10){
-				num+=times+"000"+ids;
-			}
-		}else {
-			if(id>=10 && id<100) {
-				num+=times+"00"+id;
-			}else if(id>=100 && id<1000) {
-				num+=times+"0"+id;
-			}else {
-				num+=times+"000"+id;
-			}
-		}
-		System.out.println("------------------------num=----------"+num);
-		return num;
-	}
-
-
-	@Override
-	public String rkId(Serial serial) {
-		String num="401";
-		int id=serial.getId();
-		int ids=0;
-		int gap=0;
-		int pd=0;
-		String[] time=serial.getTime().split("-");
-		String times=time[0];
-		if(time[1].length()==1) {
-			times+="0"+time[1];
-		}else {
-			times+=time[1];
-		}
-		if(time[2].length()==1) {
-			times+="0"+time[2];
-		}else {
-			times+=time[2];
-		}
-		System.out.println("------------------time---"+time);
-		if(time[1].equals("1") && time[2].equals("1")) {
-            gap=id-1;
-            ids=id-gap;
-			if(ids>=10 && ids<100) {
-				num+=times+"00"+ids;
-			}else if(ids>=100 && ids<1000) {
-				num+=times+"0"+ids;
-			}else if(ids<10){
-				num+=times+"000"+ids;
-			}
-		}else {
-			if(id>=10 && id<100) {
-				num+=times+"00"+id;
-			}else if(id>=100 && id<1000) {
-				num+=times+"0"+id;
-			}else {
-				num+=times+"000"+id;
-			}
-		}
-		System.out.println("------------------------num=----------"+num);
-		return num;
-	}
-
-
-	@Override
-	public String ckId(Serial serial) {
-		String num="402";
-		int id=serial.getId();
-		int ids=0;
-		int gap=0;
-		int pd=0;
-		String[] time=serial.getTime().split("-");
-		String times=time[0];
-		if(time[1].length()==1) {
-			times+="0"+time[1];
-		}else {
-			times+=time[1];
-		}
-		if(time[2].length()==1) {
-			times+="0"+time[2];
-		}else {
-			times+=time[2];
-		}
-		System.out.println("------------------time---"+time);
-		if(time[1].equals("1") && time[2].equals("1")) {
-            gap=id-1;
-            ids=id-gap;
-			if(ids>=10 && ids<100) {
-				num+=times+"00"+ids;
-			}else if(ids>=100 && ids<1000) {
-				num+=times+"0"+ids;
-			}else if(ids<10){
-				num+=times+"000"+ids;
-			}
-		}else {
-			if(id>=10 && id<100) {
-				num+=times+"00"+id;
-			}else if(id>=100 && id<1000) {
-				num+=times+"0"+id;
-			}else {
-				num+=times+"000"+id;
-			}
-		}
-		System.out.println("------------------------num=----------"+num);
 		return num;
 	}
 

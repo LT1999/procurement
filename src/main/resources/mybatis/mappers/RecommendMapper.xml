@@ -72,4 +72,8 @@
                checkMark
         from recommend
     </select>
+
+    <select id="selectByProductNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from recommend where Product_No=#{productNo}
+    </select>
 </mapper>

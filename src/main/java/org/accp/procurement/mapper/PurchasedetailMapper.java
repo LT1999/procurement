@@ -5,7 +5,11 @@ import org.accp.procurement.entity.Purchasedetail;
 
 public interface PurchasedetailMapper {
     int deleteByPrimaryKey(Integer id);
-
+    /**
+     * 新增采购明细表
+     * @param record
+     * @return int
+     * */
     int insert(Purchasedetail record);
 
     Purchasedetail selectByPrimaryKey(Integer id);

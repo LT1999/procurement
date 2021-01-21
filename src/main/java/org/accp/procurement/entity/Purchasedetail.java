@@ -47,7 +47,7 @@ public class Purchasedetail {
      */
     private BigDecimal subtotal;
     /**
-     * 付款时间
+     * 供货时间
      */
     private Date paymenttime;
 

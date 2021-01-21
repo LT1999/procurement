@@ -1,6 +1,8 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.entity.Purchasedetail;
+
 /**
  * 采购明细表服务接口
  *
@@ -9,5 +11,10 @@ package org.accp.procurement.service;
  * @description 
  */
 public interface PurchasedetailService {
-
+    /**
+     * 新增采购明细表
+     * @param record
+     * @return int
+     * */
+    int insert(Purchasedetail record);
 }
