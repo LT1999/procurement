@@ -30,7 +30,7 @@ public class PlandetailServiceImpl implements PlandetailService {
     public List<Plandetail> selectAllByParentId(Integer parentId) {
         return this.plandetailMapper.selectAllByParentId(parentId);
     }
-   /* @Override
+    @Override
     public List<Plandetail> selectAllAndPurchaseqplan() {
         List<Plandetail> plandetailList = this.plandetailMapper.selectAll();
         for (Plandetail plandetail:
@@ -38,5 +38,5 @@ public class PlandetailServiceImpl implements PlandetailService {
             plandetail.setPurchaseqplan(this.purchaseqplanService.selectByPrimaryKey(plandetail.getParentId()));
         }
         return plandetailList;
-    }*/
+    }
 }

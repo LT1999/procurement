@@ -23,6 +23,6 @@ public interface PlandetailService {
      * 查询所有计划明细表并父id的类
      * @return List<Plandetail>
      * */
-    /*List<Plandetail> selectAllAndPurchaseqplan();*/
+    List<Plandetail> selectAllAndPurchaseqplan();
 
 }
