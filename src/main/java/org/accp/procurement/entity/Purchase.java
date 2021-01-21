@@ -28,7 +28,7 @@ public class Purchase {
     /**
      * 产品编号
      */
-    private Date productNo;
+    private String productNo;
     /**
      * 产品名称
      */
