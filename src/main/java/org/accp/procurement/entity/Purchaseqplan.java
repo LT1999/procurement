@@ -2,6 +2,7 @@ package org.accp.procurement.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -62,4 +63,5 @@ public class Purchaseqplan {
      * 审核标志
      */
     private String checkMark;
+
 }

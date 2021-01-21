@@ -13,4 +13,11 @@ public interface PlandetailMapper {
     List<Plandetail> selectAll();
 
     int updateByPrimaryKey(Plandetail record);
+
+    /**
+     * 根据父id查询计划明细表
+     * @param parentId
+     * @return List<Plandetail>
+     * */
+    List<Plandetail> selectAllByParentId(Integer parentId);
 }

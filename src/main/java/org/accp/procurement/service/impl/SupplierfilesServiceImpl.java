@@ -1,4 +1,5 @@
 package org.accp.procurement.service.impl;
+import org.accp.procurement.entity.Supplierfiles;
 
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.mapper.SupplierfilesMapper;
@@ -14,15 +15,20 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:05
- * @description 
+ * @description
  */
 @Service
 public class SupplierfilesServiceImpl implements SupplierfilesService {
-@Autowired
-private SupplierfilesMapper supplierfilesMapper;
+    @Autowired
+    private SupplierfilesMapper supplierfilesMapper;
 
     @Override
     public List<Supplierfiles> findCheck() {
         return this.supplierfilesMapper.findCheck();
+    }
+
+    @Override
+    public int addSupplierfiles(Supplierfiles supplierfiles) {
+        return 0;
     }
 }
