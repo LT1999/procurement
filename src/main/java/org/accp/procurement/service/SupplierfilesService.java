@@ -1,6 +1,8 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.entity.Supplierfiles;
+
 /**
  * 供应商档案表服务接口
  *
@@ -9,5 +11,5 @@ package org.accp.procurement.service;
  * @description 
  */
 public interface SupplierfilesService {
-
+     int  addSupplierfiles(Supplierfiles supplierfiles);
 }

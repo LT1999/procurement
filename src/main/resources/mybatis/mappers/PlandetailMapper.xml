@@ -49,4 +49,12 @@
     `Describe`
     from plandetail
   </select>
+
+  <select id="selectAllByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select ID, Parent_ID, Product_No, Product_Name, Quantity, Unit, Price, Subtotal,
+           `Describe`
+    from plandetail
+    where Parent_ID = #{parentId,jdbcType=INTEGER}
+  </select>
+
 </mapper>
