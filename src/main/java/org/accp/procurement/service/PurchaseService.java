@@ -1,6 +1,10 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.entity.Purchaseqplan;
+
+import java.util.List;
+
 /**
  * 采购总表服务接口
  *
