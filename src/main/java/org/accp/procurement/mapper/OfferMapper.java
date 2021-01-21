@@ -15,4 +15,6 @@ public interface OfferMapper {
     int updateByPrimaryKey(Offer record);
     //根据供应商ID查询
     List<Offer> findSupplierId(int supplierId);
+    //根据供应商ID删除
+    int delSupplierId(int supplierId);
 }

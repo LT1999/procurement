@@ -86,6 +86,9 @@
         from offer
     </select>
     <select id="findSupplierId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-select * from offer where supplierId=#{supplierId,jdbcType=Integer}
+select * from offer where Supplier_id=#{supplierId,jdbcType=INTEGER}
     </select>
+    <delete id="delSupplierId" parameterType="java.lang.Integer">
+        delete from offer where Supplier_id=#{supplierId,jdbcType=INTEGER}
+    </delete>
 </mapper>

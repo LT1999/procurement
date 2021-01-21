@@ -32,4 +32,17 @@ private OfferMapper offerMapper;
     public List<Offer> selectAll() {
         return this.offerMapper.selectAll();
     }
+
+    @Override
+    public int delSupplierId(int supplierId) {
+        return this.offerMapper.delSupplierId(supplierId);
+    }
+
+    /*@Override
+    public int insert(Offer[] offers) {
+for (int i=0;i<offers.length;i++){
+
+}
+        return 1;
+    }*/
 }

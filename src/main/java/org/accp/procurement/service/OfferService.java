@@ -17,4 +17,8 @@ public interface OfferService {
     List<Offer> findSupplierId(int supplierId);
     //查询全部
     List<Offer> selectAll();
+    //根据供应商ID删除
+    int delSupplierId(int supplierId);
+    //新增
+    /*int insert();*/
 }

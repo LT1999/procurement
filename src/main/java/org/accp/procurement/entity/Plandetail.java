@@ -9,7 +9,6 @@ import lombok.Data;
  * @author LT
  * @since 2021-01-16 14:46:04
  * @description
- * @exends 继承采购计划表（Purchaseqplan）
  */
 @Data
 public class Plandetail{

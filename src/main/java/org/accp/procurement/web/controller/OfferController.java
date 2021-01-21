@@ -33,4 +33,16 @@ public class OfferController{
     public List<Offer> findSupplierId(int supplierId){
         return this.offerService.findSupplierId(supplierId);
     }
+
+    @RequestMapping("/delSupplierId")
+    public String delSupplierId(int supplierId){
+        this.offerService.delSupplierId(supplierId);
+        return "true";
+    }
+
+    /*@RequestMapping("/insert")
+    public String insert(Offer[] offers){
+        this.offerService.insert(offers);
+        return "true";
+    }*/
 }
