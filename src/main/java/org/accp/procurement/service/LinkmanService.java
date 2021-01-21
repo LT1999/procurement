@@ -1,6 +1,8 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.entity.Linkman;
+
 /**
  * 联系人信息表服务接口
  *
@@ -9,5 +11,6 @@ package org.accp.procurement.service;
  * @description 
  */
 public interface LinkmanService {
-
+    //根据id查询
+    Linkman selectByPrimaryKey(Integer id);
 }

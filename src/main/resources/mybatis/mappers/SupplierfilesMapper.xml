@@ -166,6 +166,6 @@
         from supplierfiles
     </select>
     <select id="findCheck" resultMap="BaseResultMap">
-select * from supplierfiles where auditor is not null
+select * from supplierfiles where checkMark='已审核'
     </select>
 </mapper>

@@ -85,4 +85,7 @@
                checkMark
         from offer
     </select>
+    <select id="findSupplierId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+select * from offer where supplierId=#{supplierId,jdbcType=Integer}
+    </select>
 </mapper>

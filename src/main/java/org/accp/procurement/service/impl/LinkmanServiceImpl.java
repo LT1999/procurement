@@ -1,6 +1,9 @@
 package org.accp.procurement.service.impl;
 
+import org.accp.procurement.entity.Linkman;
+import org.accp.procurement.mapper.LinkmanMapper;
 import org.accp.procurement.service.LinkmanService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,5 +15,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class LinkmanServiceImpl implements LinkmanService {
+@Autowired
+private LinkmanMapper linkmanMapper;
 
+    @Override
+    public Linkman selectByPrimaryKey(Integer id) {
+        return this.linkmanMapper.selectByPrimaryKey(id);
+    }
 }

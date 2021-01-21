@@ -18,13 +18,11 @@ import java.util.List;
  */
 @Service
 public class SupplierfilesServiceImpl implements SupplierfilesService {
-
+@Autowired
 private SupplierfilesMapper supplierfilesMapper;
 
     @Override
     public List<Supplierfiles> findCheck() {
-        List<Supplierfiles> list=new ArrayList<Supplierfiles>();
-        list=this.supplierfilesMapper.findCheck();
-        return list;
+        return this.supplierfilesMapper.findCheck();
     }
 }

@@ -13,4 +13,6 @@ public interface OfferMapper {
     List<Offer> selectAll();
 
     int updateByPrimaryKey(Offer record);
+    //根据供应商ID查询
+    List<Offer> findSupplierId(int supplierId);
 }
