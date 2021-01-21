@@ -1,6 +1,8 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.entity.Supplierfiles;
+
 import java.util.List;
 
 /**
@@ -12,6 +14,8 @@ import java.util.List;
  */
 public interface SupplierfilesService {
     //查询已审核的供应商
-    List<Supplierfiles> findCheck();}
+    List<Supplierfiles> findCheck();
 
-    int  addSupplierfiles(Supplierfiles supplierfiles);
+    int addSupplierfiles(Supplierfiles supplierfiles);
+
+}
