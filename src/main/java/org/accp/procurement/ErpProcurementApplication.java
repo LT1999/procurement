@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("org.accp.procurement.mapper")//配置mybatis扫描路径
-
 public class ErpProcurementApplication {
 
     public static void main(String[] args) {
