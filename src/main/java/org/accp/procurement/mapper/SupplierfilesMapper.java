@@ -13,4 +13,7 @@ public interface SupplierfilesMapper {
     List<Supplierfiles> selectAll();
 
     int updateByPrimaryKey(Supplierfiles record);
+
+    //根据报价表的供应商id查询供应商表 获取供应商id
+    List<Supplierfiles> selectSuppByid(Integer id);
 }

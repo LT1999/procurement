@@ -27,7 +27,6 @@
         <result column="SuPPlier_RegistrationTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="SuPPlier_Buyer" jdbcType="VARCHAR" property="supplierBuyer"/>
         <result column="SuPPlier_Buyer_No" jdbcType="VARCHAR" property="supplierBuyerNo"/>
-        <result column="SuPPlier_Registrant" jdbcType="VARCHAR" property="supplierRegistration"/>
         <result column="SuPPlier_RegistrantTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
@@ -164,5 +163,39 @@
                auditorTime,
                checkMark
         from supplierfiles
+    </select>
+    <select id="selectSuppByid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select id,
+               Supplier_No,
+               Supplier_Name,
+               Supplier_Address,
+               First_Kind_Id,
+               First_Kind_Name,
+               Second_Kind_Id,
+               Second_Kind_Name,
+               three_Kind_Id,
+               three_Kind_Name,
+               Supplier_Area,
+               Supplier_UsedName,
+               Supplier_Open_Account,
+               Supplier_BankAccount,
+               Supplier_Url,
+               Supplier_Quality_Rank,
+               Supplier_Phone,
+               Supplier_Fax,
+               Supplier_PostalCode,
+               Supplier_FirstContact,
+               Supplier_SecondContact,
+               SuPPlier_Registrant,
+               SuPPlier_RegistrationTime,
+               SuPPlier_Buyer,
+               SuPPlier_Buyer_No,
+               SuPPlier_Registrant,
+               SuPPlier_RegistrationTime,
+               auditor,
+               auditorTime,
+               checkMark
+        from supplierfiles
+        where id = #{id,jdbcType=INTEGER}
     </select>
 </mapper>
