@@ -91,4 +91,7 @@ select * from offer where Supplier_id=#{supplierId,jdbcType=INTEGER}
     <delete id="delSupplierId" parameterType="java.lang.Integer">
         delete from offer where Supplier_id=#{supplierId,jdbcType=INTEGER}
     </delete>
+    <select id="findsp" resultMap="BaseResultMap">
+select * from offer where Supplier_id is null
+    </select>
 </mapper>

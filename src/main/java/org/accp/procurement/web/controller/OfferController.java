@@ -1,5 +1,6 @@
 package org.accp.procurement.web.controller;
 
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Offer;
 import org.accp.procurement.service.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,15 @@ public class OfferController{
         return "true";
     }
 
-    /*@RequestMapping("/insert")
-    public String insert(Offer[] offers){
-        this.offerService.insert(offers);
+    @RequestMapping("/insert")
+    public String insert(supplierDto dto){
+        System.out.println(dto.toString());
+        this.offerService.insert(dto);
         return "true";
-    }*/
+    }
+
+    @RequestMapping("/findsp")
+    public List<Offer> findsp(){
+        return this.offerService.findsp();
+    }
 }

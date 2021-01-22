@@ -1,6 +1,7 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Offer;
 
 import java.util.List;
@@ -20,5 +21,6 @@ public interface OfferService {
     //根据供应商ID删除
     int delSupplierId(int supplierId);
     //新增
-    /*int insert();*/
+    int insert(supplierDto dto);
+    List<Offer> findsp();
 }

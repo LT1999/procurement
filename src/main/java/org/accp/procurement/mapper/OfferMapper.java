@@ -17,4 +17,5 @@ public interface OfferMapper {
     List<Offer> findSupplierId(int supplierId);
     //根据供应商ID删除
     int delSupplierId(int supplierId);
+    List<Offer> findsp();
 }

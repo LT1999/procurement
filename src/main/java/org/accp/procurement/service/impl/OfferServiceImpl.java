@@ -2,6 +2,7 @@ package org.accp.procurement.service.impl;
 
 
 
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Offer;
 import org.accp.procurement.mapper.OfferMapper;
 import org.accp.procurement.service.OfferService;
@@ -38,11 +39,20 @@ private OfferMapper offerMapper;
         return this.offerMapper.delSupplierId(supplierId);
     }
 
-    /*@Override
-    public int insert(Offer[] offers) {
-for (int i=0;i<offers.length;i++){
-
+    @Override
+    public int insert(supplierDto dto) {
+if(dto.getOffers()!=null&&dto.getOffers().length!=0) {
+    for (int i = 0; i < dto.getOffers().length; i++) {
+        dto.getOffers()[i].setRegistrar(dto.getRegistrar());
+        dto.getOffers()[i].setRegistrartime(dto.getRegistrartime());
+        this.offerMapper.insert(dto.getOffers()[i]);
+    }
 }
         return 1;
-    }*/
+    }
+
+    @Override
+    public List<Offer> findsp() {
+        return this.offerMapper.findsp();
+    }
 }

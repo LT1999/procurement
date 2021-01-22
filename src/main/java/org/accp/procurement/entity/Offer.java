@@ -56,7 +56,7 @@ public class Offer {
     /**
      * 登记时间
      */
-    private Date registrartime;
+    private String registrartime;
     /**
      * 审核人
      */
@@ -64,7 +64,7 @@ public class Offer {
     /**
      * 审核时间
      */
-    private Date auditorTime;
+    private String auditorTime;
     /**
      * 审核标志
      */
