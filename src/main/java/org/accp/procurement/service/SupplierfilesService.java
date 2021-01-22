@@ -3,6 +3,8 @@ package org.accp.procurement.service;
 
 import org.accp.procurement.entity.Supplierfiles;
 
+import java.util.List;
+
 /**
  * 供应商档案表服务接口
  *
@@ -11,5 +13,15 @@ import org.accp.procurement.entity.Supplierfiles;
  * @description 
  */
 public interface SupplierfilesService {
-     int  addSupplierfiles(Supplierfiles supplierfiles);
+     int deleteByPrimaryKey(Integer id);
+
+     int insert(Supplierfiles record);
+
+     Supplierfiles selectByPrimaryKey(Integer id);
+
+     List<Supplierfiles> selectAll();
+
+     List<Supplierfiles> selectCheck();
+
+     int updateByPrimaryKey(Supplierfiles record);
 }

@@ -12,5 +12,7 @@ public interface SupplierfilesMapper {
 
     List<Supplierfiles> selectAll();
 
+    List<Supplierfiles> selectCheck();
+
     int updateByPrimaryKey(Supplierfiles record);
 }

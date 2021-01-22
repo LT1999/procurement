@@ -1,6 +1,10 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.entity.Linkman;
+
+import java.util.List;
+
 /**
  * 联系人信息表服务接口
  *
@@ -9,5 +13,14 @@ package org.accp.procurement.service;
  * @description 
  */
 public interface LinkmanService {
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Linkman record);
+
+    Linkman selectByPrimaryKey(Integer id);
+
+    List<Linkman> selectAll();
+
+    int updateByPrimaryKey(Linkman record);
 
 }
