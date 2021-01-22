@@ -12,7 +12,7 @@
         <result column="registrarTime" jdbcType="TIMESTAMP" property="registrartime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
-        <result column="checkMark" jdbcType="VARCHAR" property="checkMark"/>
+        <result column="CheckMark" jdbcType="VARCHAR" property="checkMark"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
@@ -23,7 +23,7 @@
         insert into recommend (id, Product_id, Product_No,
                                Product_Name, Product_Type, Product_Grade,
                                registrar, registrarTime, auditor, auditorTime,
-                               checkMark)
+                               CheckMark)
         values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR},
                 #{productName,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, #{productGrade,jdbcType=VARCHAR},
                 #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP}, #{auditor,jdbcType=VARCHAR},
@@ -40,7 +40,7 @@
             registrarTime = #{registrartime,jdbcType=TIMESTAMP},
             auditor       = #{auditor,jdbcType=VARCHAR},
             auditorTime   = #{auditorTime,jdbcType=TIMESTAMP},
-            checkMark      = #{checkMark,jdbcType=VARCHAR}
+            CheckMark      = #{checkMark,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -54,7 +54,7 @@
                registrarTime,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from recommend
         where id = #{id,jdbcType=INTEGER}
     </select>
@@ -69,7 +69,7 @@
                registrarTime,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from recommend
     </select>
 

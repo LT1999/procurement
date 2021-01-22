@@ -14,23 +14,24 @@
         <result column="Purchase_RegistrantTime" jdbcType="TIMESTAMP" property="purchaseRegistranttime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
+        <result column="CheckMark" jdbcType="VARCHAR" property="checkMark"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
         from purchase
         where ID = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="org.accp.procurement.entity.Purchase" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="org.accp.procurement.entity.Purchase">
         insert into purchase (ID, Purchaseq_No, Product_id,
                               Product_No, Product_Name, Purchase_Quantity,
                               Qualified_Quantity, Purchase_Money, Purchase_Registrant,
-                              Purchase_RegistrantTime, auditor, auditorTime)
+                              Purchase_RegistrantTime, auditor, auditorTime,CheckMark)
         values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR},
                 #{productNo,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{purchaseQuantity,jdbcType=INTEGER},
                 #{qualifiedQuantity,jdbcType=INTEGER}, #{purchaseMoney,jdbcType=DECIMAL},
                 #{purchaseRegistrant,jdbcType=VARCHAR},
                 #{purchaseRegistranttime,jdbcType=TIMESTAMP}, #{auditor,jdbcType=VARCHAR},
-                #{auditorTime,jdbcType=TIMESTAMP})
+                #{auditorTime,jdbcType=TIMESTAMP},#{checkMark,jdbcType=VARCHAR})
     </insert>
     <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Purchase">
         update purchase
@@ -44,7 +45,8 @@
             Purchase_Registrant     = #{purchaseRegistrant,jdbcType=VARCHAR},
             Purchase_RegistrantTime = #{purchaseRegistranttime,jdbcType=TIMESTAMP},
             auditor                 = #{auditor,jdbcType=VARCHAR},
-            auditorTime             = #{auditorTime,jdbcType=TIMESTAMP}
+            auditorTime             = #{auditorTime,jdbcType=TIMESTAMP},
+            CheckMark          = #{checkMark,jdbcType=VARCHAR}
         where ID = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -59,7 +61,8 @@
                Purchase_Registrant,
                Purchase_RegistrantTime,
                auditor,
-               auditorTime
+               auditorTime,
+               CheckMark
         from purchase
         where ID = #{id,jdbcType=INTEGER}
     </select>
@@ -75,12 +78,13 @@
                Purchase_Registrant,
                Purchase_RegistrantTime,
                auditor,
-               auditorTime
+               auditorTime,
+               CheckMark
         from purchase
     </select>
 
     <select id="getId" resultType="int">
         SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE
-            Table_Schema='purchase' AND table_name = 'APPLY' LIMIT 1
+            Table_Schema='purchase' AND table_name = 'purchase' LIMIT 1
     </select>
 </mapper>
