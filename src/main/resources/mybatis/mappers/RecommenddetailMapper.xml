@@ -51,4 +51,10 @@
     Supplier_Phone, Linkman_Id, Offer_Id
     from recommenddetail
   </select>
+
+  <select id="selectByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, Parent_Id, Supplier_Id, Supplier_No, Supplier_Name, Supplier_Area, Supplier_Quality_Rank,
+           Supplier_Phone, Linkman_Id, Offer_Id
+    from recommenddetail where Parent_Id=#{parentId}
+  </select>
 </mapper>

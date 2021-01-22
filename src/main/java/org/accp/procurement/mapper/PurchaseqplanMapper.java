@@ -2,6 +2,7 @@ package org.accp.procurement.mapper;
 
 import java.util.List;
 import org.accp.procurement.entity.Purchaseqplan;
+import org.apache.ibatis.annotations.Update;
 
 public interface PurchaseqplanMapper {
     int deleteByPrimaryKey(Integer id);
@@ -17,5 +18,6 @@ public interface PurchaseqplanMapper {
     List<Purchaseqplan> selectAll();
 
     int updateByPrimaryKey(Purchaseqplan record);
+
 
 }

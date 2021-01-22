@@ -24,8 +24,8 @@ public class PlandetailController {
     @Autowired
     private PlandetailService plandetailService;
 
-    /*@RequestMapping("/selectAllAndPurchaseqplan")
+    @RequestMapping("/selectAllAndPurchaseqplan")
     public List<Plandetail> selectAllAndPurchaseqplan(){
         return this.plandetailService.selectAllAndPurchaseqplan();
-    }*/
+    }
 }

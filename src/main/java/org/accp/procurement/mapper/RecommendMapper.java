@@ -13,4 +13,10 @@ public interface RecommendMapper {
     List<Recommend> selectAll();
 
     int updateByPrimaryKey(Recommend record);
+    /**
+     * 根据产品编号查询推荐供应商表
+     * @param productNo
+     * @return 推荐供应商实体类
+     * */
+    Recommend selectByProductNo(String productNo);
 }

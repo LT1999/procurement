@@ -14,7 +14,7 @@
         <result column="RegistrantTime" jdbcType="TIMESTAMP" property="registranttime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
-        <result column="checkMark" jdbcType="VARCHAR" property="checkMark"/>
+        <result column="CheckMark" jdbcType="VARCHAR" property="checkMark"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
@@ -25,7 +25,7 @@
         insert into invoice (ID, Purchaseq_No, Product_No,
                              Product_Name, Supplier_No, Supplier_Name,
                              ShouldInvoiceMoney, InvoiceMoney, Registrant,
-                             RegistrantTime, auditor, auditorTime,checkMark)
+                             RegistrantTime, auditor, auditorTime,CheckMark)
         values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR},
                 #{productName,jdbcType=VARCHAR}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
                 #{shouldinvoicemoney,jdbcType=DECIMAL}, #{invoicemoney,jdbcType=DECIMAL},
@@ -47,7 +47,7 @@
             RegistrantTime     = #{registranttime,jdbcType=TIMESTAMP},
             auditor            = #{auditor,jdbcType=VARCHAR},
             auditorTime        = #{auditorTime,jdbcType=TIMESTAMP},
-            checkMark          = #{checkMark,jdbcType=VARCHAR}
+            CheckMark          = #{checkMark,jdbcType=VARCHAR}
         where ID = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -63,7 +63,7 @@
                RegistrantTime,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from invoice
         where ID = #{id,jdbcType=INTEGER}
     </select>
@@ -80,7 +80,7 @@
                RegistrantTime,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from invoice
     </select>
 </mapper>

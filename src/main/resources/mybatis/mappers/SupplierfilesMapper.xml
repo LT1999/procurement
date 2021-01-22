@@ -30,7 +30,7 @@
         <result column="SuPPlier_RegistrantTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
-        <result column="checkMark" jdbcType="VARCHAR" property="checkMark"/>
+        <result column="CheckMark" jdbcType="VARCHAR" property="checkMark"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
@@ -48,7 +48,7 @@
                                    Supplier_SecondContact, SuPPlier_Registrant,
                                    SuPPlier_RegistrationTime, SuPPlier_Buyer,
                                    SuPPlier_Buyer_No, SuPPlier_Registrant, SuPPlier_RegistrationTime, auditor,
-                                   auditorTime, checkMark)
+                                   auditorTime, CheckMark)
         values (#{id,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
                 #{supplierAddress,jdbcType=VARCHAR}, #{firstKindId,jdbcType=INTEGER}, #{firstKindName,jdbcType=VARCHAR},
                 #{secondKindId,jdbcType=INTEGER}, #{secondKindName,jdbcType=VARCHAR}, #{threeKindId,jdbcType=INTEGER},
@@ -94,7 +94,7 @@
             SuPPlier_RegistrationTime = #{registrartime,jdbcType=TIMESTAMP},
             auditor                   = #{auditor,jdbcType=VARCHAR},
             auditorTime               = #{auditorTime,jdbcType=TIMESTAMP},
-            checkMark                 = #{checkMark,jdbcType=VARCHAR}
+            CheckMark                 = #{checkMark,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -127,7 +127,7 @@
                SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from supplierfiles
         where id = #{id,jdbcType=INTEGER}
     </select>
@@ -161,7 +161,7 @@
                SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from supplierfiles
     </select>
     <select id="selectSuppByid" parameterType="java.lang.Integer" resultMap="BaseResultMap">

@@ -2,7 +2,6 @@ package org.accp.procurement.service.impl;
 
 import org.accp.procurement.entity.Plandetail;
 import org.accp.procurement.mapper.PlandetailMapper;
-import org.accp.procurement.mapper.PurchaseqplanMapper;
 import org.accp.procurement.service.PlandetailService;
 import org.accp.procurement.service.PurchaseqplanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +29,18 @@ public class PlandetailServiceImpl implements PlandetailService {
     public List<Plandetail> selectAllByParentId(Integer parentId) {
         return this.plandetailMapper.selectAllByParentId(parentId);
     }
-   /* @Override
+    @Override
     public List<Plandetail> selectAllAndPurchaseqplan() {
-        List<Plandetail> plandetailList = this.plandetailMapper.selectAll();
+        List<Plandetail> plandetailList = this.plandetailMapper.selectDispatch();
         for (Plandetail plandetail:
                 plandetailList) {
             plandetail.setPurchaseqplan(this.purchaseqplanService.selectByPrimaryKey(plandetail.getParentId()));
         }
         return plandetailList;
-    }*/
+    }
+
+    @Override
+    public int updateDispatch(String dispatch, Integer purchaseqplanId) {
+        return this.plandetailMapper.updateDispatch(dispatch,purchaseqplanId);
+    }
 }

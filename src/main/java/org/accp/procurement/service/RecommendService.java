@@ -1,6 +1,8 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.entity.Recommend;
+
 /**
  * 推荐供应商服务接口
  *
@@ -9,5 +11,10 @@ package org.accp.procurement.service;
  * @description 
  */
 public interface RecommendService {
-
+    /**
+     * 根据产品编号查询推荐供应商表
+     * @param productNo
+     * @return 推荐供应商实体类
+     * */
+    Recommend selectByProductNo(String productNo);
 }

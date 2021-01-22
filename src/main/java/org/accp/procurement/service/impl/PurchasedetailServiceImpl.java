@@ -1,6 +1,9 @@
 package org.accp.procurement.service.impl;
 
+import org.accp.procurement.entity.Purchasedetail;
+import org.accp.procurement.mapper.PurchasedetailMapper;
 import org.accp.procurement.service.PurchasedetailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,5 +15,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PurchasedetailServiceImpl implements PurchasedetailService {
-
+    @Autowired
+    private PurchasedetailMapper purchasedetailMapper;
+    @Override
+    public int insert(Purchasedetail record) {
+        return this.purchasedetailMapper.insert(record);
+    }
 }
