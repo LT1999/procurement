@@ -24,7 +24,8 @@
         insert into purchaseqplan (ID, Purchaseq_No, Purchaseq_TotalPrices,
                                    Purchaseq_TotalQuantity, Purchaseq_Reason,
                                    Purchaseq_SupplyTime, Purchaseq_Registrant,
-                                   Purchaseq_RegistrantTime, Purchaseq_Remark, auditor, auditorTime, CheckMark)
+                                   Purchaseq_RegistrantTime, Purchaseq_Remark,
+                                   auditor, auditorTime, CheckMark)
         values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{purchaseqTotalprices,jdbcType=DECIMAL},
                 #{purchaseqTotalquantity,jdbcType=VARCHAR}, #{purchaseqReason,jdbcType=VARCHAR},
                 #{purchaseqSupplytime,jdbcType=TIMESTAMP}, #{purchaseqRegistrant,jdbcType=VARCHAR},
@@ -77,4 +78,5 @@
                CheckMark
         from purchaseqplan
     </select>
+
 </mapper>

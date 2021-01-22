@@ -20,9 +20,16 @@ public interface PlandetailService {
      * */
     List<Plandetail> selectAllByParentId(Integer parentId);
     /**
-     * 查询所有计划明细表并父id的类
+     * 查询所有计划明细表并查询父id的类
      * @return List<Plandetail>
      * */
     List<Plandetail> selectAllAndPurchaseqplan();
 
+    /**
+     * 修改调度标志
+     * @param dispatch  调度字符串（已调度、未调度）
+     * @param purchaseqplanId  修改条件的id
+     * @return int 返回成功状态
+     **/
+    int updateDispatch(String dispatch,Integer purchaseqplanId);
 }

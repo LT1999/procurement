@@ -9,7 +9,6 @@ import lombok.Data;
  * @author LT
  * @since 2021-01-16 14:46:04
  * @description
- * @exends 继承采购计划表（Purchaseqplan）
  */
 @Data
 public class Plandetail{
@@ -50,6 +49,11 @@ public class Plandetail{
      * 描述
      */
     private String describe;
+
+    /**
+     * 调度标志：已调度 、 未调度
+     * */
+    private String dispatch;
     /**
      * 采购计划
      */

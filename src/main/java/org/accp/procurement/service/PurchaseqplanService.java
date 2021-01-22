@@ -3,8 +3,6 @@ package org.accp.procurement.service;
 
 import org.accp.procurement.entity.Purchaseqplan;
 
-import java.util.List;
-
 /**
  * 采购计划表服务接口
  *
@@ -19,4 +17,5 @@ public interface PurchaseqplanService {
      * @return Purchaseqplan
      * */
     Purchaseqplan selectByPrimaryKey(Integer id);
+
 }

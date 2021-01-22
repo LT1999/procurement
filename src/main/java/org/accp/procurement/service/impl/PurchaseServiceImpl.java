@@ -7,10 +7,7 @@ import org.accp.procurement.entity.Purchaseqplan;
 import org.accp.procurement.entity.Serial;
 import org.accp.procurement.mapper.PurchaseMapper;
 import org.accp.procurement.mapper.PurchaseqplanMapper;
-import org.accp.procurement.service.PurchaseService;
-import org.accp.procurement.service.PurchasedetailService;
-import org.accp.procurement.service.PurchaseqplanService;
-import org.accp.procurement.service.SerialService;
+import org.accp.procurement.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +33,8 @@ public  class PurchaseServiceImpl implements PurchaseService {
     private PurchasedetailService purchasedetailService;
     @Autowired
     private SerialService serialService;
-
+    @Autowired
+    private PlandetailService plandetailService;
     @Override
     public int insert(PurchaseDto purchaseDto) {
         Integer count=0;
@@ -65,7 +63,7 @@ public  class PurchaseServiceImpl implements PurchaseService {
             System.out.println(purchasedetail.toString());
            count += this.purchasedetailService.insert(purchasedetail);
         }
-
+        count+=this.plandetailService.updateDispatch("已调度",purchaseDto.getPurchaseqplanId());
         return count;
     }
 }
