@@ -1,6 +1,8 @@
 package org.accp.procurement.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -55,6 +57,7 @@ public class Invoice {
     /**
      * 登记时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date registranttime;
     /**
      * 审核人
@@ -63,6 +66,7 @@ public class Invoice {
     /**
      * 审核时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date auditorTime;
     /**
      * 审核标志

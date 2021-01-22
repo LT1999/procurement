@@ -1,7 +1,10 @@
 package org.accp.procurement.entity;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 供应商档案表(supplierfiles)实体类
@@ -104,6 +107,7 @@ public class Supplierfiles {
     /**
      * 登记时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date supplierRegistrationtime;
     /**
      * 审核人
@@ -112,6 +116,7 @@ public class Supplierfiles {
     /**
      * 审核时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date auditorTime;
     /**
      * 采购人

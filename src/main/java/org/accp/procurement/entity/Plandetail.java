@@ -8,10 +8,10 @@ import lombok.Data;
  *
  * @author LT
  * @since 2021-01-16 14:46:04
- * @description 
+ * @description
  */
 @Data
-public class Plandetail {
+public class Plandetail{
 
     /**
      * 主键
@@ -50,4 +50,12 @@ public class Plandetail {
      */
     private String describe;
 
+    /**
+     * 调度标志：已调度 、 未调度
+     * */
+    private String dispatch;
+    /**
+     * 采购计划
+     */
+    private Purchaseqplan purchaseqplan;
 }

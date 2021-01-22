@@ -13,7 +13,7 @@
         <result column="Purchaseq_Remark" jdbcType="VARCHAR" property="purchaseqRemark"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
-        <result column="checkMark" jdbcType="VARCHAR" property="checkMark"/>
+        <result column="CheckMark" jdbcType="VARCHAR" property="checkMark"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
@@ -24,7 +24,8 @@
         insert into purchaseqplan (ID, Purchaseq_No, Purchaseq_TotalPrices,
                                    Purchaseq_TotalQuantity, Purchaseq_Reason,
                                    Purchaseq_SupplyTime, Purchaseq_Registrant,
-                                   Purchaseq_RegistrantTime, Purchaseq_Remark, auditor, auditorTime, checkMark)
+                                   Purchaseq_RegistrantTime, Purchaseq_Remark,
+                                   auditor, auditorTime, CheckMark)
         values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{purchaseqTotalprices,jdbcType=DECIMAL},
                 #{purchaseqTotalquantity,jdbcType=VARCHAR}, #{purchaseqReason,jdbcType=VARCHAR},
                 #{purchaseqSupplytime,jdbcType=TIMESTAMP}, #{purchaseqRegistrant,jdbcType=VARCHAR},
@@ -43,7 +44,7 @@
             Purchaseq_Remark         = #{purchaseqRemark,jdbcType=VARCHAR},
             auditor                  = #{auditor,jdbcType=VARCHAR},
             auditorTime              = #{auditorTime,jdbcType=TIMESTAMP},
-            checkMark                = #{checkMark,jdbcType=VARCHAR}
+            CheckMark                = #{checkMark,jdbcType=VARCHAR}
         where ID = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -58,7 +59,7 @@
                Purchaseq_Remark,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from purchaseqplan
         where ID = #{id,jdbcType=INTEGER}
     </select>
@@ -74,7 +75,8 @@
                Purchaseq_Remark,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from purchaseqplan
     </select>
+
 </mapper>

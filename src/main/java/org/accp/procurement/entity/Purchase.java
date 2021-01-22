@@ -2,7 +2,11 @@ package org.accp.procurement.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 采购总表(purchase)实体类
  *
@@ -28,7 +32,7 @@ public class Purchase {
     /**
      * 产品编号
      */
-    private Date productNo;
+    private String productNo;
     /**
      * 产品名称
      */
@@ -52,6 +56,7 @@ public class Purchase {
     /**
      * 登记时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date purchaseRegistranttime;
     /**
      * 审核人
@@ -60,9 +65,12 @@ public class Purchase {
     /**
      * 审核时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date auditorTime;
     /**
      * 审核标志
      */
+
     private String checkMark;
+
 }

@@ -3,7 +3,11 @@ package org.accp.procurement.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 采购明细表(purchasedetail)实体类
  *
@@ -47,8 +51,9 @@ public class Purchasedetail {
      */
     private BigDecimal subtotal;
     /**
-     * 付款时间
+     * 供货时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date paymenttime;
 
 }

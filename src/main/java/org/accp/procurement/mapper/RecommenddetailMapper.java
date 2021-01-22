@@ -13,4 +13,10 @@ public interface RecommenddetailMapper {
     List<Recommenddetail> selectAll();
 
     int updateByPrimaryKey(Recommenddetail record);
+    /**
+     * 根据父id(推荐供应商表id)查询推荐供应商明细表数据
+     * @param parentId
+     * @return List<Recommenddetail>（返回推荐供应商明细表数据集合）
+     * */
+    List<Recommenddetail> selectByParentId(Integer parentId);
 }

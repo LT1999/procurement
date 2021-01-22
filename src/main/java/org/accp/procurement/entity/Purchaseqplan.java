@@ -2,7 +2,10 @@ package org.accp.procurement.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 采购计划表(purchaseqplan)实体类
@@ -37,6 +40,7 @@ public class Purchaseqplan {
     /**
      * 供货时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date purchaseqSupplytime;
     /**
      * 登记人
@@ -45,6 +49,7 @@ public class Purchaseqplan {
     /**
      * 登记时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date purchaseqRegistranttime;
     /**
      * 备注
@@ -57,9 +62,12 @@ public class Purchaseqplan {
     /**
      * 审核时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date auditorTime;
     /**
      * 审核标志
      */
     private String checkMark;
+
+
 }
