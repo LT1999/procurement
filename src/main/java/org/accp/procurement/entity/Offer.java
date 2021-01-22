@@ -2,7 +2,11 @@ package org.accp.procurement.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 报价表(offer)实体类
  *

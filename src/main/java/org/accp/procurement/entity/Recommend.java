@@ -1,7 +1,10 @@
 package org.accp.procurement.entity;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 推荐供应商(recommend)实体类
@@ -44,6 +47,7 @@ public class Recommend {
     /**
      * 登记时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date registrartime;
     /**
      * 审核人
@@ -52,6 +56,7 @@ public class Recommend {
     /**
      * 审核时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date auditorTime;
     /**
      * 审核标志
