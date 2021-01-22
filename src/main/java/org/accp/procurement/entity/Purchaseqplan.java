@@ -69,4 +69,5 @@ public class Purchaseqplan {
      */
     private String checkMark;
 
+
 }

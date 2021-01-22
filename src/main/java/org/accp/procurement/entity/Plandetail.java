@@ -49,6 +49,11 @@ public class Plandetail{
      * 描述
      */
     private String describe;
+
+    /**
+     * 调度标志：已调度 、 未调度
+     * */
+    private String dispatch;
     /**
      * 采购计划
      */

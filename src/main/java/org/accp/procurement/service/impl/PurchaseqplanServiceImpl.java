@@ -36,4 +36,6 @@ public class PurchaseqplanServiceImpl implements PurchaseqplanService {
     public Purchaseqplan selectByPrimaryKey(Integer id) {
         return this.purchaseqplanMapper.selectByPrimaryKey(id);
     }
+
+
 }
