@@ -12,7 +12,7 @@ public class supplierDto {
 
     private Supplierfiles supplierfiles;
 
-    private Offer ofers;
+    private Offer offer;
 
     private Linkman linkmen;
 }

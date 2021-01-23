@@ -68,6 +68,24 @@
         from offer
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="selectAlloffer" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select id,
+               Offer_No,
+               Supplier_id,
+               Goods_No,
+               Goods_Name,
+               Goods_Price,
+               Goods_Discount,
+               Goods_Subtotal,
+               Goods_Describe,
+               registrar,
+               registrarTime,
+               auditor,
+               auditorTime,
+               checkMark
+        from offer
+        where Goods_No=#{goodsNo,jdbcType=VARCHAR}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
         select id,
                Offer_No,
