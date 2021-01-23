@@ -27,6 +27,7 @@ public class LinkmanController {
     //根据ID查询
     @RequestMapping("/selectByPrimaryKey")
     public Linkman selectByPrimaryKey(int id){
+        System.out.println(id+"---------------");
         return this.linkmanService.selectByPrimaryKey(id);
     }
 }

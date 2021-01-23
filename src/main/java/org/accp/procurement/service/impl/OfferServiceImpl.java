@@ -43,8 +43,6 @@ private OfferMapper offerMapper;
     public int insert(supplierDto dto) {
 if(dto.getOffers()!=null&&dto.getOffers().length!=0) {
     for (int i = 0; i < dto.getOffers().length; i++) {
-        dto.getOffers()[i].setRegistrar(dto.getRegistrar());
-        dto.getOffers()[i].setRegistrartime(dto.getRegistrartime());
         this.offerMapper.insert(dto.getOffers()[i]);
     }
 }

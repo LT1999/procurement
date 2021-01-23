@@ -16,10 +16,4 @@ public class supplierDto {
     private Offer[] offers;
 
     private Linkman linkmen;
-    //登记人
-    private String registrar;
-    //登记时间
-    private String registrartime;
-    //供应商主键
-    private int supplierId;
 }

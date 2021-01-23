@@ -60,7 +60,8 @@ public class Offer {
     /**
      * 登记时间
      */
-    private String registrartime;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date registrartime;
     /**
      * 审核人
      */
@@ -68,7 +69,8 @@ public class Offer {
     /**
      * 审核时间
      */
-    private String auditorTime;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date auditorTime;
     /**
      * 审核标志
      */
