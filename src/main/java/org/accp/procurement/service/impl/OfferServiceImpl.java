@@ -5,14 +5,17 @@ package org.accp.procurement.service.impl;
 import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Linkman;
 import org.accp.procurement.entity.Offer;
+import org.accp.procurement.entity.Serial;
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.mapper.LinkmanMapper;
 import org.accp.procurement.mapper.OfferMapper;
 import org.accp.procurement.mapper.SupplierfilesMapper;
 import org.accp.procurement.service.OfferService;
+import org.accp.procurement.service.SerialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +31,8 @@ import java.util.List;
 public class OfferServiceImpl implements OfferService {
     @Autowired
     private OfferMapper offerMapper;
-
+    @Autowired
+    private SerialService serialService;
     @Autowired
     private SupplierfilesMapper supplierfilesMapper;
 
@@ -51,9 +55,24 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public int insert(supplierDto dto) {
+        int num=0;
+//        格式化日期
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String time="";
+//        获取下一个自增主键
+        Integer id=this.offerMapper.getId();
+//        创建编号生成实体类，设置参数
+        Serial serial = new Serial();
+//        调用服务类方法生成编号
+        String oNo= "";
         if(dto.getOffers()!=null&&dto.getOffers().size()!=0) {
             for (int i = 0; i < dto.getOffers().size(); i++) {
-                this.offerMapper.insert(dto.getOffers().get(i));
+                time=format.format(dto.getOffers().get(i).getRegistrartime());
+                serial.setId(id);
+                serial.setTime(time);
+                oNo=serialService.offerNo(serial);
+                dto.getOffers().get(i).setId(this.offerMapper.getId());
+                num+=this.offerMapper.insert(dto.getOffers().get(i));
             }
         }
         return 1;
@@ -71,7 +90,7 @@ public class OfferServiceImpl implements OfferService {
         List<Offer> list=this.offerMapper.selectAlloffer(goodsNo);
         for (int i=0;i<list.size();i++){
             supplierDto dto=new supplierDto();
-            dto.setOffers(list.get(i));
+            dto.setOffer(list.get(i));
             List<Supplierfiles> list1=this.supplierfilesMapper.selectSuppByid(list.get(i).getSupplierId());
             for (int f=0;f<list1.size();f++){
                 dto.setSupplierfiles(list1.get(f));
@@ -85,5 +104,15 @@ public class OfferServiceImpl implements OfferService {
             dtoList.add(dto);
         }
         return dtoList;
+    }
+
+    @Override
+    public int getId() {
+        return this.offerMapper.getId();
+    }
+
+    @Override
+    public List<Offer> findCheck() {
+        return this.offerMapper.findCheck("未审核");
     }
 }

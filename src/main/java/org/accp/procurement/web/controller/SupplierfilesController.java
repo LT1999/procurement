@@ -28,4 +28,10 @@ public class SupplierfilesController {
     public List<Supplierfiles> findCheck(){
         return this.supplierfilesService.findCheck();
     }
+
+    @RequestMapping("/selectByPrimaryKey")
+    public Supplierfiles selectByPrimaryKey(int id){
+        System.out.println(id);
+        return this.supplierfilesService.selectByPrimaryKey(id);
+    }
 }

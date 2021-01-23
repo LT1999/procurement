@@ -112,4 +112,11 @@ select * from offer where Supplier_id=#{supplierId,jdbcType=INTEGER}
     <select id="findsp" resultMap="BaseResultMap">
 select * from erp.productfile where type='物料'
     </select>
+    <select id="getId" resultType="int">
+      SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE Table_Schema='purchase' AND table_name = 'offer' LIMIT 1
+
+    </select>
+    <select id="findCheck" resultMap="BaseResultMap" parameterType="String">
+select * from offer where CheckMark=#{checkMark,jdbcType=VARCHAR}
+    </select>
 </mapper>

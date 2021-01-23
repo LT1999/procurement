@@ -18,4 +18,6 @@ public interface SupplierfilesService {
 
     int addSupplierfiles(Supplierfiles supplierfiles);
 
+    Supplierfiles selectByPrimaryKey(Integer id);
+
 }

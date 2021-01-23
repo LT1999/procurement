@@ -1,6 +1,7 @@
 package org.accp.procurement.web.controller;
 
 import org.accp.procurement.service.LinkmanService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ import org.accp.procurement.entity.Supplierfiles;
 @CrossOrigin(methods = {RequestMethod.POST,RequestMethod.GET})
 @RequestMapping("/linkman")
 public class LinkmanController {
+    @Autowired
     private LinkmanService linkmanService;
 
     //根据ID查询

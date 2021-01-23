@@ -4,10 +4,7 @@ import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Offer;
 import org.accp.procurement.service.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,10 +39,10 @@ public class OfferController{
     }
 
     @RequestMapping("/insert")
-    public String insert(supplierDto dto){
+    public Integer insert(supplierDto dto){
         System.out.println(dto.toString());
-        this.offerService.insert(dto);
-        return "true";
+
+        return this.offerService.insert(dto);
     }
 
     @RequestMapping("/findsp")
@@ -57,4 +54,11 @@ public class OfferController{
     public List<supplierDto> selectAlloffer(String goodsNo){
         return  this.offerService.selectAlloffer(goodsNo);
     }
+
+    @RequestMapping("/findCheck")
+    public List<Offer> findCheck(){
+        return this.offerService.findCheck();
+    }
+
+
 }

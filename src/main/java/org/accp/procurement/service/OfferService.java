@@ -26,5 +26,10 @@ public interface OfferService {
 
     //根据产品id查询报价表的供应商
     List<supplierDto> selectAlloffer(String goodsNo);
-
+    /**
+     * 获取下一个自增主键
+     * @return int
+     * */
+    int getId();
+    List<Offer> findCheck();
 }

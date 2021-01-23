@@ -21,4 +21,12 @@ public interface OfferMapper {
 
     //根据产品id查询报价表的供应商
     List<Offer> selectAlloffer(String goodsNo);
+
+    /**
+     * 获取下一个自增主键
+     * @return int
+     * */
+    int getId();
+    //根据 审核标志查询
+    List<Offer> findCheck(String checkMark);
 }

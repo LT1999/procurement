@@ -31,4 +31,9 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
     public int addSupplierfiles(Supplierfiles supplierfiles) {
         return 0;
     }
+
+    @Override
+    public Supplierfiles selectByPrimaryKey(Integer id) {
+        return this.supplierfilesMapper.selectByPrimaryKey(id);
+    }
 }
