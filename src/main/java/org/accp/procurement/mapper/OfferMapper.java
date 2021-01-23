@@ -1,5 +1,5 @@
 package org.accp.procurement.mapper;
-
+import org.accp.procurement.dto.supplierDto;
 import java.util.List;
 import org.accp.procurement.entity.Offer;
 
@@ -18,4 +18,7 @@ public interface OfferMapper {
     //根据供应商ID删除
     int delSupplierId(int supplierId);
     List<Offer> findsp();
+
+    //根据产品id查询报价表的供应商
+    List<Offer> selectAlloffer(String goodsNo);
 }

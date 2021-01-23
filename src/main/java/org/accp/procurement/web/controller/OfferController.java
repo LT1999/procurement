@@ -52,4 +52,9 @@ public class OfferController{
     public List<Offer> findsp(){
         return this.offerService.findsp();
     }
+
+    @RequestMapping("/selectAlloffer")
+    public List<supplierDto> selectAlloffer(String goodsNo){
+        return  this.offerService.selectAlloffer(goodsNo);
+    }
 }

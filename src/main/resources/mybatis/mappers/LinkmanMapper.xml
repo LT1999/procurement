@@ -39,8 +39,14 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select id, Linkman_Name, Linkman_Sector, Linkman_Post, Linkman_Phone, Linkman_Email, 
-    Linkman_Sex
-    from linkman
-  </select>
+  select id, Linkman_Name, Linkman_Sector, Linkman_Post, Linkman_Phone, Linkman_Email,
+  Linkman_Sex
+  from linkman
+</select>
+  <select id="selectLinbyid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  select id, Linkman_Name, Linkman_Sector, Linkman_Post, Linkman_Phone, Linkman_Email,
+  Linkman_Sex
+  from linkman
+  where id = #{id,jdbcType=INTEGER}
+</select>
 </mapper>

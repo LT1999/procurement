@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:04
- * @description 
+ * @description
  */
 public interface OfferService {
     //根据供应商ID查询
@@ -23,4 +23,8 @@ public interface OfferService {
     //新增
     int insert(supplierDto dto);
     List<Offer> findsp();
+
+    //根据产品id查询报价表的供应商
+    List<supplierDto> selectAlloffer(String goodsNo);
+
 }
