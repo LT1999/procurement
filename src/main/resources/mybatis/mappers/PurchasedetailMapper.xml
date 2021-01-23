@@ -48,4 +48,11 @@
     Subtotal, PaymentTime
     from purchasedetail
   </select>
+
+  <select id="selectByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select ID, Parent_ID, Supplier_No, Supplier_Name, Quantity, Qualified_Quantity, Price,
+           Subtotal, PaymentTime
+    from purchasedetail where Parent_ID = #{parentId,jdbcType = INTEGER}
+  </select>
+
 </mapper>

@@ -2,6 +2,7 @@ package org.accp.procurement.mapper;
 
 import java.util.List;
 import org.accp.procurement.entity.Plandetail;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 public interface PlandetailMapper {
@@ -30,9 +31,9 @@ public interface PlandetailMapper {
     /**
      * 修改调度标志
      * @param dispatch
-     * @param PurchaseqplanId
+     * @param purchaseqplanId
      * @return int 返回成功状态
      * **/
-    @Update("update Purchaseqplan set dispatch = #{dispatch} where id=#{PurchaseqplanId}")
-    int updateDispatch(String dispatch,Integer PurchaseqplanId);
+    @Update("update Plandetail set dispatch = #{dispatch} where id = #{purchaseqplanId}")
+    int updateDispatch(@Param("dispatch")String dispatch, @Param("purchaseqplanId")Integer purchaseqplanId);
 }

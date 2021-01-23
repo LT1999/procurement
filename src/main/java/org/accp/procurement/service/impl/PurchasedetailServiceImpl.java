@@ -6,6 +6,8 @@ import org.accp.procurement.service.PurchasedetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 采购明细表服务接口实现
  *
@@ -20,5 +22,10 @@ public class PurchasedetailServiceImpl implements PurchasedetailService {
     @Override
     public int insert(Purchasedetail record) {
         return this.purchasedetailMapper.insert(record);
+    }
+
+    @Override
+    public List<Purchasedetail> selectByParentId(Integer parentId) {
+        return this.purchasedetailMapper.selectByParentId(parentId);
     }
 }

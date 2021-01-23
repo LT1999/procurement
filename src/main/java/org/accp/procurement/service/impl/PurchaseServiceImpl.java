@@ -56,14 +56,28 @@ public  class PurchaseServiceImpl implements PurchaseService {
 //        新增采购总表到数据库
         this.purchaseMapper.insert(purchaseDto.getPurchase());
 //        遍历明细集合，设置父id参数，添加到数据库，状态累加
-        format.applyPattern("yyyy-MM-dd HH:mm:ss");
         for (Purchasedetail purchasedetail:
              purchaseDto.getPurchasedetailList()) {
             purchasedetail.setParentId(id);
-            System.out.println(purchasedetail.toString());
            count += this.purchasedetailService.insert(purchasedetail);
         }
-        count+=this.plandetailService.updateDispatch("已调度",purchaseDto.getPurchaseqplanId());
+        count+=this.plandetailService.updateDispatch("已调度",purchaseDto.getPlanDetailId());
         return count;
+    }
+
+    @Override
+    public List<Purchase> selectCheck() {
+        return this.purchaseMapper.selectCheck();
+    }
+
+    @Override
+    public Integer updateByPrimaryKey(Purchase purchase) {
+        System.out.println(purchase.toString());
+        return this.purchaseMapper.updateByPrimaryKey(purchase);
+    }
+
+    @Override
+    public List<Purchase> selectAll() {
+        return this.purchaseMapper.selectAll();
     }
 }
