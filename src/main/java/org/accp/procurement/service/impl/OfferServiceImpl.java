@@ -13,6 +13,7 @@ import org.accp.procurement.service.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,9 +51,9 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public int insert(supplierDto dto) {
-        if(dto.getOffers()!=null&&dto.getOffers().length!=0) {
-            for (int i = 0; i < dto.getOffers().length; i++) {
-                this.offerMapper.insert(dto.getOffers()[i]);
+        if(dto.getOffers()!=null&&dto.getOffers().size()!=0) {
+            for (int i = 0; i < dto.getOffers().size(); i++) {
+                this.offerMapper.insert(dto.getOffers().get(i));
             }
         }
         return 1;
@@ -70,7 +71,7 @@ public class OfferServiceImpl implements OfferService {
         List<Offer> list=this.offerMapper.selectAlloffer(goodsNo);
         for (int i=0;i<list.size();i++){
             supplierDto dto=new supplierDto();
-            dto.setOffer(list.get(i));
+            dto.setOffers(list.get(i));
             List<Supplierfiles> list1=this.supplierfilesMapper.selectSuppByid(list.get(i).getSupplierId());
             for (int f=0;f<list1.size();f++){
                 dto.setSupplierfiles(list1.get(f));

@@ -13,7 +13,7 @@ public class supplierDto {
 
     private Supplierfiles supplierfiles;
 
-    private Offer[] offers;
+    private List<Offer> offers;
 
     private Linkman linkmen;
 }
