@@ -59,4 +59,13 @@ public class PurchaseController {
     public List<Purchase> selectAll(){
         return this.purchaseService.selectAll();
     }
+
+    /**
+     * 查询采购总表未质检的数据
+     * @return List<Purchase>
+     **/
+    @RequestMapping("/selectQuality")
+    public List<Purchase> selectQuality(){
+        return this.purchaseService.selectQuality();
+    }
 }

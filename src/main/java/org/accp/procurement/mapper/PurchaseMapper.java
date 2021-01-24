@@ -35,4 +35,10 @@ public interface PurchaseMapper {
      * @return List<Purchase>
      * */
     List<Purchase> selectCheck();
+
+    /**
+     * 查询采购总表未质检的数据
+     * @return List<Purchase>
+     * */
+    List<Purchase> selectQuality();
 }

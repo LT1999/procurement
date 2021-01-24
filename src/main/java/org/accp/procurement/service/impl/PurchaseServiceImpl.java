@@ -72,12 +72,16 @@ public  class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public Integer updateByPrimaryKey(Purchase purchase) {
-        System.out.println(purchase.toString());
         return this.purchaseMapper.updateByPrimaryKey(purchase);
     }
 
     @Override
     public List<Purchase> selectAll() {
         return this.purchaseMapper.selectAll();
+    }
+
+    @Override
+    public List<Purchase> selectQuality() {
+        return this.purchaseMapper.selectQuality();
     }
 }

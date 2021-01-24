@@ -2,6 +2,7 @@ package org.accp.procurement.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -67,10 +68,11 @@ public class Purchase {
      */
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date auditorTime;
+
     /**
      * 审核标志
      */
-
     private String checkMark;
+
 
 }

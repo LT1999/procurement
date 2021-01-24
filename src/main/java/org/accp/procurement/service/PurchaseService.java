@@ -39,4 +39,10 @@ public interface PurchaseService {
      * @return List<Purchase>
      * */
     List<Purchase> selectAll();
+
+    /**
+     * 查询采购总表未质检的数据
+     * @return List<Purchase>
+     * */
+    List<Purchase> selectQuality();
 }
