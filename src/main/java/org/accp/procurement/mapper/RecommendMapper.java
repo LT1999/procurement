@@ -19,4 +19,6 @@ public interface RecommendMapper {
      * @return 推荐供应商实体类
      * */
     Recommend selectByProductNo(String productNo);
+
+    int getId();
 }

@@ -1,6 +1,7 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.dto.RecommendDto;
 import org.accp.procurement.entity.Recommend;
 
 /**
@@ -17,4 +18,6 @@ public interface RecommendService {
      * @return 推荐供应商实体类
      * */
     Recommend selectByProductNo(String productNo);
+
+    void  InsertRecommend(RecommendDto recommendDto);
 }
