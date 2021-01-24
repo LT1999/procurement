@@ -69,20 +69,20 @@
     </select>
 
     <select id="selectDispatch" resultMap="BaseResultMap">
-        select ID,
-               Parent_ID,
-               Product_No,
-               Product_Name,
-               Quantity,
-               Unit,
-               Price,
-               Subtotal,
-               `Describe`,
-               dispatch
-        from plandetail,
+        SELECT plandetail.ID,
+               plandetail.Parent_ID,
+               plandetail.Product_No,
+               plandetail.Product_Name,
+               plandetail.Quantity,
+               plandetail.Unit,
+               plandetail.Price,
+               plandetail.Subtotal,
+               plandetail.`Describe`,
+               plandetail.dispatch
+        FROM plandetail,
              purchaseqplan
-        where plandetail.Parent_ID = purchaseqplan.ID
-          and purchaseqplan.CheckMark = '已审核' and plandetail.dispatch = '未调度'
+        WHERE plandetail.Parent_ID = purchaseqplan.ID
+          AND purchaseqplan.CheckMark = '已审核' AND plandetail.dispatch = '未调度'
     </select>
 
     <select id="selectAllByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">

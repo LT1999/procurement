@@ -17,5 +17,5 @@ import java.util.List;
 public class PurchaseDto {
     private Purchase purchase;
     private List<Purchasedetail> purchasedetailList;
-    private Integer purchaseqplanId;
+    private Integer planDetailId;
 }
