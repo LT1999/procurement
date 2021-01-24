@@ -48,7 +48,7 @@
                                    Supplier_Fax, Supplier_PostalCode, Supplier_FirstContact,
                                    Supplier_SecondContact, SuPPlier_Registrant,
                                    SuPPlier_RegistrationTime, SuPPlier_Buyer,
-                                   SuPPlier_Buyer_No, SuPPlier_Registrant, SuPPlier_RegistrationTime, auditor,
+                                   SuPPlier_Buyer_No,  auditor,
                                    auditorTime, CheckMark)
         values (#{id,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
                 #{supplierAddress,jdbcType=VARCHAR}, #{firstKindId,jdbcType=INTEGER}, #{firstKindName,jdbcType=VARCHAR},
@@ -62,7 +62,7 @@
                 #{supplierFirstcontact,jdbcType=INTEGER},
                 #{supplierSecondcontact,jdbcType=INTEGER}, #{supplierRegistrant,jdbcType=VARCHAR},
                 #{supplierRegistrationtime,jdbcType=TIMESTAMP}, #{supplierBuyer,jdbcType=VARCHAR},
-                #{supplierBuyerNo,jdbcType=VARCHAR}, #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP},
+                #{supplierBuyerNo,jdbcType=VARCHAR},
                 #{auditor,jdbcType=VARCHAR}, #{auditorTime,jdbcType=TIMESTAMP}, #{checkMark,jdbcType=VARCHAR})
     </insert>
     <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Supplierfiles">
@@ -197,7 +197,7 @@
                auditor,
                auditorTime,
                checkMark
-        from supplierfiles WHERE CheckMark = "未审核"
+        from supplierfiles WHERE CheckMark = '未审核'
     </select>
 
 </mapper>

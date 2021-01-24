@@ -21,11 +21,13 @@ public class SupplierfilesController {
     @Autowired
     private SupplierfilesService supplierfilesService;
 
-    @RequestMapping("/insert.do")
-    public @ResponseBody Integer insert(Supplierfiles supplierfiles){
-        return this.supplierfilesService.insert(supplierfiles);
+    @RequestMapping("/insert")
+    public @ResponseBody Integer insert(Supplierfiles ruleForm){
+
+        /*ruleForm.getSupplierRegistrationtime();*/
+        return this.supplierfilesService.insert(ruleForm);
     }
-    @RequestMapping("/selectCheck.do")
+    @RequestMapping("/selectCheck")
     public  List<Supplierfiles> selectCheck(){
         return this.supplierfilesService.selectCheck();
     }

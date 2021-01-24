@@ -1,10 +1,9 @@
 package org.accp.procurement.web.controller;
 
+import org.accp.procurement.entity.Linkman;
 import org.accp.procurement.service.LinkmanService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 联系人信息表服务控制器
@@ -18,6 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/linkman")
 @CrossOrigin(methods = {RequestMethod.POST,RequestMethod.GET})
 public class LinkmanController {
+    @Autowired
     private LinkmanService linkmanService;
+
+    @RequestMapping("/insert")
+    public @ResponseBody Integer insert(Linkman [] linkman){
+        //int count=0;
+        for (int i = 0; i < linkman.length; i++) {
+            System.out.println(linkman[i].getLinkmanSex());
+        }
+        return 0;
+    }
 
 }
