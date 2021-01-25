@@ -3,11 +3,9 @@ package org.accp.procurement.service.impl;
 
 
 import org.accp.procurement.dto.supplierDto;
-import org.accp.procurement.entity.Linkman;
 import org.accp.procurement.entity.Offer;
 import org.accp.procurement.entity.Serial;
 import org.accp.procurement.entity.Supplierfiles;
-import org.accp.procurement.mapper.LinkmanMapper;
 import org.accp.procurement.mapper.OfferMapper;
 import org.accp.procurement.mapper.SupplierfilesMapper;
 import org.accp.procurement.service.OfferService;
@@ -36,8 +34,6 @@ public class OfferServiceImpl implements OfferService {
     @Autowired
     private SupplierfilesMapper supplierfilesMapper;
 
-    @Autowired
-    private LinkmanMapper linkmanMapper;
     @Override
     public List<Offer> findSupplierId(int supplierId) {
         return this.offerMapper.findSupplierId(supplierId);
