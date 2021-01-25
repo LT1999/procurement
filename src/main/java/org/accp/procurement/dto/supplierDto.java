@@ -14,6 +14,7 @@ public class supplierDto {
     private Supplierfiles supplierfiles;
     private Offer offer;
     private List<Offer> offers;
-
+private Date time1;
+private Date time2;
     private Linkman linkmen;
 }

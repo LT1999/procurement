@@ -115,4 +115,44 @@ public class OfferServiceImpl implements OfferService {
     public List<Offer> findCheck() {
         return this.offerMapper.findCheck("未审核");
     }
+
+    @Override
+    public int updateByPrimaryKey(Offer offer) {
+        return this.offerMapper.updateByPrimaryKey(offer);
+    }
+
+    @Override
+    public int countyi() {
+        return this.offerMapper.countyi();
+    }
+
+    @Override
+    public int counter() {
+        return this.offerMapper.counter();
+    }
+
+    @Override
+    public int countsan() {
+        return this.offerMapper.countsan();
+    }
+
+    @Override
+    public List<Offer> selectwei() {
+        return this.offerMapper.selectwei();
+    }
+
+    @Override
+    public int countwei() {
+        return this.offerMapper.countwei();
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Integer id) {
+        return this.offerMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Offer> findtime(supplierDto dto) {
+        return this.offerMapper.findtime(dto);
+    }
 }

@@ -61,4 +61,40 @@ public class OfferController{
     }
 
 
+    @RequestMapping("/updateByPrimaryKey")
+    public int updateByPrimaryKey(Offer form){
+        return this.offerService.updateByPrimaryKey(form);
+    }
+
+    @RequestMapping("/count1")
+    public int count1(){ return this.offerService.countyi(); }
+    @RequestMapping("/count2")
+    public int count2(){
+        return this.offerService.counter();
+    }
+    @RequestMapping("/count3")
+    public int count3(){
+        return this.offerService.countsan();
+    }
+
+    @RequestMapping("/selectwei")
+    public List<Offer> selectwei(){
+        return this.offerService.selectwei();
+    }
+
+    @RequestMapping("/countwei")
+    public int countwei(){
+        return this.offerService.countwei();
+    }
+
+    @RequestMapping("/deleteByPrimaryKey")
+    public int deleteByPrimaryKey(int id){
+        return this.offerService.deleteByPrimaryKey(id);
+    }
+
+    @RequestMapping("/findtime")
+    public List<Offer> findtime(supplierDto dto){
+        return this.offerService.findtime(dto);
+    }
+
 }

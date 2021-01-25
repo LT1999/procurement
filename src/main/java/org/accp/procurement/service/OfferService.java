@@ -32,4 +32,14 @@ public interface OfferService {
      * */
     int getId();
     List<Offer> findCheck();
+    //根据id修改
+    int updateByPrimaryKey(Offer offer);
+
+    int countyi();
+    int counter();
+    int countsan();
+    List<Offer> selectwei();
+    int countwei();
+    int deleteByPrimaryKey(Integer id);
+    List<Offer> findtime(supplierDto dto);
 }

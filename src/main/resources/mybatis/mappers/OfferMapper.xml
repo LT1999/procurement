@@ -35,16 +35,9 @@
     </insert>
     <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Offer">
         update offer
-        set Offer_No       = #{offerNo,jdbcType=VARCHAR},
-            Supplier_id    = #{supplierId,jdbcType=INTEGER},
-            Goods_No       = #{goodsNo,jdbcType=VARCHAR},
-            Goods_Name     = #{goodsName,jdbcType=VARCHAR},
-            Goods_Price    = #{goodsPrice,jdbcType=DECIMAL},
+        set Goods_Price    = #{goodsPrice,jdbcType=DECIMAL},
             Goods_Discount = #{goodsDiscount,jdbcType=DECIMAL},
             Goods_Subtotal = #{goodsSubtotal,jdbcType=DECIMAL},
-            Goods_Describe = #{goodsDescribe,jdbcType=VARCHAR},
-            registrar      = #{registrar,jdbcType=VARCHAR},
-            registrarTime  = #{registrartime,jdbcType=TIMESTAMP},
             auditor        = #{auditor,jdbcType=VARCHAR},
             auditorTime    = #{auditorTime,jdbcType=TIMESTAMP},
             CheckMark      = #{checkMark,jdbcType=VARCHAR}
@@ -118,5 +111,26 @@ select * from erp.productfile where type='物料'
     </select>
     <select id="findCheck" resultMap="BaseResultMap" parameterType="String">
 select * from offer where CheckMark=#{checkMark,jdbcType=VARCHAR}
+    </select>
+
+    <select id="countyi" resultType="int">
+select count(*) from offer where CheckMark='未审核'
+    </select>
+    <select id="counter" resultType="int">
+select count(*) from offer where CheckMark not in ('未审核')
+    </select>
+    <select id="countsan" resultType="int">
+select count(*) from offer where CheckMark='审核通过'
+    </select>
+    <select id="countwei" resultType="int">
+select count(*) from offer where CheckMark='审核未通过'
+    </select>
+    <select id="selectwei" resultMap="BaseResultMap" >
+select * from offer where CheckMark='审核未通过'
+    </select>
+
+
+    <select id="findtime" resultMap="BaseResultMap" parameterType="org.accp.procurement.dto.supplierDto">
+SELECT * FROM offer WHERE registrarTime BETWEEN #{time1,jdbcType=STRING} AND #{time2,jdbcType=STRING}
     </select>
 </mapper>

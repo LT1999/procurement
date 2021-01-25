@@ -12,7 +12,7 @@ public interface OfferMapper {
 
     List<Offer> selectAll();
 
-    int updateByPrimaryKey(Offer record);
+    int updateByPrimaryKey(Offer offer);
     //根据供应商ID查询
     List<Offer> findSupplierId(int supplierId);
     //根据供应商ID删除
@@ -29,4 +29,11 @@ public interface OfferMapper {
     int getId();
     //根据 审核标志查询
     List<Offer> findCheck(String checkMark);
+
+    int countyi();
+    int counter();
+    int countsan();
+    List<Offer> selectwei();
+    int countwei();
+    List<Offer> findtime(supplierDto dto);
 }
