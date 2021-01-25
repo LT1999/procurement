@@ -29,4 +29,9 @@ public class RecommenddetailController {
     public List<Recommenddetail> selectByProductNo(String productNo){
         return this.recommenddetailService.selectByProductNo(productNo);
     }
+
+    @RequestMapping("/selectByParentId")
+    public List<Recommenddetail> selectByParentId(Integer parentId){
+        return  this.recommenddetailService.selectByParentId(parentId);
+    }
 }
