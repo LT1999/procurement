@@ -1,58 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.accp.procurement.mapper.PurchasedetailMapper">
-  <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Purchasedetail">
-    <id column="ID" jdbcType="INTEGER" property="id" />
-    <result column="Parent_ID" jdbcType="INTEGER" property="parentId" />
-    <result column="Supplier_No" jdbcType="VARCHAR" property="supplierNo" />
-    <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName" />
-    <result column="Quantity" jdbcType="INTEGER" property="quantity" />
-    <result column="Qualified_Quantity" jdbcType="INTEGER" property="qualifiedQuantity" />
-    <result column="Price" jdbcType="DECIMAL" property="price" />
-    <result column="Subtotal" jdbcType="DECIMAL" property="subtotal" />
-    <result column="PaymentTime" jdbcType="TIMESTAMP" property="paymenttime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from purchasedetail
-    where ID = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="org.accp.procurement.entity.Purchasedetail">
-    insert into purchasedetail (ID, Parent_ID, Supplier_No, 
-      Supplier_Name, Quantity, Qualified_Quantity,
-      Price, Subtotal, PaymentTime
-      )
-    values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR}, 
-      #{supplierName,jdbcType=VARCHAR}, #{quantity,jdbcType=INTEGER}, #{qualifiedQuantity,jdbcType=INTEGER}, 
-      #{price,jdbcType=DECIMAL}, #{subtotal,jdbcType=DECIMAL}, #{paymenttime,jdbcType=TIMESTAMP})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Purchasedetail">
-    update purchasedetail
-    set Parent_ID = #{parentId,jdbcType=INTEGER},
-      Supplier_No = #{supplierNo,jdbcType=VARCHAR},
-      Supplier_Name = #{supplierName,jdbcType=VARCHAR},
-      Quantity = #{quantity,jdbcType=INTEGER},
-      Qualified_Quantity = #{qualifiedQuantity,jdbcType=INTEGER},
-      Price = #{price,jdbcType=DECIMAL},
-      Subtotal = #{subtotal,jdbcType=DECIMAL},
-      PaymentTime = #{paymenttime,jdbcType=TIMESTAMP}
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select ID, Parent_ID, Supplier_No, Supplier_Name, Quantity, Qualified_Quantity, Price, 
-    Subtotal, PaymentTime
-    from purchasedetail
-    where ID = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select ID, Parent_ID, Supplier_No, Supplier_Name, Quantity, Qualified_Quantity, Price, 
-    Subtotal, PaymentTime
-    from purchasedetail
-  </select>
+    <resultMap id="BaseResultMap" type="org.accp.procurement.entity.Purchasedetail">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="Parent_ID" jdbcType="INTEGER" property="parentId"/>
+        <result column="Supplier_No" jdbcType="VARCHAR" property="supplierNo"/>
+        <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName"/>
+        <result column="Quantity" jdbcType="INTEGER" property="quantity"/>
+        <result column="Qualified_Quantity" jdbcType="INTEGER" property="qualifiedQuantity"/>
+        <result column="Price" jdbcType="DECIMAL" property="price"/>
+        <result column="Subtotal" jdbcType="DECIMAL" property="subtotal"/>
+        <result column="PaymentTime" jdbcType="TIMESTAMP" property="paymenttime"/>
+        <result column="CheckQualified" jdbcType="INTEGER" property="checkQualified"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from purchasedetail
+        where ID = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="org.accp.procurement.entity.Purchasedetail">
+        insert into purchasedetail (ID, Parent_ID, Supplier_No,
+                                    Supplier_Name, Quantity, Qualified_Quantity,
+                                    Price, Subtotal, PaymentTime, checkQualified)
+        values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR},
+                #{supplierName,jdbcType=VARCHAR}, #{quantity,jdbcType=INTEGER}, #{qualifiedQuantity,jdbcType=INTEGER},
+                #{price,jdbcType=DECIMAL}, #{subtotal,jdbcType=DECIMAL}, #{paymenttime,jdbcType=TIMESTAMP},
+                #{checkQualified,jdbcType=INTEGER})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Purchasedetail">
+        update purchasedetail
+        set Parent_ID          = #{parentId,jdbcType=INTEGER},
+            Supplier_No        = #{supplierNo,jdbcType=VARCHAR},
+            Supplier_Name      = #{supplierName,jdbcType=VARCHAR},
+            Quantity           = #{quantity,jdbcType=INTEGER},
+            Qualified_Quantity = #{qualifiedQuantity,jdbcType=INTEGER},
+            Price              = #{price,jdbcType=DECIMAL},
+            Subtotal           = #{subtotal,jdbcType=DECIMAL},
+            PaymentTime        = #{paymenttime,jdbcType=TIMESTAMP},
+            checkQualified     = #{checkQualified,jdbcType=INTEGER}
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select ID,
+               Parent_ID,
+               Supplier_No,
+               Supplier_Name,
+               Quantity,
+               Qualified_Quantity,
+               Price,
+               Subtotal,
+               PaymentTime,
+               checkQualified
+        from purchasedetail
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select ID,
+               Parent_ID,
+               Supplier_No,
+               Supplier_Name,
+               Quantity,
+               Qualified_Quantity,
+               Price,
+               Subtotal,
+               PaymentTime,
+               checkQualified
+        from purchasedetail
+    </select>
 
-  <select id="selectByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select ID, Parent_ID, Supplier_No, Supplier_Name, Quantity, Qualified_Quantity, Price,
-           Subtotal, PaymentTime
-    from purchasedetail where Parent_ID = #{parentId,jdbcType = INTEGER}
-  </select>
+    <select id="selectByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select ID,
+               Parent_ID,
+               Supplier_No,
+               Supplier_Name,
+               Quantity,
+               Qualified_Quantity,
+               Price,
+               Subtotal,
+               PaymentTime,
+               checkQualified
+        from purchasedetail
+        where Parent_ID = #{parentId,jdbcType = INTEGER}
+    </select>
 
 </mapper>

@@ -3,6 +3,7 @@ package org.accp.procurement.service;
 
 import org.accp.procurement.dto.PurchaseDto;
 import org.accp.procurement.entity.Purchase;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -45,4 +46,17 @@ public interface PurchaseService {
      * @return List<Purchase>
      * */
     List<Purchase> selectQuality();
+    /**
+     * 修改采购总表与采购明细
+     * @param purchaseDto
+     * @return int
+     * */
+    Integer updatePurchaseAndPurchaseDetail(PurchaseDto purchaseDto);
+
+    /**
+     * 查询质检审核的数据
+     * @return List<Purchase>
+     * */
+    List<Purchase> selectQualityCheck();
+
 }
