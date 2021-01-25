@@ -45,10 +45,6 @@ public class Recommenddetail {
      */
     private String supplierPhone;
     /**
-     * 联系人主键
-     */
-    private Integer linkmanId;
-    /**
      * 此产品报价单主键
      */
     private Integer offerId;
