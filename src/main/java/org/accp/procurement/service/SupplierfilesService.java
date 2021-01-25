@@ -1,6 +1,7 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Supplierfiles;
 
 import java.util.List;
@@ -20,4 +21,5 @@ public interface SupplierfilesService {
 
     Supplierfiles selectByPrimaryKey(Integer id);
 
+    List<Supplierfiles> findss(supplierDto dto);
 }

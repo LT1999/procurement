@@ -203,4 +203,14 @@ select * from supplierfiles where checkMark='已审核'
         from supplierfiles
         where id = #{id,jdbcType=INTEGER}
     </select>
+
+    <select id="findss" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
+        select * from supplierfiles where SuPPlier_RegistrationTime BETWEEN #{time1,jdbcType=TIMESTAMP} and #{time1,jdbcType=TIMESTAMP} and First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
+    </select>
+    <select id="findss2" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
+        select * from supplierfiles where SuPPlier_RegistrationTime BETWEEN #{time1,jdbcType=TIMESTAMP} and #{time1,jdbcType=TIMESTAMP}
+    </select>
+    <select id="findss1" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
+        select * from supplierfiles where First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
+    </select>
 </mapper>

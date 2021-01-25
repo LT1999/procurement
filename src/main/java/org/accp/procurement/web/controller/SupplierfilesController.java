@@ -1,5 +1,6 @@
 package org.accp.procurement.web.controller;
 
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.service.SupplierfilesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,10 @@ public class SupplierfilesController {
     public Supplierfiles selectByPrimaryKey(int id){
         System.out.println(id);
         return this.supplierfilesService.selectByPrimaryKey(id);
+    }
+
+    @RequestMapping("/findss")
+    public List<Supplierfiles> findss(supplierDto dto){
+        return this.supplierfilesService.findss(dto);
     }
 }

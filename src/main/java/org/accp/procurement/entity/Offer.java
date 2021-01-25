@@ -29,6 +29,7 @@ public class Offer {
      * 供应商主键
      */
     private Integer supplierId;
+    private String SupplierNo;
     /**
      * 商品编号
      */

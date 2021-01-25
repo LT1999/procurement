@@ -16,6 +16,7 @@
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
         <result column="CheckMark" jdbcType="VARCHAR" property="checkMark"/>
+        <result column="Supplier_No" jdbcType="VARCHAR" property="SupplierNo"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
@@ -26,12 +27,12 @@
         insert into offer (id, Offer_No, Supplier_id,
                            Goods_No, Goods_Name, Goods_Price,
                            Goods_Discount, Goods_Subtotal, Goods_Describe,
-                           registrar, registrarTime, auditor, auditorTime, CheckMark)
+                           registrar, registrarTime, auditor, auditorTime, CheckMark,Supplier_No)
         values (#{id,jdbcType=INTEGER}, #{offerNo,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER},
                 #{goodsNo,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=DECIMAL},
                 #{goodsDiscount,jdbcType=DECIMAL}, #{goodsSubtotal,jdbcType=DECIMAL}, #{goodsDescribe,jdbcType=VARCHAR},
                 #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP}, #{auditor,jdbcType=VARCHAR},
-                #{auditorTime,jdbcType=TIMESTAMP}, #{checkMark,jdbcType=VARCHAR})
+                #{auditorTime,jdbcType=TIMESTAMP}, #{checkMark,jdbcType=VARCHAR},#{SupplierNo,jdbcType=VARCHAR})
     </insert>
     <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Offer">
         update offer
@@ -44,57 +45,15 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select id,
-               Offer_No,
-               Supplier_id,
-               Goods_No,
-               Goods_Name,
-               Goods_Price,
-               Goods_Discount,
-               Goods_Subtotal,
-               Goods_Describe,
-               registrar,
-               registrarTime,
-               auditor,
-               auditorTime,
-               CheckMark
-        from offer
+        select * from offer
         where id = #{id,jdbcType=INTEGER}
     </select>
     <select id="selectAlloffer" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select id,
-               Offer_No,
-               Supplier_id,
-               Goods_No,
-               Goods_Name,
-               Goods_Price,
-               Goods_Discount,
-               Goods_Subtotal,
-               Goods_Describe,
-               registrar,
-               registrarTime,
-               auditor,
-               auditorTime,
-               checkMark
-        from offer
+        select * from offer
         where Goods_No=#{goodsNo,jdbcType=VARCHAR}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
-        select id,
-               Offer_No,
-               Supplier_id,
-               Goods_No,
-               Goods_Name,
-               Goods_Price,
-               Goods_Discount,
-               Goods_Subtotal,
-               Goods_Describe,
-               registrar,
-               registrarTime,
-               auditor,
-               auditorTime,
-               CheckMark
-        from offer
+        select * from offer
     </select>
     <select id="findSupplierId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
 select * from offer where Supplier_id=#{supplierId,jdbcType=INTEGER}
@@ -131,6 +90,6 @@ select * from offer where CheckMark='审核未通过'
 
 
     <select id="findtime" resultMap="BaseResultMap" parameterType="org.accp.procurement.dto.supplierDto">
-SELECT * FROM offer WHERE registrarTime BETWEEN #{time1,jdbcType=STRING} AND #{time2,jdbcType=STRING}
+SELECT * FROM offer WHERE registrarTime BETWEEN #{time1,jdbcType=TIMESTAMP} AND #{time2,jdbcType=TIMESTAMP}
     </select>
 </mapper>

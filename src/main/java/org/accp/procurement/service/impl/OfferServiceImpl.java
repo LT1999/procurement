@@ -72,6 +72,7 @@ public class OfferServiceImpl implements OfferService {
                 serial.setTime(time);
                 oNo=serialService.offerNo(serial);
                 dto.getOffers().get(i).setId(this.offerMapper.getId());
+                dto.getOffers().get(i).setOfferNo(oNo);
                 num+=this.offerMapper.insert(dto.getOffers().get(i));
             }
         }
