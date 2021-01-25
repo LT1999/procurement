@@ -1,6 +1,7 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.dto.selsupDto;
 import org.accp.procurement.entity.Supplierfiles;
 
 import java.util.List;
@@ -24,4 +25,10 @@ public interface SupplierfilesService {
      List<Supplierfiles> selectCheck();
 
      int updateByPrimaryKey(Supplierfiles record);
+
+     //查询未审核供应商档案总数量
+     int selectCount();
+
+     //根据条件查询供应商档案
+     List<Supplierfiles> selectChang(selsupDto dto);
 }

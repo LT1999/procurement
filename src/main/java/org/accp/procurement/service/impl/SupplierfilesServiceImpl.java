@@ -1,5 +1,6 @@
 package org.accp.procurement.service.impl;
 
+import org.accp.procurement.dto.selsupDto;
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.mapper.SupplierfilesMapper;
 import org.accp.procurement.service.SupplierfilesService;
@@ -27,12 +28,14 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
 
     @Override
     public int insert(Supplierfiles record) {
+        System.out.println("-----------------------------------------");
+        System.out.println(record.toString());
         return this.supplierfilesMapper.insert(record);
     }
 
     @Override
     public Supplierfiles selectByPrimaryKey(Integer id) {
-        return null;
+        return this.supplierfilesMapper.selectByPrimaryKey(id);
     }
 
     @Override
@@ -47,6 +50,16 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
 
     @Override
     public int updateByPrimaryKey(Supplierfiles record) {
-        return 0;
+        return this.supplierfilesMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public int selectCount() {
+        return this.supplierfilesMapper.selectCount();
+    }
+
+    @Override
+    public List<Supplierfiles> selectChang(selsupDto dto) {
+        return this.supplierfilesMapper.selectChang(dto);
     }
 }
