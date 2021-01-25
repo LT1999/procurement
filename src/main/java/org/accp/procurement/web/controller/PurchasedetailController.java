@@ -1,5 +1,6 @@
 package org.accp.procurement.web.controller;
 
+import org.accp.procurement.entity.Purchasedetail;
 import org.accp.procurement.service.PurchasedetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,5 +24,8 @@ public class PurchasedetailController {
     @Autowired
     private PurchasedetailService purchasedetailService;
 
-
+    @RequestMapping("/selectByParentId")
+    public List<Purchasedetail> selectByParentId(Integer parentId){
+        return  this.purchasedetailService.selectByParentId(parentId);
+    }
 }

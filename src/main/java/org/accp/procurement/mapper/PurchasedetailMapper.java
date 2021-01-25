@@ -17,4 +17,11 @@ public interface PurchasedetailMapper {
     List<Purchasedetail> selectAll();
 
     int updateByPrimaryKey(Purchasedetail record);
+
+    /**
+     * 根据父id查询采购明细表
+     * @param parentId 父id
+     * @return List<Purchasedetail> 采购明细表集合
+     * */
+    List<Purchasedetail> selectByParentId(Integer parentId);
 }

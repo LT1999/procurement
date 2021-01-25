@@ -76,4 +76,9 @@
     <select id="selectByProductNo" parameterType="java.lang.String" resultMap="BaseResultMap">
         select * from recommend where Product_No=#{productNo}
     </select>
+
+    <select id="getId" resultType="int">
+        SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE
+            Table_Schema='purchase' AND table_name = 'recommend' LIMIT 1
+    </select>
 </mapper>
