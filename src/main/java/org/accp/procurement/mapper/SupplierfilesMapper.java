@@ -27,4 +27,12 @@ public interface SupplierfilesMapper {
 
     //根据条件查询供应商档案
     List<Supplierfiles> selectChang(selsupDto dto);
+    //根据报价表的供应商id查询供应商表 获取供应商id
+    List<Supplierfiles> selectSuppByid(Integer id);
+
+    List<Supplierfiles> findss(supplierDto dto);
+    List<Supplierfiles> findss1(supplierDto dto);
+    List<Supplierfiles> findss2(supplierDto dto);
+    //查询已审核的供应商
+    List<Supplierfiles> findCheck();
 }

@@ -33,10 +33,6 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
         return this.supplierfilesMapper.insert(record);
     }
 
-    @Override
-    public Supplierfiles selectByPrimaryKey(Integer id) {
-        return this.supplierfilesMapper.selectByPrimaryKey(id);
-    }
 
     @Override
     public List<Supplierfiles> selectAll() {
@@ -61,5 +57,32 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
     @Override
     public List<Supplierfiles> selectChang(selsupDto dto) {
         return this.supplierfilesMapper.selectChang(dto);
+    }
+    @Override
+    public List<Supplierfiles> findCheck() { return this.supplierfilesMapper.findCheck();}
+
+    @Override
+    public int addSupplierfiles(Supplierfiles supplierfiles) {
+        return 0;
+    }
+
+    @Override
+    public Supplierfiles selectByPrimaryKey(Integer id) {
+        return this.supplierfilesMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Supplierfiles> findss(supplierDto dto) {
+        if (dto != null) {
+            if (dto.getFl1() == 0 && dto.getTime1() != null) {
+                return this.supplierfilesMapper.findss2(dto);
+            } else if (dto.getTime1() == null && dto.getFl1() != 0) {
+                return this.supplierfilesMapper.findss1(dto);
+            } else {
+                return this.supplierfilesMapper.findss(dto);
+            }
+        }else{
+            return this.supplierfilesMapper.selectAll();
+        }
     }
 }

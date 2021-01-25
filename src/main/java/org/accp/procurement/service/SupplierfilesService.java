@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:05
- * @description 
+ * @description
  */
 public interface SupplierfilesService {
      int deleteByPrimaryKey(Integer id);
@@ -31,4 +31,11 @@ public interface SupplierfilesService {
 
      //根据条件查询供应商档案
      List<Supplierfiles> selectChang(selsupDto dto);
+     //查询已审核的供应商
+     List<Supplierfiles> findCheck();
+
+     int addSupplierfiles(Supplierfiles supplierfiles);
+
+     List<Supplierfiles> findss(supplierDto dto);
+
 }

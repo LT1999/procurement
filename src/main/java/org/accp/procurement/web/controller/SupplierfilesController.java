@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:05
- * @description 
+ * @description
  */
 @RestController
 @RequestMapping("/supplierfiles")
@@ -22,6 +22,24 @@ public class SupplierfilesController {
     @Autowired
     private SupplierfilesService supplierfilesService;
 
+
+
+    //查询已审核
+    @RequestMapping("/findCheck")
+    public List<Supplierfiles> findCheck(){
+        return this.supplierfilesService.findCheck();
+    }
+
+    @RequestMapping("/selectByPrimaryKey")
+    public Supplierfiles selectByPrimaryKey(int id){
+        System.out.println(id);
+        return this.supplierfilesService.selectByPrimaryKey(id);
+    }
+
+    @RequestMapping("/findss")
+    public List<Supplierfiles> findss(supplierDto dto){
+        return this.supplierfilesService.findss(dto);
+    }
     @RequestMapping("/insert")
     public @ResponseBody Integer insert(Supplierfiles ruleForm){
 
@@ -63,4 +81,5 @@ public class SupplierfilesController {
         dto.setType(searchFrom.getType());
         return this.supplierfilesService.selectChang(dto);
     }
+
 }

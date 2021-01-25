@@ -17,6 +17,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/linkman")
 @CrossOrigin(methods = {RequestMethod.POST,RequestMethod.GET})
 public class LinkmanController {
+    @Autowired
+    private LinkmanService linkmanService;
 
-
+    //根据ID查询
+    @RequestMapping("/selectByPrimaryKey")
+    public Linkman selectByPrimaryKey(int id){
+        System.out.println(id+"---------------");
+        return this.linkmanService.selectByPrimaryKey(id);
+    }
+    @RequestMapping("/insert")
+    public Integer insert(Linkman [] linkman){
+        //int count=0;
+        for (int i = 0; i < linkman.length; i++) {
+            System.out.println(linkman[i].getLinkmanSex());
+        }
+        return 0;
+    }
 }
