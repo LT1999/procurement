@@ -1,6 +1,7 @@
 package org.accp.procurement.web.controller;
 
 import org.accp.procurement.dto.selsupDto;
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.service.SupplierfilesService;
 import org.springframework.beans.factory.annotation.Autowired;
