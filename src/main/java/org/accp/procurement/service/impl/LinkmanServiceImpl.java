@@ -6,20 +6,42 @@ import org.accp.procurement.service.LinkmanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 联系人信息表服务接口实现
  *
  * @author LT
  * @since 2021-01-16 14:46:04
- * @description 
+ * @description
  */
 @Service
 public class LinkmanServiceImpl implements LinkmanService {
-@Autowired
-private LinkmanMapper linkmanMapper;
+    @Autowired
+    private LinkmanMapper linkmanMapper;
 
     @Override
     public Linkman selectByPrimaryKey(Integer id) {
         return this.linkmanMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Integer id) {
+        return 0;
+    }
+
+    @Override
+    public int insert(Linkman record) {
+        return this.linkmanMapper.insert(record);
+    }
+
+    @Override
+    public List<Linkman> selectAll() {
+        return null;
+    }
+
+    @Override
+    public int updateByPrimaryKey(Linkman record) {
+        return 0;
     }
 }

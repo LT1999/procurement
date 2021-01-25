@@ -10,6 +10,8 @@ import org.accp.procurement.service.RecommenddetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 推荐供应商服务接口实现
  *
@@ -48,5 +50,21 @@ public class RecommendServiceImpl implements RecommendService {
                 this.recommenddetailService.InsertRecommenddetail(recommenddetail);
             }
         }
+    }
+
+    //  审核--未审核查询
+    @Override
+    public List<Recommend> selectAllByCheck() {
+        return this.recommendMapper.selectAllByCheck();
+    }
+
+    @Override
+    public int updateByPrimaryKey(Recommend record) {
+        return this.recommendMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Recommend> selectAll() {
+        return this.recommendMapper.selectAll();
     }
 }

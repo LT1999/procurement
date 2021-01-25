@@ -10,7 +10,6 @@
     <result column="Supplier_Area" jdbcType="VARCHAR" property="supplierArea" />
     <result column="Supplier_Quality_Rank" jdbcType="VARCHAR" property="supplierQualityRank" />
     <result column="Supplier_Phone" jdbcType="VARCHAR" property="supplierPhone" />
-    <result column="Linkman_Id" jdbcType="INTEGER" property="linkmanId" />
     <result column="Offer_Id" jdbcType="INTEGER" property="offerId" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -20,11 +19,11 @@
   <insert id="insert" parameterType="org.accp.procurement.entity.Recommenddetail">
     insert into recommenddetail (id, Parent_Id, Supplier_Id, 
       Supplier_No, Supplier_Name, Supplier_Area, 
-      Supplier_Quality_Rank, Supplier_Phone, Linkman_Id, 
+      Supplier_Quality_Rank, Supplier_Phone,
       Offer_Id)
     values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{supplierId,jdbcType=VARCHAR}, 
       #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR}, #{supplierArea,jdbcType=VARCHAR}, 
-      #{supplierQualityRank,jdbcType=VARCHAR}, #{supplierPhone,jdbcType=VARCHAR}, #{linkmanId,jdbcType=INTEGER}, 
+      #{supplierQualityRank,jdbcType=VARCHAR}, #{supplierPhone,jdbcType=VARCHAR},
       #{offerId,jdbcType=INTEGER})
   </insert>
   <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Recommenddetail">
@@ -36,25 +35,24 @@
       Supplier_Area = #{supplierArea,jdbcType=VARCHAR},
       Supplier_Quality_Rank = #{supplierQualityRank,jdbcType=VARCHAR},
       Supplier_Phone = #{supplierPhone,jdbcType=VARCHAR},
-      Linkman_Id = #{linkmanId,jdbcType=INTEGER},
       Offer_Id = #{offerId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, Parent_Id, Supplier_Id, Supplier_No, Supplier_Name, Supplier_Area, Supplier_Quality_Rank, 
-    Supplier_Phone, Linkman_Id, Offer_Id
+    Supplier_Phone,Offer_Id
     from recommenddetail
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, Parent_Id, Supplier_Id, Supplier_No, Supplier_Name, Supplier_Area, Supplier_Quality_Rank, 
-    Supplier_Phone, Linkman_Id, Offer_Id
+    Supplier_Phone, Offer_Id
     from recommenddetail
   </select>
 
   <select id="selectByParentId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, Parent_Id, Supplier_Id, Supplier_No, Supplier_Name, Supplier_Area, Supplier_Quality_Rank,
-           Supplier_Phone, Linkman_Id, Offer_Id
+           Supplier_Phone, Offer_Id
     from recommenddetail where Parent_Id=#{parentId}
   </select>
 </mapper>

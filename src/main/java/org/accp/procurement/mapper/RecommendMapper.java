@@ -20,5 +20,8 @@ public interface RecommendMapper {
      * */
     Recommend selectByProductNo(String productNo);
 
+    //供应商推荐审核查询
+    List<Recommend> selectAllByCheck();
+
     int getId();
 }

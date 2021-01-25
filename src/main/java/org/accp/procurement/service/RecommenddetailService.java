@@ -21,4 +21,6 @@ public interface RecommenddetailService {
     List<Recommenddetail> selectByProductNo(String productNo);
 
     void InsertRecommenddetail(Recommenddetail recommenddetail);
+
+    List<Recommenddetail> selectByParentId(Integer parentId);
 }

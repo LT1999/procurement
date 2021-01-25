@@ -14,6 +14,8 @@ public interface SupplierfilesMapper {
 
     List<Supplierfiles> selectAll();
 
+    List<Supplierfiles> selectCheck();
+
     int updateByPrimaryKey(Supplierfiles record);
     //查询已审核的供应商
     List<Supplierfiles> findCheck();

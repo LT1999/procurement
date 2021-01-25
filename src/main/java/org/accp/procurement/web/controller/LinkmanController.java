@@ -16,7 +16,7 @@ import org.accp.procurement.entity.Supplierfiles;
  *
  * @author LT
  * @since 2021-01-16 14:46:04
- * @description 
+ * @description
  */
 
 @RestController
@@ -31,5 +31,13 @@ public class LinkmanController {
     public Linkman selectByPrimaryKey(int id){
         System.out.println(id+"---------------");
         return this.linkmanService.selectByPrimaryKey(id);
+    }
+    @RequestMapping("/insert")
+    public Integer insert(Linkman [] linkman){
+        //int count=0;
+        for (int i = 0; i < linkman.length; i++) {
+            System.out.println(linkman[i].getLinkmanSex());
+        }
+        return 0;
     }
 }

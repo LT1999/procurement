@@ -11,15 +11,25 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:05
- * @description 
+ * @description
  */
 public interface SupplierfilesService {
-    //查询已审核的供应商
-    List<Supplierfiles> findCheck();
+     //查询已审核的供应商
+     List<Supplierfiles> findCheck();
 
-    int addSupplierfiles(Supplierfiles supplierfiles);
+     int addSupplierfiles(Supplierfiles supplierfiles);
 
-    Supplierfiles selectByPrimaryKey(Integer id);
+     Supplierfiles selectByPrimaryKey(Integer id);
 
-    List<Supplierfiles> findss(supplierDto dto);
+     List<Supplierfiles> findss(supplierDto dto);
+     int deleteByPrimaryKey(Integer id);
+
+     int insert(Supplierfiles record);
+
+    List<Supplierfiles> selectAll();
+
+     List<Supplierfiles> selectCheck();
+
+     int updateByPrimaryKey(Supplierfiles record);
+
 }

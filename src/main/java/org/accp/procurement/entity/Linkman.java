@@ -32,7 +32,7 @@ public class Linkman {
     /**
      * 手机号码
      */
-    private String linkmanPhone;
+        private String linkmanPhone;
     /**
      * 邮箱
      */

@@ -50,4 +50,29 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
             return this.supplierfilesMapper.selectAll();
         }
     }
+
+    @Override
+    public int deleteByPrimaryKey(Integer id) {
+        return 0;
+    }
+
+    @Override
+    public int insert(Supplierfiles record) {
+        return this.supplierfilesMapper.insert(record);
+    }
+
+    @Override
+    public List<Supplierfiles> selectAll() {
+        return this.supplierfilesMapper.selectAll();
+    }
+
+    @Override
+    public List<Supplierfiles> selectCheck() {
+        return this.supplierfilesMapper.selectCheck();
+    }
+
+    @Override
+    public int updateByPrimaryKey(Supplierfiles record) {
+        return 0;
+    }
 }

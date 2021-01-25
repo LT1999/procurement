@@ -40,4 +40,9 @@ public class RecommenddetailServiceImpl implements RecommenddetailService {
     public void InsertRecommenddetail(Recommenddetail recommenddetail) {
         this.recommenddetailMapper.insert(recommenddetail);
     }
+
+    @Override
+    public List<Recommenddetail> selectByParentId(Integer parentId) {
+        return this.recommenddetailMapper.selectByParentId(parentId);
+    }
 }

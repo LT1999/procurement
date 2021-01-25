@@ -81,4 +81,19 @@
         SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE
             Table_Schema='purchase' AND table_name = 'recommend' LIMIT 1
     </select>
+
+    <select id="selectAllByCheck" resultMap="BaseResultMap">
+    select id,
+    Product_id,
+    Product_No,
+    Product_Name,
+    Product_Type,
+    Product_Grade,
+    registrar,
+    registrarTime,
+    auditor,
+    auditorTime,
+    CheckMark
+    from recommend where CheckMark='未审核'
+    </select>
 </mapper>

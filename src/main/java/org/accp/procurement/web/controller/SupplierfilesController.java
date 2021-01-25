@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:05
- * @description 
+ * @description
  */
 @RestController
 @CrossOrigin(methods = {RequestMethod.POST,RequestMethod.GET})
@@ -39,5 +39,21 @@ public class SupplierfilesController {
     @RequestMapping("/findss")
     public List<Supplierfiles> findss(supplierDto dto){
         return this.supplierfilesService.findss(dto);
+    }
+
+    @RequestMapping("/insert")
+    public Integer insert(Supplierfiles ruleForm){
+
+        /*ruleForm.getSupplierRegistrationtime();*/
+        return this.supplierfilesService.insert(ruleForm);
+    }
+    @RequestMapping("/selectCheck")
+    public  List<Supplierfiles> selectCheck(){
+        return this.supplierfilesService.selectCheck();
+    }
+
+    @RequestMapping("/selectAll")
+    public  List<Supplierfiles> selectAll(){
+        return this.supplierfilesService.selectAll();
     }
 }
