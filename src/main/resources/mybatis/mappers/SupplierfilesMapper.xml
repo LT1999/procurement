@@ -33,10 +33,9 @@
         <result column="Supplier_SecondLinkman_Email" jdbcType="VARCHAR" property="supplierSecondlinkmanEmail"/>
         <result column="Supplier_SecondLinkman_Sex" jdbcType="VARCHAR" property="supplierSecondlinkmanSex"/>
         <result column="SuPPlier_Registrant" jdbcType="VARCHAR" property="supplierRegistrant"/>
-        <result column="SuPPlier_RegistrationTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
+        <result column="SuPPlier_RegistrationTime" jdbcType="DATETIME" property="supplierRegistrationtime"/>
         <result column="SuPPlier_Buyer" jdbcType="VARCHAR" property="supplierBuyer"/>
         <result column="SuPPlier_Buyer_No" jdbcType="VARCHAR" property="supplierBuyerNo"/>
-        <result column="SuPPlier_RegistrantTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
         <result column="CheckMark" jdbcType="VARCHAR" property="checkMark"/>
@@ -59,8 +58,7 @@
                                    Supplier_FirstLinkman_Sex,Supplier_SecondLinkman_Name,
                                    Supplier_SecondLinkman_Sector,Supplier_SecondLinkman_Post,
                                    Supplier_SecondLinkman_Phone,Supplier_SecondLinkman_Email,
-                                   Supplier_SecondLinkman_Sex,SuPPlier_Registrant,
-                                   SuPPlier_RegistrationTime, SuPPlier_Buyer,
+                                   Supplier_SecondLinkman_Sex,SuPPlier_Buyer,
                                    SuPPlier_Buyer_No, SuPPlier_Registrant, SuPPlier_RegistrationTime, auditor,
                                    auditorTime, CheckMark)
         values (#{id,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
@@ -81,7 +79,7 @@
                 #{supplierSecondlinkmanEmail,jdbcType=VARCHAR},#{supplierSecondlinkmanSex,jdbcType=VARCHAR},
                 #{supplierRegistrant,jdbcType=VARCHAR},
                 #{supplierRegistrationtime,jdbcType=TIMESTAMP}, #{supplierBuyer,jdbcType=VARCHAR},
-                #{supplierBuyerNo,jdbcType=VARCHAR}, #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP},
+                #{supplierBuyerNo,jdbcType=VARCHAR},
                 #{auditor,jdbcType=VARCHAR}, #{auditorTime,jdbcType=TIMESTAMP}, #{checkMark,jdbcType=VARCHAR})
     </insert>
     <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Supplierfiles">
@@ -120,8 +118,6 @@
             SuPPlier_RegistrationTime = #{supplierRegistrationtime,jdbcType=TIMESTAMP},
             SuPPlier_Buyer            = #{supplierBuyer,jdbcType=VARCHAR},
             SuPPlier_Buyer_No         = #{supplierBuyerNo,jdbcType=VARCHAR},
-            SuPPlier_Registrant       = #{registrar,jdbcType=VARCHAR},
-            SuPPlier_RegistrationTime = #{registrartime,jdbcType=TIMESTAMP},
             auditor                   = #{auditor,jdbcType=VARCHAR},
             auditorTime               = #{auditorTime,jdbcType=TIMESTAMP},
             CheckMark                 = #{checkMark,jdbcType=VARCHAR}
@@ -158,8 +154,6 @@
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
                CheckMark
@@ -197,8 +191,6 @@
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
                CheckMark
@@ -235,8 +227,6 @@
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
                checkMark
@@ -275,8 +265,6 @@
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
                CheckMark
