@@ -93,13 +93,55 @@ public class Supplierfiles {
      */
     private String supplierPostalcode;
     /**
-     * 第一联系人
+     * 第一联系人姓名
      */
-    private Integer supplierFirstcontact;
+    private String supplierFirstlinkmanName;
     /**
-     * 第二联系人
+     * 第一联系人部门
      */
-    private Integer supplierSecondcontact;
+    private String supplierFirstlinkmanSector;
+    /**
+     * 第一联系人职务
+     */
+    private String supplierFirstlinkmanPost;
+    /**
+     * 第一联系人手机号码
+     */
+    private String supplierFirstlinkmanPhone;
+    /**
+     * 第一联系人邮箱
+     */
+    private String supplierFirstlinkmanEmail;
+    /**
+     * 第一联系人性别
+     */
+    private String supplierFirstlinkmanSex;
+
+
+    /**
+     * 第二联系人姓名
+     */
+    private String supplierSecondlinkmanName;
+    /**
+     * 第二联系人部门
+     */
+    private String supplierSecondlinkmanSector;
+    /**
+     * 第二联系人职务
+     */
+    private String supplierSecondlinkmanPost;
+    /**
+     * 第二联系人手机号码
+     */
+    private String supplierSecondlinkmanPhone;
+    /**
+     * 第二联系人邮箱
+     */
+    private String supplierSecondlinkmanEmail;
+    /**
+     * 第二联系人性别
+     */
+    private String supplierSecondlinkmanSex;
     /**
      * 登记人
      */
