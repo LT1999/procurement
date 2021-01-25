@@ -19,4 +19,6 @@ public interface RecommenddetailService {
      * @return List<Recommenddetail>（返回推荐供应商明细表数据集合）
      * */
     List<Recommenddetail> selectByProductNo(String productNo);
+
+    void InsertRecommenddetail(Recommenddetail recommenddetail);
 }

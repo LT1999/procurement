@@ -35,4 +35,9 @@ public class RecommenddetailServiceImpl implements RecommenddetailService {
         Recommend recommend=this.recommendService.selectByProductNo(productNo);
         return this.recommenddetailMapper.selectByParentId(recommend.getId());
     }
+
+    @Override
+    public void InsertRecommenddetail(Recommenddetail recommenddetail) {
+        this.recommenddetailMapper.insert(recommenddetail);
+    }
 }
