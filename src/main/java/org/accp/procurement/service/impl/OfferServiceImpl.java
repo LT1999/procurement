@@ -95,11 +95,6 @@ public class OfferServiceImpl implements OfferService {
             List<Supplierfiles> list1=this.supplierfilesMapper.selectSuppByid(list.get(i).getSupplierId());
             for (int f=0;f<list1.size();f++){
                 dto.setSupplierfiles(list1.get(f));
-                List<Linkman> list2=this.linkmanMapper.selectLinbyid(list1.get(f).getSupplierFirstcontact());
-                for (int h=0;h<list2.size();h++){
-                    dto.setLinkmen(list2.get(h));
-
-                }
 
             }
             dtoList.add(dto);
