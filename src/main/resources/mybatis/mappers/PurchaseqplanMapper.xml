@@ -79,4 +79,10 @@
         from purchaseqplan
     </select>
 
+    <select id="getId" resultType="int">
+        SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE
+            Table_Schema='purchase' AND table_name = 'purchaseqplan' LIMIT 1
+    </select>
+
+
 </mapper>

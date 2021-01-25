@@ -1,6 +1,8 @@
 package org.accp.procurement.service.impl;
 
 
+import org.accp.procurement.dto.PurchaseqplanDto;
+import org.accp.procurement.entity.Plandetail;
 import org.accp.procurement.entity.Purchaseqplan;
 import org.accp.procurement.mapper.PlandetailMapper;
 import org.accp.procurement.mapper.PurchaseMapper;
@@ -26,15 +28,31 @@ public class PurchaseqplanServiceImpl implements PurchaseqplanService {
      */
     @Autowired
     private PurchaseqplanMapper purchaseqplanMapper;
+
+    @Autowired
+    private PlandetailService plandetailService;
     /**
      * 采购计划明细表服务接口
      */
-    @Autowired
-    private PlandetailService plandetailService;
 
     @Override
     public Purchaseqplan selectByPrimaryKey(Integer id) {
         return this.purchaseqplanMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void insertPruchaseqplan(PurchaseqplanDto purchaseqplanDto) {
+        int id=this.purchaseqplanMapper.getId();
+        purchaseqplanDto.getPurchaseqplan().setId(id);
+        this.purchaseqplanMapper.insert(purchaseqplanDto.getPurchaseqplan());
+        if (purchaseqplanDto.getPlandetails()!=null){
+            for (int i=0;i<purchaseqplanDto.getPlandetails().size();i++){
+                Plandetail plandetail=purchaseqplanDto.getPlandetails().get(i);
+                plandetail.setParentId(id);
+                this.plandetailService.insertPlandetail(plandetail);
+            }
+        }
+
     }
 
 

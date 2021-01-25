@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Service
 public class LinkmanServiceImpl implements LinkmanService {
-    @Autowired
+
     private LinkmanMapper linkmanMapper;
 
     @Override
