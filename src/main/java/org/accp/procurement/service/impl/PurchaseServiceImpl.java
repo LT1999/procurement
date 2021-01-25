@@ -84,4 +84,19 @@ public  class PurchaseServiceImpl implements PurchaseService {
     public List<Purchase> selectQuality() {
         return this.purchaseMapper.selectQuality();
     }
+
+    @Override
+    public Integer updatePurchaseAndPurchaseDetail(PurchaseDto purchaseDto) {
+        Integer count=this.purchaseMapper.updateByPrimaryKey(purchaseDto.getPurchase());
+        for (Purchasedetail purchasedetail:
+             purchaseDto.getPurchasedetailList()) {
+            count+=this.purchasedetailService.updateByPrimaryKey(purchasedetail);
+        }
+        return count;
+    }
+
+    @Override
+    public List<Purchase> selectQualityCheck() {
+        return this.purchaseMapper.selectQualityCheck();
+    }
 }

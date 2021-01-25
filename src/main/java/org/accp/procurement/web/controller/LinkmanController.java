@@ -20,13 +20,18 @@ public class LinkmanController {
     @Autowired
     private LinkmanService linkmanService;
 
+    //根据ID查询
+    @RequestMapping("/selectByPrimaryKey")
+    public Linkman selectByPrimaryKey(int id){
+        System.out.println(id+"---------------");
+        return this.linkmanService.selectByPrimaryKey(id);
+    }
     @RequestMapping("/insert")
-    public @ResponseBody Integer insert(Linkman [] linkman){
+    public Integer insert(Linkman [] linkman){
         //int count=0;
         for (int i = 0; i < linkman.length; i++) {
             System.out.println(linkman[i].getLinkmanSex());
         }
         return 0;
     }
-
 }

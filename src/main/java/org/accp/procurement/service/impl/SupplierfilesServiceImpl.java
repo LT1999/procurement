@@ -1,5 +1,6 @@
 package org.accp.procurement.service.impl;
 
+import org.accp.procurement.dto.selsupDto;
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.mapper.SupplierfilesMapper;
 import org.accp.procurement.service.SupplierfilesService;
@@ -27,13 +28,11 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
 
     @Override
     public int insert(Supplierfiles record) {
+        System.out.println("-----------------------------------------");
+        System.out.println(record.toString());
         return this.supplierfilesMapper.insert(record);
     }
 
-    @Override
-    public Supplierfiles selectByPrimaryKey(Integer id) {
-        return null;
-    }
 
     @Override
     public List<Supplierfiles> selectAll() {
@@ -47,6 +46,43 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
 
     @Override
     public int updateByPrimaryKey(Supplierfiles record) {
+        return this.supplierfilesMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public int selectCount() {
+        return this.supplierfilesMapper.selectCount();
+    }
+
+    @Override
+    public List<Supplierfiles> selectChang(selsupDto dto) {
+        return this.supplierfilesMapper.selectChang(dto);
+    }
+    @Override
+    public List<Supplierfiles> findCheck() { return this.supplierfilesMapper.findCheck();}
+
+    @Override
+    public int addSupplierfiles(Supplierfiles supplierfiles) {
         return 0;
+    }
+
+    @Override
+    public Supplierfiles selectByPrimaryKey(Integer id) {
+        return this.supplierfilesMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Supplierfiles> findss(supplierDto dto) {
+        if (dto != null) {
+            if (dto.getFl1() == 0 && dto.getTime1() != null) {
+                return this.supplierfilesMapper.findss2(dto);
+            } else if (dto.getTime1() == null && dto.getFl1() != 0) {
+                return this.supplierfilesMapper.findss1(dto);
+            } else {
+                return this.supplierfilesMapper.findss(dto);
+            }
+        }else{
+            return this.supplierfilesMapper.selectAll();
+        }
     }
 }

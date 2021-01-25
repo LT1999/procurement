@@ -1,5 +1,6 @@
 package org.accp.procurement.web.controller;
 
+import org.accp.procurement.dto.selsupDto;
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.service.SupplierfilesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:05
- * @description 
+ * @description
  */
 @RestController
 @RequestMapping("/supplierfiles")
@@ -21,6 +22,24 @@ public class SupplierfilesController {
     @Autowired
     private SupplierfilesService supplierfilesService;
 
+
+
+    //查询已审核
+    @RequestMapping("/findCheck")
+    public List<Supplierfiles> findCheck(){
+        return this.supplierfilesService.findCheck();
+    }
+
+    @RequestMapping("/selectByPrimaryKey")
+    public Supplierfiles selectByPrimaryKey(int id){
+        System.out.println(id);
+        return this.supplierfilesService.selectByPrimaryKey(id);
+    }
+
+    @RequestMapping("/findss")
+    public List<Supplierfiles> findss(supplierDto dto){
+        return this.supplierfilesService.findss(dto);
+    }
     @RequestMapping("/insert")
     public @ResponseBody Integer insert(Supplierfiles ruleForm){
 
@@ -36,4 +55,31 @@ public class SupplierfilesController {
     public  List<Supplierfiles> selectAll(){
         return this.supplierfilesService.selectAll();
     }
+
+    @RequestMapping("/selectCount")
+    public  Integer selectCount(){
+        return this.supplierfilesService.selectCount();
+    }
+
+    @RequestMapping("/updateByPrimaryKey")
+    public  Integer updateByPrimaryKey(Supplierfiles Form){
+        return this.supplierfilesService.updateByPrimaryKey(Form);
+    }
+
+    @RequestMapping("/selectChang")
+    public List<Supplierfiles> selectChang(selsupDto searchFrom) {
+        //System.out.println(searchFrom.getQueryClassifyId()[0].toString());
+        selsupDto dto = new selsupDto();
+        if(searchFrom.getQueryTime().length!=0 & searchFrom.getQueryClassifyId().length!=0){
+            dto.setStarttime(searchFrom.getQueryTime()[0]);
+            dto.setEndtime(searchFrom.getQueryTime()[1]);
+            dto.setFirstKindId(searchFrom.getQueryClassifyId()[0]);
+            dto.setSecondKindId(searchFrom.getQueryClassifyId()[1]);
+            dto.setThreeKindId(searchFrom.getQueryClassifyId()[2]);
+
+        }
+        dto.setType(searchFrom.getType());
+        return this.supplierfilesService.selectChang(dto);
+    }
+
 }

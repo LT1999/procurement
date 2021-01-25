@@ -55,5 +55,8 @@ public class Purchasedetail {
      */
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date paymenttime;
-
+    /**
+     * 检查合格数量
+     */
+    private Integer checkQualified;
 }
