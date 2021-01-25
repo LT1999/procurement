@@ -146,6 +146,7 @@ public class Supplierfiles {
      * 登记人
      */
     private String supplierRegistrant;
+
     /**
      * 登记时间
      */
