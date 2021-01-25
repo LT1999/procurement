@@ -13,14 +13,6 @@ import java.util.List;
  * @description 
  */
 public interface LinkmanService {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Linkman record);
-
-    Linkman selectByPrimaryKey(Integer id);
-
-    List<Linkman> selectAll();
-
-    int updateByPrimaryKey(Linkman record);
 
 }

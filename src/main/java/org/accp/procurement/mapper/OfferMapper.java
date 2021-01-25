@@ -6,7 +6,7 @@ import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Offer;
 
 public interface OfferMapper {
-    int deleteByPrimaryKey(Integer id);
+    /*int deleteByPrimaryKey(Integer id);
 
     int insert(Offer record);
 
@@ -14,8 +14,8 @@ public interface OfferMapper {
 
     List<Offer> selectAll();
 
-    int updateByPrimaryKey(Offer record);
-
+    int updateByPrimaryKey(Offer record);*/
+/*
     //根据产品id查询报价表的供应商
-    List<Offer> selectAlloffer(String goodsNo);
+    List<Offer> selectAlloffer(String goodsNo);*/
 }

@@ -25,18 +25,9 @@ import java.util.List;
  */
 
 @Service
-public class OfferServiceImpl implements OfferService {
+public class OfferServiceImpl{
 
-    @Autowired
-    private OfferMapper offerMapper;
-
-    @Autowired
-    private SupplierfilesMapper supplierfilesMapper;
-
-    @Autowired
-    private LinkmanMapper linkmanMapper;
-
-    @Override
+    /*@Override
     public List<supplierDto> selectAlloffer(String goodsNo) {
         //supplierDto dto=new supplierDto();
         List<supplierDto> dtoList=new ArrayList<supplierDto>();
@@ -57,5 +48,5 @@ public class OfferServiceImpl implements OfferService {
             dtoList.add(dto);
         }
         return dtoList;
-    }
+    }*/
 }

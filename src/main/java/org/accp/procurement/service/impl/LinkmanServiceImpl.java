@@ -16,32 +16,6 @@ import java.util.List;
  * @description 
  */
 @Service
-public class LinkmanServiceImpl implements LinkmanService {
-    @Autowired
-    private LinkmanMapper linkmanMapper;
+public class LinkmanServiceImpl  {
 
-    @Override
-    public int deleteByPrimaryKey(Integer id) {
-        return 0;
-    }
-
-    @Override
-    public int insert(Linkman record) {
-        return this.linkmanMapper.insert(record);
-    }
-
-    @Override
-    public Linkman selectByPrimaryKey(Integer id) {
-        return null;
-    }
-
-    @Override
-    public List<Linkman> selectAll() {
-        return null;
-    }
-
-    @Override
-    public int updateByPrimaryKey(Linkman record) {
-        return 0;
-    }
 }

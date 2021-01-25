@@ -16,6 +16,6 @@ import java.util.List;
 public interface OfferService {
 
     //根据产品id查询报价表的供应商
-    List<supplierDto> selectAlloffer(String goodsNo);
+    //List<supplierDto> selectAlloffer(String goodsNo);
 
 }

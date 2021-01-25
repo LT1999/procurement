@@ -21,13 +21,15 @@ import java.util.List;
 @RequestMapping("/offer")
 @CrossOrigin(methods = { RequestMethod.POST, RequestMethod.GET })
 public class OfferController{
-
+/*
     @Autowired
-    private OfferService offerService;
+    private OfferService offerService;*/
+/*
 
     @RequestMapping("/selectAlloffer")
     public List<supplierDto> selectAlloffer(String goodsNo){
         return  this.offerService.selectAlloffer(goodsNo);
     }
+*/
 
 }
