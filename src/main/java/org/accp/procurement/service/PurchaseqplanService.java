@@ -1,6 +1,7 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.dto.PurchaseqplanDto;
 import org.accp.procurement.entity.Purchaseqplan;
 
 /**
@@ -17,5 +18,8 @@ public interface PurchaseqplanService {
      * @return Purchaseqplan
      * */
     Purchaseqplan selectByPrimaryKey(Integer id);
+
+    //添加采购计划表
+    void insertPruchaseqplan(PurchaseqplanDto purchaseqplanDto);
 
 }

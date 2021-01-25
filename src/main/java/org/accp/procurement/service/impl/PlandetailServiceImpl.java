@@ -43,4 +43,9 @@ public class PlandetailServiceImpl implements PlandetailService {
     public int updateDispatch(String dispatch, Integer purchaseqplanId) {
         return this.plandetailMapper.updateDispatch(dispatch,purchaseqplanId);
     }
+
+    @Override
+    public void insertPlandetail(Plandetail plandetail) {
+        this.plandetailMapper.insert(plandetail);
+    }
 }
