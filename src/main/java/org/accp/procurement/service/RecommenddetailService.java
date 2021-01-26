@@ -23,4 +23,6 @@ public interface RecommenddetailService {
     void InsertRecommenddetail(Recommenddetail recommenddetail);
 
     List<Recommenddetail> selectByParentId(Integer parentId);
+
+    Integer delByOfferId(Integer oid);
 }

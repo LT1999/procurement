@@ -45,4 +45,9 @@ public class RecommenddetailServiceImpl implements RecommenddetailService {
     public List<Recommenddetail> selectByParentId(Integer parentId) {
         return this.recommenddetailMapper.selectByParentId(parentId);
     }
+
+    @Override
+    public Integer delByOfferId(Integer oid) {
+        return this.recommenddetailMapper.delByOfferId(oid);
+    }
 }

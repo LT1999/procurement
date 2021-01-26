@@ -271,7 +271,7 @@
                CheckMark
         from supplierfiles where CheckMark = '未审核'
     </select>
-    <select id="selectCount" resultType="java.lang.Integer">
+    <select id="selectCount"  resultType="java.lang.Integer">
         SELECT COUNT(*) FROM supplierfiles WHERE CheckMark='未审核'
     </select>
 
@@ -288,10 +288,10 @@
                 AND three_Kind_Id=#{threeKindId}
             </if>
             <if test="type!=null and type!=''">
-                AND SuPPlier_Buyer_No=#{type}
+                AND SuPPlier_Buyer_No=#{type,jdbcType=STRING}
             </if>
             <if test="Starttime!=null and Starttime!='' and Endtime!=null and Endtime!='' ">
-                AND SuPPlier_RegistrationTime BETWEEN DATE(#{Starttime}) AND DATE(#{Endtime})
+                AND SuPPlier_RegistrationTime BETWEEN DATE(#{Starttime,jdbcType=TIMESTAMP}) AND DATE(#{Endtime,jdbcType=TIMESTAMP})
             </if>
         </where>
 
@@ -309,7 +309,7 @@ select * from supplierfiles where checkMark='已审核'
     <select id="findss1" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
         select * from supplierfiles where First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
     </select>
-    <select id="selectSuppByid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--<select id="selectSuppByid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select id,
                Supplier_No,
                Supplier_Name,
@@ -342,5 +342,9 @@ select * from supplierfiles where checkMark='已审核'
                checkMark
         from supplierfiles
         where id = #{id,jdbcType=INTEGER}
-    </select>
+    </select>-->
+
+    <select id="getId" resultType="int">
+		SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE Table_Schema='erp' AND table_name = 'supplierfiles' LIMIT 1
+	</select>
 </mapper>

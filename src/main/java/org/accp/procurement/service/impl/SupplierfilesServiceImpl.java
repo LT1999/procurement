@@ -1,6 +1,7 @@
 package org.accp.procurement.service.impl;
 
 import org.accp.procurement.dto.selsupDto;
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.mapper.SupplierfilesMapper;
 import org.accp.procurement.service.SupplierfilesService;
@@ -84,5 +85,10 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
         }else{
             return this.supplierfilesMapper.selectAll();
         }
+    }
+
+    @Override
+    public Integer getId() {
+        return this.supplierfilesMapper.getId();
     }
 }

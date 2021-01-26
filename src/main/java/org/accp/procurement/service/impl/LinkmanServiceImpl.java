@@ -25,10 +25,10 @@ public class LinkmanServiceImpl implements LinkmanService {
         return 0;
     }
 
-    @Override
+  /*  @Override
     public int insert(Linkman record) {
         return this.linkmanMapper.insert(record);
-    }
+    }*/
 
     @Override
     public Linkman selectByPrimaryKey(Integer id) {

@@ -15,7 +15,7 @@ import java.util.List;
 public interface LinkmanService {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Linkman record);
+   /* int insert(Linkman record);*/
 
     Linkman selectByPrimaryKey(Integer id);
 

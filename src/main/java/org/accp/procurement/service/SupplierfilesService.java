@@ -2,6 +2,7 @@ package org.accp.procurement.service;
 
 
 import org.accp.procurement.dto.selsupDto;
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Supplierfiles;
 
 import java.util.List;
@@ -37,5 +38,6 @@ public interface SupplierfilesService {
      int addSupplierfiles(Supplierfiles supplierfiles);
 
      List<Supplierfiles> findss(supplierDto dto);
+     Integer getId();
 
 }
