@@ -19,4 +19,7 @@ public interface RecommenddetailMapper {
      * @return List<Recommenddetail>（返回推荐供应商明细表数据集合）
      * */
     List<Recommenddetail> selectByParentId(Integer parentId);
+
+    //根据父id删除表的信息
+    void deleteByParentId(Integer parentId);
 }

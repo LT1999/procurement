@@ -23,4 +23,7 @@ public interface RecommenddetailService {
     void InsertRecommenddetail(Recommenddetail recommenddetail);
 
     List<Recommenddetail> selectByParentId(Integer parentId);
+
+    //根据父id删除表的信息
+    void deleteByParentId(Integer parentId);
 }

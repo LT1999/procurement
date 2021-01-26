@@ -31,4 +31,7 @@ public interface RecommendService {
 
     //供应商推荐查询
     List<Recommend> selectAll();
+
+    //变更修改审核状态
+    int updateByPrimaryKey2(RecommendDto recommendDto);
 }

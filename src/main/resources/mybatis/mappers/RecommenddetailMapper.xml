@@ -16,6 +16,10 @@
     delete from recommenddetail
     where id = #{id,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteByParentId" parameterType="java.lang.Integer">
+    delete from recommenddetail
+    where  Parent_Id=#{parentId}
+  </delete>
   <insert id="insert" parameterType="org.accp.procurement.entity.Recommenddetail">
     insert into recommenddetail (id, Parent_Id, Supplier_Id, 
       Supplier_No, Supplier_Name, Supplier_Area, 

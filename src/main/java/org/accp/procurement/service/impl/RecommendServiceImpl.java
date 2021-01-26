@@ -67,4 +67,23 @@ public class RecommendServiceImpl implements RecommendService {
     public List<Recommend> selectAll() {
         return this.recommendMapper.selectAll();
     }
+
+    @Override
+    public int updateByPrimaryKey2(RecommendDto recommendDto) {
+        int id=recommendDto.getRecommend().getId();
+        this.recommendMapper.updateByPrimaryKey(recommendDto.getRecommend());
+        if (recommendDto.getRecommenddetails()!=null){
+            for (int i=0;i<recommendDto.getRecommenddetails().size();i++){
+                this.recommenddetailService.deleteByParentId(id);
+            }
+            for (int j=0;j<recommendDto.getRecommenddetails().size();j++){
+                Recommenddetail recommenddetail=recommendDto.getRecommenddetails().get(j);
+                recommenddetail.setParentId(id);
+                this.recommenddetailService.InsertRecommenddetail(recommenddetail);
+            }
+
+        }
+
+        return 0;
+    }
 }
