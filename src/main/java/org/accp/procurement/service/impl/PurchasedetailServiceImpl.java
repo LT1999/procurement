@@ -28,4 +28,9 @@ public class PurchasedetailServiceImpl implements PurchasedetailService {
     public List<Purchasedetail> selectByParentId(Integer parentId) {
         return this.purchasedetailMapper.selectByParentId(parentId);
     }
+
+    @Override
+    public int updateByPrimaryKey(Purchasedetail record) {
+        return this.purchasedetailMapper.updateByPrimaryKey(record);
+    }
 }

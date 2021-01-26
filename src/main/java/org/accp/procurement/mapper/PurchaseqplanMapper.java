@@ -1,6 +1,8 @@
 package org.accp.procurement.mapper;
 
 import java.util.List;
+
+import org.accp.procurement.dto.PurchaseqplanDto;
 import org.accp.procurement.entity.Purchaseqplan;
 import org.apache.ibatis.annotations.Update;
 
@@ -18,6 +20,11 @@ public interface PurchaseqplanMapper {
     List<Purchaseqplan> selectAll();
 
     int updateByPrimaryKey(Purchaseqplan record);
+
+    //未审核查询
+    List<Purchaseqplan> selectAllbycheck();
+
+    int getId();
 
 
 }

@@ -197,44 +197,6 @@
                CheckMark
         from supplierfiles
     </select>
-    <select id="selectSuppByid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select id,
-               Supplier_No,
-               Supplier_Name,
-               Supplier_Address,
-               First_Kind_Id,
-               First_Kind_Name,
-               Second_Kind_Id,
-               Second_Kind_Name,
-               three_Kind_Id,
-               three_Kind_Name,
-               Supplier_Area,
-               Supplier_UsedName,
-               Supplier_Open_Account,
-               Supplier_BankAccount,
-               Supplier_Url,
-               Supplier_Quality_Rank,
-               Supplier_Phone,
-               Supplier_Fax,
-               Supplier_PostalCode,
-               Supplier_FirstLinkman_Name,
-               Supplier_FirstLinkman_Sector,Supplier_FirstLinkman_Post,
-               Supplier_FirstLinkman_Phone,Supplier_FirstLinkman_Email,
-               Supplier_FirstLinkman_Sex,Supplier_SecondLinkman_Name,
-               Supplier_SecondLinkman_Sector,Supplier_SecondLinkman_Post,
-               Supplier_SecondLinkman_Phone,Supplier_SecondLinkman_Email,
-               Supplier_SecondLinkman_Sex,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
-               SuPPlier_Buyer,
-               SuPPlier_Buyer_No,
-               auditor,
-               auditorTime,
-               checkMark
-        from supplierfiles
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-
     <select id="selectCheck" resultMap="BaseResultMap">
         select id,
                Supplier_No,
@@ -298,7 +260,7 @@
     </select>
 
     <select id="findCheck" resultMap="BaseResultMap">
-select * from supplierfiles where checkMark='已审核'
+select * from supplierfiles where checkMark='审核通过'
     </select>
     <select id="findss" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
         select * from supplierfiles where SuPPlier_RegistrationTime BETWEEN #{time1,jdbcType=TIMESTAMP} and #{time1,jdbcType=TIMESTAMP} and First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
@@ -329,17 +291,20 @@ select * from supplierfiles where checkMark='已审核'
                Supplier_Phone,
                Supplier_Fax,
                Supplier_PostalCode,
-               Supplier_FirstContact,
-               Supplier_SecondContact,
+               Supplier_FirstLinkman_Name,
+               Supplier_FirstLinkman_Sector,Supplier_FirstLinkman_Post,
+               Supplier_FirstLinkman_Phone,Supplier_FirstLinkman_Email,
+               Supplier_FirstLinkman_Sex,Supplier_SecondLinkman_Name,
+               Supplier_SecondLinkman_Sector,Supplier_SecondLinkman_Post,
+               Supplier_SecondLinkman_Phone,Supplier_SecondLinkman_Email,
+               Supplier_SecondLinkman_Sex,
                SuPPlier_Registrant,
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
-               checkMark
+               CheckMark
         from supplierfiles
         where id = #{id,jdbcType=INTEGER}
     </select>-->

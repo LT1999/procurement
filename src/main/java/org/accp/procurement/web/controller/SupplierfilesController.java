@@ -93,7 +93,6 @@ public class SupplierfilesController {
     @RequestMapping("/selectChang")
     public List<Supplierfiles> selectChang(selsupDto searchFrom) {
         //System.out.println(searchFrom.getQueryClassifyId()[0].toString());
-        System.out.println(searchFrom);
         selsupDto dto = new selsupDto();
         if(searchFrom!=null){
             if(searchFrom.getQueryTime()!=null&&searchFrom.getQueryTime().length!=0 ){
@@ -113,15 +112,14 @@ public class SupplierfilesController {
     }
     @RequestMapping("/delByid")
     public  Integer delByid(Supplierfiles row){
-        System.out.println(row.toString());
-       List<Offer> list=this.offerService.findSupplierId(row.getId());
-       int count=0;
-       if(list.size()>0){
-           for (int i = 0; i <list.size() ; i++) {
-               this.recommenddetailService.delByOfferId(list.get(0).getId());
-           }
-       }
+        System.out.println(row.getId());
+        List<Offer> list=this.offerService.findSupplierId(row.getId());
+        int count=0;
+            for (int i = 0; i <list.size() ; i++) {
+                this.recommenddetailService.delByOfferId(list.get(i).getId());
+            }
         this.offerService.delSupplierId(row.getId());
+        //System.out.println("2222222222222222222222"+this.supplierfilesService.deleteByPrimaryKey(row.getId()));
         return this.supplierfilesService.deleteByPrimaryKey(row.getId());
 
     }

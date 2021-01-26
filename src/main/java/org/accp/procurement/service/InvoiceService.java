@@ -1,6 +1,10 @@
 package org.accp.procurement.service;
 
 
+import org.accp.procurement.dto.InvoiceDto;
+
+import java.util.List;
+
 /**
  * 发票表服务接口
  *
@@ -9,5 +13,6 @@ package org.accp.procurement.service;
  * @description 
  */
 public interface InvoiceService {
+    List<InvoiceDto> selAllInvoice();
 
 }

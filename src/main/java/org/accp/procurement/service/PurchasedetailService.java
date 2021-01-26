@@ -25,4 +25,11 @@ public interface PurchasedetailService {
      * @return List<Purchasedetail> 采购明细表集合
      * */
     List<Purchasedetail> selectByParentId(Integer parentId);
+    /**
+     * 根据id修改采购明细表
+     * @param record
+     * @return int
+     * */
+    int updateByPrimaryKey(Purchasedetail record);
+
 }
