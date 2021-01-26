@@ -24,7 +24,7 @@ public interface SupplierfilesMapper {
     List<Supplierfiles> selectSuppByid(Integer id);
 
     //查询未审核供应商档案总数量
-    int selectCount();
+    Integer selectCount();
 
     //根据条件查询供应商档案
     List<Supplierfiles> selectChang(selsupDto dto);
@@ -34,4 +34,6 @@ public interface SupplierfilesMapper {
     List<Supplierfiles> findss2(supplierDto dto);
     //查询已审核的供应商
     List<Supplierfiles> findCheck();
+
+    Integer getId();
 }

@@ -59,4 +59,8 @@
            Supplier_Phone, Offer_Id
     from recommenddetail where Parent_Id=#{parentId}
   </select>
+  <delete id="delByOfferId" parameterType="java.lang.Integer" >
+    delete from recommenddetail
+    where Offer_Id = #{oid,jdbcType=INTEGER}
+  </delete>
 </mapper>

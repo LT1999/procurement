@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:04
- * @description 
+ * @description
  */
 public interface PurchaseService {
     /**
@@ -58,5 +58,8 @@ public interface PurchaseService {
      * @return List<Purchase>
      * */
     List<Purchase> selectQualityCheck();
+
+
+    List<Purchase> selPurchase();
 
 }

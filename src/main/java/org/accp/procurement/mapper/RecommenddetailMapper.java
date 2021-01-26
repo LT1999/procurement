@@ -22,4 +22,6 @@ public interface RecommenddetailMapper {
 
     //根据父id删除表的信息
     void deleteByParentId(Integer parentId);
+
+    Integer delByOfferId(Integer oid);
 }

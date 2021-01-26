@@ -47,4 +47,7 @@ public interface PurchaseMapper {
      * @return List<Purchase>
      * */
     List<Purchase> selectQualityCheck();
+
+    List<Purchase> selPurchase();
+
 }

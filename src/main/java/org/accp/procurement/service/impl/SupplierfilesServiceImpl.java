@@ -24,7 +24,7 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return 0;
+        return this.supplierfilesMapper.deleteByPrimaryKey(id);
     }
 
     @Override
@@ -85,5 +85,10 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
         }else{
             return this.supplierfilesMapper.selectAll();
         }
+    }
+
+    @Override
+    public Integer getId() {
+        return this.supplierfilesMapper.getId();
     }
 }

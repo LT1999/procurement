@@ -38,5 +38,6 @@ public interface SupplierfilesService {
      int addSupplierfiles(Supplierfiles supplierfiles);
 
      List<Supplierfiles> findss(supplierDto dto);
+     Integer getId();
 
 }

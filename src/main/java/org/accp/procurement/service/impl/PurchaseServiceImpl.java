@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author LT
  * @since 2021-01-16 14:46:04
- * @description 
+ * @description
  */
 @Service
 public  class PurchaseServiceImpl implements PurchaseService {
@@ -57,9 +57,9 @@ public  class PurchaseServiceImpl implements PurchaseService {
         this.purchaseMapper.insert(purchaseDto.getPurchase());
 //        遍历明细集合，设置父id参数，添加到数据库，状态累加
         for (Purchasedetail purchasedetail:
-             purchaseDto.getPurchasedetailList()) {
+                purchaseDto.getPurchasedetailList()) {
             purchasedetail.setParentId(id);
-           count += this.purchasedetailService.insert(purchasedetail);
+            count += this.purchasedetailService.insert(purchasedetail);
         }
         count+=this.plandetailService.updateDispatch("已调度",purchaseDto.getPlanDetailId());
         return count;
@@ -89,7 +89,7 @@ public  class PurchaseServiceImpl implements PurchaseService {
     public Integer updatePurchaseAndPurchaseDetail(PurchaseDto purchaseDto) {
         Integer count=this.purchaseMapper.updateByPrimaryKey(purchaseDto.getPurchase());
         for (Purchasedetail purchasedetail:
-             purchaseDto.getPurchasedetailList()) {
+                purchaseDto.getPurchasedetailList()) {
             count+=this.purchasedetailService.updateByPrimaryKey(purchasedetail);
         }
         return count;
@@ -98,5 +98,10 @@ public  class PurchaseServiceImpl implements PurchaseService {
     @Override
     public List<Purchase> selectQualityCheck() {
         return this.purchaseMapper.selectQualityCheck();
+    }
+
+    @Override
+    public List<Purchase> selPurchase() {
+        return this.purchaseMapper.selPurchase();
     }
 }
