@@ -260,7 +260,7 @@
     </select>
 
     <select id="findCheck" resultMap="BaseResultMap">
-select * from supplierfiles where checkMark='已审核'
+select * from supplierfiles where checkMark='审核通过'
     </select>
     <select id="findss" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
         select * from supplierfiles where SuPPlier_RegistrationTime BETWEEN #{time1,jdbcType=TIMESTAMP} and #{time1,jdbcType=TIMESTAMP} and First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
