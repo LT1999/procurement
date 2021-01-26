@@ -115,9 +115,9 @@ public class SupplierfilesController {
         System.out.println(row.getId());
         List<Offer> list=this.offerService.findSupplierId(row.getId());
         int count=0;
-            for (int i = 0; i <list.size() ; i++) {
-                this.recommenddetailService.delByOfferId(list.get(i).getId());
-            }
+        for (int i = 0; i <list.size() ; i++) {
+            this.recommenddetailService.delByOfferId(list.get(i).getId());
+        }
         this.offerService.delSupplierId(row.getId());
         //System.out.println("2222222222222222222222"+this.supplierfilesService.deleteByPrimaryKey(row.getId()));
         return this.supplierfilesService.deleteByPrimaryKey(row.getId());
