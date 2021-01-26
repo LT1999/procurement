@@ -31,6 +31,21 @@ public class PurchaseqplanController {
         this.purchaseqplanService.insertPruchaseqplan(purchaseqplanDto);
     }
 
+    @RequestMapping("/selectAllbycheck")
+    public List<Purchaseqplan> selectAllbycheck(){
+        return this.purchaseqplanService.selectAllbycheck();
+    }
+
+    @RequestMapping("/updateByPrimaryKey")
+    public int updateByPrimaryKey(Purchaseqplan record){
+        return this.purchaseqplanService.updateByPrimaryKey(record);
+    }
+
+    @RequestMapping("/selectAll")
+    public List<Purchaseqplan> selectAll(){
+        return this.purchaseqplanService.selectAll();
+    }
+
 
 
 }

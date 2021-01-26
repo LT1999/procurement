@@ -79,6 +79,22 @@
         from purchaseqplan
     </select>
 
+    <select id="selectAllbycheck" resultMap="BaseResultMap">
+        select ID,
+               Purchaseq_No,
+               Purchaseq_TotalPrices,
+               Purchaseq_TotalQuantity,
+               Purchaseq_Reason,
+               Purchaseq_SupplyTime,
+               Purchaseq_Registrant,
+               Purchaseq_RegistrantTime,
+               Purchaseq_Remark,
+               auditor,
+               auditorTime,
+               CheckMark
+        from purchaseqplan where CheckMark='未审核'
+    </select>
+
     <select id="getId" resultType="int">
         SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE
             Table_Schema='purchase' AND table_name = 'purchaseqplan' LIMIT 1

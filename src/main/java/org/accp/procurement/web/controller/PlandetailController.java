@@ -28,4 +28,9 @@ public class PlandetailController {
     public List<Plandetail> selectAllAndPurchaseqplan(){
         return this.plandetailService.selectAllAndPurchaseqplan();
     }
+
+    @RequestMapping("/selectAllByParentId")
+    public List<Plandetail> selectAllByParentId(Integer parentId){
+        return this.plandetailService.selectAllByParentId(parentId);
+    }
 }

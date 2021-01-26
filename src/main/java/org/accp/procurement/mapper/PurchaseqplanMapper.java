@@ -21,6 +21,9 @@ public interface PurchaseqplanMapper {
 
     int updateByPrimaryKey(Purchaseqplan record);
 
+    //未审核查询
+    List<Purchaseqplan> selectAllbycheck();
+
     int getId();
 
 
