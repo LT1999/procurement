@@ -21,14 +21,22 @@
         <result column="Supplier_Phone" jdbcType="VARCHAR" property="supplierPhone"/>
         <result column="Supplier_Fax" jdbcType="VARCHAR" property="supplierFax"/>
         <result column="Supplier_PostalCode" jdbcType="VARCHAR" property="supplierPostalcode"/>
-        <result column="Supplier_FirstContact" jdbcType="INTEGER" property="supplierFirstcontact"/>
-        <result column="Supplier_SecondContact" jdbcType="INTEGER" property="supplierSecondcontact"/>
+        <result column="Supplier_FirstLinkman_Name" jdbcType="VARCHAR" property="supplierFirstlinkmanName"/>
+        <result column="Supplier_FirstLinkman_Sector" jdbcType="VARCHAR" property="supplierFirstlinkmanSector"/>
+        <result column="Supplier_FirstLinkman_Post" jdbcType="VARCHAR" property="supplierFirstlinkmanPost"/>
+        <result column="Supplier_FirstLinkman_Phone" jdbcType="VARCHAR" property="supplierFirstlinkmanPhone"/>
+        <result column="Supplier_FirstLinkman_Email" jdbcType="VARCHAR" property="supplierFirstlinkmanEmail"/>
+        <result column="Supplier_FirstLinkman_Sex" jdbcType="VARCHAR" property="supplierFirstlinkmanSex"/>
+        <result column="Supplier_SecondLinkman_Name" jdbcType="VARCHAR" property="supplierSecondlinkmanName"/>
+        <result column="Supplier_SecondLinkman_Sector" jdbcType="VARCHAR" property="supplierSecondlinkmanSector"/>
+        <result column="Supplier_SecondLinkman_Post" jdbcType="VARCHAR" property="supplierSecondlinkmanPost"/>
+        <result column="Supplier_SecondLinkman_Phone" jdbcType="VARCHAR" property="supplierSecondlinkmanPhone"/>
+        <result column="Supplier_SecondLinkman_Email" jdbcType="VARCHAR" property="supplierSecondlinkmanEmail"/>
+        <result column="Supplier_SecondLinkman_Sex" jdbcType="VARCHAR" property="supplierSecondlinkmanSex"/>
         <result column="SuPPlier_Registrant" jdbcType="VARCHAR" property="supplierRegistrant"/>
         <result column="SuPPlier_RegistrationTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="SuPPlier_Buyer" jdbcType="VARCHAR" property="supplierBuyer"/>
         <result column="SuPPlier_Buyer_No" jdbcType="VARCHAR" property="supplierBuyerNo"/>
-        <result column="SuPPlier_Registrant" jdbcType="VARCHAR" property="supplierRegistration"/>
-        <result column="SuPPlier_RegistrantTime" jdbcType="TIMESTAMP" property="supplierRegistrationtime"/>
         <result column="auditor" jdbcType="VARCHAR" property="auditor"/>
         <result column="auditorTime" jdbcType="TIMESTAMP" property="auditorTime"/>
         <result column="CheckMark" jdbcType="VARCHAR" property="checkMark"/>
@@ -45,10 +53,14 @@
                                    three_Kind_Name, Supplier_Area, Supplier_UsedName,
                                    Supplier_Open_Account, Supplier_BankAccount,
                                    Supplier_Url, Supplier_Quality_Rank, Supplier_Phone,
-                                   Supplier_Fax, Supplier_PostalCode, Supplier_FirstContact,
-                                   Supplier_SecondContact, SuPPlier_Registrant,
-                                   SuPPlier_RegistrationTime, SuPPlier_Buyer,
-                                   SuPPlier_Buyer_No, SuPPlier_Registrant, SuPPlier_RegistrationTime, auditor,
+                                   Supplier_Fax, Supplier_PostalCode, Supplier_FirstLinkman_Name,
+                                   Supplier_FirstLinkman_Sector,Supplier_FirstLinkman_Post,
+                                   Supplier_FirstLinkman_Phone,Supplier_FirstLinkman_Email,
+                                   Supplier_FirstLinkman_Sex,Supplier_SecondLinkman_Name,
+                                   Supplier_SecondLinkman_Sector,Supplier_SecondLinkman_Post,
+                                   Supplier_SecondLinkman_Phone,Supplier_SecondLinkman_Email,
+                                   Supplier_SecondLinkman_Sex,SuPPlier_RegistrationTime,SuPPlier_Buyer,
+                                   SuPPlier_Buyer_No, SuPPlier_Registrant, auditor,
                                    auditorTime, CheckMark)
         values (#{id,jdbcType=INTEGER}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
                 #{supplierAddress,jdbcType=VARCHAR}, #{firstKindId,jdbcType=INTEGER}, #{firstKindName,jdbcType=VARCHAR},
@@ -59,10 +71,16 @@
                 #{supplierUrl,jdbcType=VARCHAR}, #{supplierQualityRank,jdbcType=VARCHAR},
                 #{supplierPhone,jdbcType=VARCHAR},
                 #{supplierFax,jdbcType=VARCHAR}, #{supplierPostalcode,jdbcType=VARCHAR},
-                #{supplierFirstcontact,jdbcType=INTEGER},
-                #{supplierSecondcontact,jdbcType=INTEGER}, #{supplierRegistrant,jdbcType=VARCHAR},
+                #{supplierFirstlinkmanName,jdbcType=VARCHAR},#{supplierFirstlinkmanSector,jdbcType=VARCHAR},
+                #{supplierFirstlinkmanPost,jdbcType=VARCHAR},#{supplierFirstlinkmanPhone,jdbcType=VARCHAR},
+                #{supplierFirstlinkmanEmail,jdbcType=VARCHAR},#{supplierFirstlinkmanSex,jdbcType=VARCHAR},
+
+                #{supplierSecondlinkmanName,jdbcType=VARCHAR},#{supplierSecondlinkmanSector,jdbcType=VARCHAR},
+                #{supplierSecondlinkmanPost,jdbcType=VARCHAR},#{supplierSecondlinkmanPhone,jdbcType=VARCHAR},
+                #{supplierSecondlinkmanEmail,jdbcType=VARCHAR},#{supplierSecondlinkmanSex,jdbcType=VARCHAR},
+
                 #{supplierRegistrationtime,jdbcType=TIMESTAMP}, #{supplierBuyer,jdbcType=VARCHAR},
-                #{supplierBuyerNo,jdbcType=VARCHAR}, #{registrar,jdbcType=VARCHAR}, #{registrartime,jdbcType=TIMESTAMP},
+                #{supplierBuyerNo,jdbcType=VARCHAR},#{supplierRegistrant,jdbcType=VARCHAR},
                 #{auditor,jdbcType=VARCHAR}, #{auditorTime,jdbcType=TIMESTAMP}, #{checkMark,jdbcType=VARCHAR})
     </insert>
     <update id="updateByPrimaryKey" parameterType="org.accp.procurement.entity.Supplierfiles">
@@ -85,14 +103,22 @@
             Supplier_Phone            = #{supplierPhone,jdbcType=VARCHAR},
             Supplier_Fax              = #{supplierFax,jdbcType=VARCHAR},
             Supplier_PostalCode       = #{supplierPostalcode,jdbcType=VARCHAR},
-            Supplier_FirstContact     = #{supplierFirstcontact,jdbcType=INTEGER},
-            Supplier_SecondContact    = #{supplierSecondcontact,jdbcType=INTEGER},
+            Supplier_FirstLinkman_Name     = #{supplierFirstlinkmanName,jdbcType=VARCHAR},
+            Supplier_FirstLinkman_Sector     = #{supplierFirstlinkmanName,jdbcType=VARCHAR},
+            Supplier_FirstLinkman_Post     = #{supplierFirstlinkmanPost,jdbcType=VARCHAR},
+            Supplier_FirstLinkman_Phone     = #{supplierFirstlinkmanPhone,jdbcType=VARCHAR},
+            Supplier_FirstLinkman_Email     = #{supplierFirstlinkmanEmail,jdbcType=VARCHAR},
+            Supplier_FirstLinkman_Sex     = #{supplierFirstlinkmanSex,jdbcType=VARCHAR},
+            Supplier_SecondLinkman_Name     = #{supplierSecondlinkmanName,jdbcType=VARCHAR},
+            Supplier_SecondLinkman_Sector     = #{supplierSecondlinkmanSector,jdbcType=VARCHAR},
+            Supplier_SecondLinkman_Post     = #{supplierSecondlinkmanPost,jdbcType=VARCHAR},
+            Supplier_SecondLinkman_Phone     = #{supplierSecondlinkmanPhone,jdbcType=VARCHAR},
+            Supplier_SecondLinkman_Email     = #{supplierSecondlinkmanEmail,jdbcType=VARCHAR},
+            Supplier_SecondLinkman_Sex     = #{supplierSecondlinkmanSex,jdbcType=VARCHAR},
             SuPPlier_Registrant       = #{supplierRegistrant,jdbcType=VARCHAR},
             SuPPlier_RegistrationTime = #{supplierRegistrationtime,jdbcType=TIMESTAMP},
             SuPPlier_Buyer            = #{supplierBuyer,jdbcType=VARCHAR},
             SuPPlier_Buyer_No         = #{supplierBuyerNo,jdbcType=VARCHAR},
-            SuPPlier_Registrant       = #{registrar,jdbcType=VARCHAR},
-            SuPPlier_RegistrationTime = #{registrartime,jdbcType=TIMESTAMP},
             auditor                   = #{auditor,jdbcType=VARCHAR},
             auditorTime               = #{auditorTime,jdbcType=TIMESTAMP},
             CheckMark                 = #{checkMark,jdbcType=VARCHAR}
@@ -118,14 +144,17 @@
                Supplier_Phone,
                Supplier_Fax,
                Supplier_PostalCode,
-               Supplier_FirstContact,
-               Supplier_SecondContact,
+               Supplier_FirstLinkman_Name,
+               Supplier_FirstLinkman_Sector,Supplier_FirstLinkman_Post,
+               Supplier_FirstLinkman_Phone,Supplier_FirstLinkman_Email,
+               Supplier_FirstLinkman_Sex,Supplier_SecondLinkman_Name,
+               Supplier_SecondLinkman_Sector,Supplier_SecondLinkman_Post,
+               Supplier_SecondLinkman_Phone,Supplier_SecondLinkman_Email,
+               Supplier_SecondLinkman_Sex,
                SuPPlier_Registrant,
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
                CheckMark
@@ -152,66 +181,21 @@
                Supplier_Phone,
                Supplier_Fax,
                Supplier_PostalCode,
-               Supplier_FirstContact,
-               Supplier_SecondContact,
+               Supplier_FirstLinkman_Name,
+               Supplier_FirstLinkman_Sector,Supplier_FirstLinkman_Post,
+               Supplier_FirstLinkman_Phone,Supplier_FirstLinkman_Email,
+               Supplier_FirstLinkman_Sex,Supplier_SecondLinkman_Name,
+               Supplier_SecondLinkman_Sector,Supplier_SecondLinkman_Post,
+               Supplier_SecondLinkman_Phone,Supplier_SecondLinkman_Email,
+               Supplier_SecondLinkman_Sex,
                SuPPlier_Registrant,
                SuPPlier_RegistrationTime,
                SuPPlier_Buyer,
                SuPPlier_Buyer_No,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
                auditor,
                auditorTime,
                CheckMark
         from supplierfiles
-    </select>
-    <select id="findCheck" resultMap="BaseResultMap">
-select * from supplierfiles where checkMark='已审核'
-    </select>
-
-    <select id="selectSuppByid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select id,
-               Supplier_No,
-               Supplier_Name,
-               Supplier_Address,
-               First_Kind_Id,
-               First_Kind_Name,
-               Second_Kind_Id,
-               Second_Kind_Name,
-               three_Kind_Id,
-               three_Kind_Name,
-               Supplier_Area,
-               Supplier_UsedName,
-               Supplier_Open_Account,
-               Supplier_BankAccount,
-               Supplier_Url,
-               Supplier_Quality_Rank,
-               Supplier_Phone,
-               Supplier_Fax,
-               Supplier_PostalCode,
-               Supplier_FirstContact,
-               Supplier_SecondContact,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
-               SuPPlier_Buyer,
-               SuPPlier_Buyer_No,
-               SuPPlier_Registrant,
-               SuPPlier_RegistrationTime,
-               auditor,
-               auditorTime,
-               checkMark
-        from supplierfiles
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-
-    <select id="findss" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
-        select * from supplierfiles where SuPPlier_RegistrationTime BETWEEN #{time1,jdbcType=TIMESTAMP} and #{time1,jdbcType=TIMESTAMP} and First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
-    </select>
-    <select id="findss2" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
-        select * from supplierfiles where SuPPlier_RegistrationTime BETWEEN #{time1,jdbcType=TIMESTAMP} and #{time1,jdbcType=TIMESTAMP}
-    </select>
-    <select id="findss1" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
-        select * from supplierfiles where First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
     </select>
     <select id="selectCheck" resultMap="BaseResultMap">
         select id,
@@ -248,5 +232,80 @@ select * from supplierfiles where checkMark='已审核'
                auditorTime,
                CheckMark
         from supplierfiles where CheckMark = '未审核'
+    </select>
+    <select id="selectCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM supplierfiles WHERE CheckMark='未审核'
+    </select>
+
+    <select id="selectChang" resultMap="BaseResultMap" parameterType="org.accp.procurement.dto.selsupDto">
+        SELECT * FROM supplierfiles
+        <where>
+            <if test="firstKindId!=null and firstKindId!=''">
+                AND First_Kind_Id=#{firstKindId}
+            </if>
+            <if test="secondKindId!=null and secondKindId!=''">
+                AND Second_Kind_Id=#{secondKindId}
+            </if>
+            <if test="threeKindId!=null and threeKindId!=''">
+                AND three_Kind_Id=#{threeKindId}
+            </if>
+            <if test="type!=null and type!=''">
+                AND SuPPlier_Buyer_No=#{type}
+            </if>
+            <if test="Starttime!=null and Starttime!='' and Endtime!=null and Endtime!='' ">
+                AND SuPPlier_RegistrationTime BETWEEN DATE(#{Starttime}) AND DATE(#{Endtime})
+            </if>
+        </where>
+
+    </select>
+
+    <select id="findCheck" resultMap="BaseResultMap">
+select * from supplierfiles where checkMark='已审核'
+    </select>
+    <select id="findss" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
+        select * from supplierfiles where SuPPlier_RegistrationTime BETWEEN #{time1,jdbcType=TIMESTAMP} and #{time1,jdbcType=TIMESTAMP} and First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
+    </select>
+    <select id="findss2" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
+        select * from supplierfiles where SuPPlier_RegistrationTime BETWEEN #{time1,jdbcType=TIMESTAMP} and #{time1,jdbcType=TIMESTAMP}
+    </select>
+    <select id="findss1" parameterType="org.accp.procurement.dto.supplierDto" resultMap="BaseResultMap">
+        select * from supplierfiles where First_Kind_Id=#{fl1,jdbcType=INTEGER} AND Second_Kind_Id=#{fl2,jdbcType=INTEGER} AND three_Kind_Id=#{fl3,jdbcType=INTEGER}
+    </select>
+    <select id="selectSuppByid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select id,
+               Supplier_No,
+               Supplier_Name,
+               Supplier_Address,
+               First_Kind_Id,
+               First_Kind_Name,
+               Second_Kind_Id,
+               Second_Kind_Name,
+               three_Kind_Id,
+               three_Kind_Name,
+               Supplier_Area,
+               Supplier_UsedName,
+               Supplier_Open_Account,
+               Supplier_BankAccount,
+               Supplier_Url,
+               Supplier_Quality_Rank,
+               Supplier_Phone,
+               Supplier_Fax,
+               Supplier_PostalCode,
+               Supplier_FirstLinkman_Name,
+               Supplier_FirstLinkman_Sector,Supplier_FirstLinkman_Post,
+               Supplier_FirstLinkman_Phone,Supplier_FirstLinkman_Email,
+               Supplier_FirstLinkman_Sex,Supplier_SecondLinkman_Name,
+               Supplier_SecondLinkman_Sector,Supplier_SecondLinkman_Post,
+               Supplier_SecondLinkman_Phone,Supplier_SecondLinkman_Email,
+               Supplier_SecondLinkman_Sex,
+               SuPPlier_Registrant,
+               SuPPlier_RegistrationTime,
+               SuPPlier_Buyer,
+               SuPPlier_Buyer_No,
+               auditor,
+               auditorTime,
+               CheckMark
+        from supplierfiles
+        where id = #{id,jdbcType=INTEGER}
     </select>
 </mapper>

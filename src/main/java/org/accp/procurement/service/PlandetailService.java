@@ -32,4 +32,6 @@ public interface PlandetailService {
      * @return int 返回成功状态
      **/
     int updateDispatch(String dispatch,Integer purchaseqplanId);
+
+    void  insertPlandetail(Plandetail plandetail);
 }

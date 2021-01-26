@@ -125,8 +125,32 @@
                auditorTime,
                CheckMark
         from purchase
-        where CheckMark = '已审核'
-            and Qualified_Quantity &lt; Purchase_Quantity
-             OR Qualified_Quantity IS NULL
+        WHERE CheckMark = '已审核'
+          AND (Product_id = '0'
+            OR Product_id IS NULL
+            OR Product_id = '')
+          AND (Qualified_Quantity &lt; Purchase_Quantity
+            OR Qualified_Quantity IS NULL)
+    </select>
+
+    <select id="selectQualityCheck" resultMap="BaseResultMap">
+        select ID,
+               Purchaseq_No,
+               Product_id,
+               Product_No,
+               Product_Name,
+               Purchase_Quantity,
+               Qualified_Quantity,
+               Purchase_Money,
+               Purchase_Registrant,
+               Purchase_RegistrantTime,
+               auditor,
+               auditorTime,
+               CheckMark
+        from purchase
+        WHERE CheckMark = '已审核'
+          AND Product_id = '1'
+          AND (Qualified_Quantity &lt; Purchase_Quantity
+            OR Qualified_Quantity IS NULL)
     </select>
 </mapper>

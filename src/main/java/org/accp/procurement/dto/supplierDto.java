@@ -1,7 +1,6 @@
 package org.accp.procurement.dto;
 
 import lombok.Data;
-import org.accp.procurement.entity.Linkman;
 import org.accp.procurement.entity.Offer;
 import org.accp.procurement.entity.Supplierfiles;
 
@@ -19,5 +18,4 @@ public class supplierDto {
     private int fl1;
     private int fl2;
     private int fl3;
-    private Linkman linkmen;
 }

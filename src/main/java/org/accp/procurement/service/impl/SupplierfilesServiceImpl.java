@@ -1,14 +1,13 @@
 package org.accp.procurement.service.impl;
-import org.accp.procurement.dto.supplierDto;
-import org.accp.procurement.entity.Supplierfiles;
 
+import org.accp.procurement.dto.selsupDto;
+import org.accp.procurement.dto.supplierDto;
 import org.accp.procurement.entity.Supplierfiles;
 import org.accp.procurement.mapper.SupplierfilesMapper;
 import org.accp.procurement.service.SupplierfilesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,6 +22,43 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
     @Autowired
     private SupplierfilesMapper supplierfilesMapper;
 
+    @Override
+    public int deleteByPrimaryKey(Integer id) {
+        return 0;
+    }
+
+    @Override
+    public int insert(Supplierfiles record) {
+        System.out.println("-----------------------------------------");
+        System.out.println(record.toString());
+        return this.supplierfilesMapper.insert(record);
+    }
+
+
+    @Override
+    public List<Supplierfiles> selectAll() {
+        return this.supplierfilesMapper.selectAll();
+    }
+
+    @Override
+    public List<Supplierfiles> selectCheck() {
+        return this.supplierfilesMapper.selectCheck();
+    }
+
+    @Override
+    public int updateByPrimaryKey(Supplierfiles record) {
+        return this.supplierfilesMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public int selectCount() {
+        return this.supplierfilesMapper.selectCount();
+    }
+
+    @Override
+    public List<Supplierfiles> selectChang(selsupDto dto) {
+        return this.supplierfilesMapper.selectChang(dto);
+    }
     @Override
     public List<Supplierfiles> findCheck() { return this.supplierfilesMapper.findCheck();}
 
@@ -49,30 +85,5 @@ public class SupplierfilesServiceImpl implements SupplierfilesService {
         }else{
             return this.supplierfilesMapper.selectAll();
         }
-    }
-
-    @Override
-    public int deleteByPrimaryKey(Integer id) {
-        return 0;
-    }
-
-    @Override
-    public int insert(Supplierfiles record) {
-        return this.supplierfilesMapper.insert(record);
-    }
-
-    @Override
-    public List<Supplierfiles> selectAll() {
-        return this.supplierfilesMapper.selectAll();
-    }
-
-    @Override
-    public List<Supplierfiles> selectCheck() {
-        return this.supplierfilesMapper.selectCheck();
-    }
-
-    @Override
-    public int updateByPrimaryKey(Supplierfiles record) {
-        return 0;
     }
 }

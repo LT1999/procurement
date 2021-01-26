@@ -1,5 +1,6 @@
 package org.accp.procurement.web.controller;
 
+import org.accp.procurement.dto.PurchaseqplanDto;
 import org.accp.procurement.entity.Purchaseqplan;
 import org.accp.procurement.service.PurchaseqplanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ import java.util.List;
 public class PurchaseqplanController {
     @Autowired
     private PurchaseqplanService purchaseqplanService;
+
+    @RequestMapping("/insertPruchaseqplan")
+    public void insertPruchaseqplan(PurchaseqplanDto purchaseqplanDto){
+        this.purchaseqplanService.insertPruchaseqplan(purchaseqplanDto);
+    }
 
 
 
