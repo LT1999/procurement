@@ -26,7 +26,7 @@
                              Product_Name, Supplier_No, Supplier_Name,
                              ShouldInvoiceMoney, InvoiceMoney, Registrant,
                              RegistrantTime, auditor, auditorTime,CheckMark)
-        values (#{id,jdbcType=INTEGER}, #{purchaseqNo,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR},
+        values (null, #{purchaseqNo,jdbcType=VARCHAR}, #{productNo,jdbcType=VARCHAR},
                 #{productName,jdbcType=VARCHAR}, #{supplierNo,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
                 #{shouldinvoicemoney,jdbcType=DECIMAL}, #{invoicemoney,jdbcType=DECIMAL},
                 #{registrant,jdbcType=VARCHAR},
