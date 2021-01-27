@@ -83,4 +83,64 @@
                CheckMark
         from invoice
     </select>
+
+    <select id="selectCheck" resultMap="BaseResultMap">
+        select ID,
+               Purchaseq_No,
+               Product_No,
+               Product_Name,
+               Supplier_No,
+               Supplier_Name,
+               ShouldInvoiceMoney,
+               InvoiceMoney,
+               Registrant,
+               RegistrantTime,
+               auditor,
+               auditorTime,
+               CheckMark
+        from invoice where checkMark='未审核' OR ShouldInvoiceMoney>InvoiceMoney
+    </select>
+
+    <select id="selCheckcount" resultType="int">
+        SELECT COUNT(*) FROM  invoice WHERE checkMark='未审核'
+    </select>
+    
+    <select id="ingCount" resultType="int">
+        SELECT COUNT(*) FROM  `invoice` WHERE InvoiceMoney>0
+        AND ShouldInvoiceMoney>InvoiceMoney
+    </select>
+
+    <select id="overCount" resultType="int">
+        SELECT COUNT(*) FROM  `invoice` WHERE InvoiceMoney=ShouldInvoiceMoney
+    </select>
+
+    <select id="UnpaidCount" resultType="int">
+        SELECT COUNT(*) FROM  `invoice` WHERE InvoiceMoney=0
+    </select>
+
+    <select id="selInvoiceBydto" resultMap="BaseResultMap" parameterType="org.accp.procurement.dto.InvoiceDto">
+        SELECT * FROM invoice
+        <where>
+            <if test="purchaseqNo!=null and purchaseqNo!=''">
+                AND Purchaseq_No=#{purchaseqNo}
+            </if>
+            <if test="productName!=null and productName!=''">
+                AND Product_Name LIKE CONCAT('%',#{productName},'%')
+            </if>
+            <if test="type=='支出发票完成'">
+                AND InvoiceMoney=ShouldInvoiceMoney
+            </if>
+            <if test="type=='未支出发票'">
+                AND InvoiceMoney=0
+            </if>
+            <if test="type=='正在支出发票'">
+                AND InvoiceMoney>0 AND InvoiceMoney>ShouldInvoiceMoney
+            </if>
+
+            <if test="Starttime!=null and Starttime!='' and Endtime!=null and Endtime!='' ">
+                AND RegistrantTime BETWEEN DATE(#{Starttime,jdbcType=TIMESTAMP}) AND DATE(#{Endtime,jdbcType=TIMESTAMP})
+            </if>
+
+        </where>
+    </select>
 </mapper>

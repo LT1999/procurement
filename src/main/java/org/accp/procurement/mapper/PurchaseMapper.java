@@ -50,4 +50,6 @@ public interface PurchaseMapper {
 
     List<Purchase> selPurchase();
 
+    Integer updateSan(Integer id);
+
 }

@@ -171,5 +171,10 @@
         from purchase
         WHERE CheckMark = '已审核'
           AND Qualified_Quantity=Purchase_Quantity
+        AND Product_id!=3
     </select>
+
+    <update id="updateSan" parameterType="int">
+        update purchase set Product_id=3 where ID=#{id}
+    </update>
 </mapper>

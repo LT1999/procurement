@@ -104,4 +104,9 @@ public  class PurchaseServiceImpl implements PurchaseService {
     public List<Purchase> selPurchase() {
         return this.purchaseMapper.selPurchase();
     }
+
+    @Override
+    public Integer updateSan(Integer id) {
+        return this.purchaseMapper.updateSan(id);
+    }
 }

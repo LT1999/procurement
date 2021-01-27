@@ -62,4 +62,6 @@ public interface PurchaseService {
 
     List<Purchase> selPurchase();
 
+    Integer updateSan(Integer id);
+
 }

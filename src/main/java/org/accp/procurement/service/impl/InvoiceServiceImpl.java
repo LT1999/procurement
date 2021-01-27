@@ -2,6 +2,7 @@ package org.accp.procurement.service.impl;
 
 
 import org.accp.procurement.dto.InvoiceDto;
+import org.accp.procurement.entity.Invoice;
 import org.accp.procurement.entity.Purchase;
 import org.accp.procurement.entity.Purchasedetail;
 import org.accp.procurement.mapper.InvoiceMapper;
@@ -45,5 +46,60 @@ public class InvoiceServiceImpl implements InvoiceService {
         }
         return dtolist;
 
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Integer id) {
+        return 0;
+    }
+
+    @Override
+    public int insert(Invoice record) {
+        return this.invoiceMapper.insert(record);
+    }
+
+    @Override
+    public Invoice selectByPrimaryKey(Integer id) {
+        return null;
+    }
+
+    @Override
+    public List<Invoice> selectAll() {
+        return this.invoiceMapper.selectAll();
+    }
+
+    @Override
+    public int updateByPrimaryKey(Invoice record) {
+        return this.invoiceMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Invoice> selectCheck() {
+        return this.invoiceMapper.selectCheck();
+    }
+
+    @Override
+    public int selCheckcount() {
+        return this.invoiceMapper.selCheckcount();
+    }
+
+    @Override
+    public int ingCount() {
+        return this.invoiceMapper.ingCount();
+    }
+
+    @Override
+    public int overCount() {
+        return this.invoiceMapper.overCount();
+    }
+
+    @Override
+    public int UnpaidCount() {
+        return this.invoiceMapper.UnpaidCount();
+    }
+
+    @Override
+    public List<Invoice> selInvoiceBydto(InvoiceDto invoiceDto) {
+        return this.invoiceMapper.selInvoiceBydto(invoiceDto);
     }
 }

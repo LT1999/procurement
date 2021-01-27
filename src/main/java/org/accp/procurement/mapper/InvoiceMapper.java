@@ -1,6 +1,8 @@
 package org.accp.procurement.mapper;
 
 import java.util.List;
+
+import org.accp.procurement.dto.InvoiceDto;
 import org.accp.procurement.entity.Invoice;
 
 public interface InvoiceMapper {
@@ -14,5 +16,16 @@ public interface InvoiceMapper {
 
     int updateByPrimaryKey(Invoice record);
 
+    List<Invoice> selectCheck();
+
+    int selCheckcount();
+
+    int ingCount();
+
+    int overCount();
+
+    int UnpaidCount();
+
+    List<Invoice> selInvoiceBydto(InvoiceDto invoiceDto);
 
 }
