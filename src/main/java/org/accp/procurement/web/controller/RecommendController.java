@@ -45,4 +45,9 @@ public class RecommendController {
         return  this.recommendService.selectAll();
     }
 
+    @RequestMapping("/updateByPrimaryKey2")
+    public int updateByPrimaryKey2(RecommendDto recommendDto){
+        return this.recommendService.updateByPrimaryKey2(recommendDto);
+    }
+
 }
