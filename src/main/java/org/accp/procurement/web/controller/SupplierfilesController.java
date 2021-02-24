@@ -105,7 +105,10 @@ public class SupplierfilesController {
                 dto.setSecondKindId(searchFrom.getQueryClassifyId()[1]);
                 dto.setThreeKindId(searchFrom.getQueryClassifyId()[2]);
             }
-            dto.setType(searchFrom.getType());
+            if(searchFrom.getType()!=null && searchFrom.getType().toString().length()!=0){
+                dto.setType(searchFrom.getType().toString());
+            }
+
         }
 
         return this.supplierfilesService.selectChang(dto);
